@@ -1,0 +1,156 @@
+<div-sv>
+    <section class="cs-wrapper">
+
+        <header class="cs-header">
+            <h1 class="cs-title">Let's Build Something Great.</h1>
+            <p class="cs-subtitle">Ready to start a project? Need a technical consultation? Send me a message, and I'll respond within 24 hours.</p>
+        </header>
+
+        <div class="cs-content-grid" style="gap: 60px;">
+            
+            <article class="cs-profile-card">
+                <div class="cs-profile-image-container" style="aspect-ratio: 16/9;">
+                    <img src="https://images.unsplash.com/photo-1596526131083-e8c15668e2ac?q=80&w=1170&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt="Person typing on a keyboard" class="cs-profile-image">
+                </div>
+                <div class="cs-profile-info">
+                    <h3 class="cs-profile-name" style="margin-top: 20px;">Get in Touch</h3>
+                    <p class="cs-profile-role" style="font-size: 17px; margin-bottom: 20px; line-height: 1.5;">
+                        I'm currently available for **full-stack projects, contract work, and technical consultation** that require a high degree of precision and modern engineering principles.
+                    </p>
+
+                    <div class="cs-story-description" style="margin-bottom: 0;">
+                        <ul style="list-style: none; padding: 0;">
+                            <li style="margin-bottom: 10px;">
+                                <strong style="color: #000;">Email:</strong> lefa.mofokeng@example.com
+                            </li>
+                            <li style="margin-bottom: 10px;">
+                                <strong style="color: #000;">Phone:</strong> +27 12 345 6789
+                            </li>
+                            <li style="margin-bottom: 10px;">
+                                <strong style="color: #000;">LinkedIn:</strong> /in/lefadev
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </article>
+
+            <div class="cs-testimonial-block">
+                <form id="contact-form" class="cs-story-block" style="padding-top: 0;">
+                    
+                    <h2 class="cs-quote-text" style="font-size: 32px; margin-bottom: 25px;">
+                        Start the conversation.
+                    </h2>
+                    
+                    <div class="cs-form-group">
+                        <label for="name" class="cs-form-label">Your Name</label>
+                        <input type="text" id="name" name="name" class="cs-form-input" required>
+                    </div>
+
+                    <div class="cs-form-group">
+                        <label for="email" class="cs-form-label">Your Email</label>
+                        <input type="email" id="email" name="email" class="cs-form-input" required>
+                    </div>
+                    
+                    <div class="cs-form-group">
+                        <label for="subject" class="cs-form-label">What is the project/inquiry about?</label>
+                        <select id="subject" name="subject" class="cs-form-input" required>
+                            <option value="" disabled selected>Select an option</option>
+                            <option value="full_project">Full Project Development (New)</option>
+                            <option value="contract_work">Contract / Freelance Work</option>
+                            <option value="consultation">Technical Consultation</option>
+                            <option value="general_inquiry">General Inquiry</option>
+                        </select>
+                    </div>
+
+                    <div class="cs-form-group">
+                        <label for="message" class="cs-form-label">Your Message / Brief</label>
+                        <textarea id="message" name="message" rows="5" class="cs-form-input" required></textarea>
+                    </div>
+
+                    <button type="submit" class="cs-submit-btn">
+                        Send My Brief
+                    </button>
+                    
+                    <p class="cs-profile-role" style="font-size: 14px; margin-top: 15px; text-align: right;">I respect your privacy and will only use your details to respond to this request.</p>
+
+                </form>
+            </div>
+
+        </div>
+    </section>
+
+</div-sv>
+
+<style>
+    /* --- Form Specific Styles --- */
+        .cs-form-group {
+            margin-bottom: 20px;
+        }
+
+        .cs-form-label {
+            display: block;
+            font-size: 15px;
+            font-weight: 500;
+            color: #000;
+            margin-bottom: 8px;
+        }
+
+        .cs-form-input {
+            width: 100%;
+            padding: 14px;
+            font-size: 16px;
+            font-family: 'Inter Tight', sans-serif;
+            color: #1a1a1a;
+            background-color: #ffffff; /* White background for inputs */
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            transition: border-color 0.3s ease, box-shadow 0.3s ease;
+            box-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.05);
+            -webkit-appearance: none; /* Reset appearance for select/textarea */
+        }
+        
+        .cs-form-input:focus {
+            border-color: #000;
+            outline: none;
+            box-shadow: 0 0 0 2px rgba(0, 0, 0, 0.1);
+        }
+        
+        /* Style for textarea */
+        textarea.cs-form-input {
+            resize: vertical;
+            min-height: 100px;
+        }
+
+        /* Style for select dropdown */
+        select.cs-form-input {
+            -webkit-appearance: none;
+            -moz-appearance: none;
+            appearance: none;
+            background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path fill="none" stroke="%23666" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 9l6 6l6-6"/></svg>');
+            background-repeat: no-repeat;
+            background-position: right 14px center;
+            padding-right: 40px; /* Space for the custom arrow */
+        }
+
+        /* Submit Button (Reusing the CTA style but adapted for form) */
+        .cs-submit-btn {
+            background-color: #1a1a1a;
+            color: #fff;
+            font-size: 16px;
+            font-weight: 600;
+            padding: 16px 25px;
+            border-radius: 50px;
+            text-decoration: none;
+            transition: background-color 0.2s ease, transform 0.2s ease;
+            border: none;
+            cursor: pointer;
+            width: 100%;
+            letter-spacing: 0.5px;
+            margin-top: 10px;
+        }
+
+        .cs-submit-btn:hover {
+            background-color: #000;
+            transform: translateY(-1px);
+        }
+</style>

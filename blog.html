@@ -1,0 +1,888 @@
+
+<!-- Google Fonts Import -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Big+Shoulders+Display:wght@400;500;600;700;800;900&family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
+    
+
+
+<!-- Floating Navigation Bar -->
+<div class="portfolio-floating-nav" id="floatingNav">
+    <div class="floating-nav-container">
+        <a href="projects.html" class="floating-nav-link">Projects</a>
+        <a href="pricing.html" class="floating-nav-link">Pricing</a>
+        <a href="blog.html" class="floating-nav-link">Articles</a>
+        <a href="about.html" class="floating-nav-link">About Me</a>
+    </div>
+
+    <div class="floating-nav-contact">
+        <a href="#contact" class="contact-button">Work With Me</a>
+    </div>
+    
+    <!-- Mobile Menu Button -->
+    <button class="mobile-menu-toggle" id="mobileMenuToggle">
+        <span></span>
+        <span></span>
+        <span></span>
+    </button>
+</div>
+
+<!-- Mobile Menu Overlay -->
+<div class="mobile-menu-overlay" id="mobileMenuOverlay">
+    <div class="mobile-menu-content">
+        <a href="index.html" class="mobile-nav-link">Projects</a>
+        <a href="#portfolio" class="mobile-nav-link">Pricing</a>
+        <a href="#webapps" class="mobile-nav-link">Articles</a>
+        <a href="#about" class="mobile-nav-link">About Me</a>
+        <a href="#contact" class="mobile-contact-button">Work With Me</a>
+    </div>
+</div>
+
+<style>
+* {
+    font-family: 'Inter tight', sans-serif;
+    margin: 0;
+    padding: 0;
+}
+
+/* Floating Navigation Styles */
+.portfolio-floating-nav {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 1000;
+    display: flex;
+    justify-content: center;
+    padding: 12px 20px;
+    transform: translateY(0);
+    transition: transform 0.3s ease, opacity 0.3s ease;
+}
+
+.portfolio-floating-nav.hidden {
+    transform: translateY(-100%);
+    opacity: 0;
+}
+
+.floating-nav-container {
+    background: white;
+    border-radius: 50px;
+    padding: 5px;
+    display: flex;
+    gap: 10px;
+    filter: drop-shadow(0 4px 8px rgba(0, 0, 0, 0.084));
+    max-width:600px;
+    width: 100%;
+    position: relative;
+    backface-visibility: visible;
+}
+
+.floating-nav-link {
+    text-decoration: none;
+    color: #434343;
+    font-weight: 500;
+    font-size: 14px;
+    padding: 11px 16px;
+    border-radius: 50px;
+    position: relative;
+    white-space: nowrap;
+    backface-visibility: visible;
+}
+
+.floating-nav-link:hover {
+    color: #000;
+    background: #e8e8e8;
+}
+
+.floating-nav-contact {
+    position: absolute;
+    right: 467px;
+    top: 50%;
+    transform: translateY(-50%);
+}
+
+.contact-button {
+    background: #000;
+    color: white;
+    text-decoration: none;
+    padding: 12px 20px;
+    border-radius: 25px;
+    font-weight: 600;
+    font-size: 14px;
+    transition: all 0.3s ease;
+    white-space: nowrap;
+}
+
+.contact-button:hover {
+    background: rgb(0, 0, 0);
+    color: #ffffff;
+}
+
+.mobile-menu-toggle {
+    display: none;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 30px;
+    height: 30px;
+    background: black;
+    border: none;
+    cursor: pointer;
+    padding: 0;
+    position: relative;
+    border-radius: 50px;
+}
+
+.mobile-menu-toggle span {
+    width: 20px;
+    height: 2px;
+    background: #fff;
+    position: absolute;
+    left: 5px;
+    transition: 0.3s;
+    transform-origin: center;
+}
+
+.mobile-menu-toggle span:nth-child(1) {
+    top: 10px;
+}
+
+.mobile-menu-toggle span:nth-child(2) {
+    top: 14px;
+}
+
+.mobile-menu-toggle span:nth-child(3) {
+    top: 18px;
+}
+
+/* Perfectly centered X */
+.mobile-menu-toggle.active span:nth-child(1) {
+    transform: rotate(45deg);
+    top: 14px;
+}
+
+.mobile-menu-toggle.active span:nth-child(2) {
+    opacity: 0;
+}
+
+.mobile-menu-toggle.active span:nth-child(3) {
+    transform: rotate(-45deg);
+    top: 14px;
+}
+
+/* Mobile Menu Overlay */
+.mobile-menu-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(255, 255, 255, 0.98);
+    z-index: 999;
+    display: none;
+    align-items: center;
+    justify-content: center;
+}
+
+.mobile-menu-overlay.active {
+    display: flex;
+}
+
+.mobile-menu-content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 20px;
+}
+
+.mobile-nav-link {
+    text-decoration: none;
+    color: #333;
+    font-size: 24px;
+    font-weight: 600;
+    padding: 15px 30px;
+    border-radius: 50px;
+    transition: all 0.3s ease;
+}
+
+.mobile-nav-link.active,
+.mobile-nav-link:hover {
+    background: #000;
+    color: white;
+}
+
+.mobile-contact-button {
+    background: #000;
+    color: white;
+    text-decoration: none;
+    padding: 15px 30px;
+    border-radius: 50px;
+    font-weight: 600;
+    font-size: 18px;
+    margin-top: 20px;
+}
+
+@keyframes draw {
+    to {
+        stroke-dashoffset: 0;
+    }
+}
+
+/* Responsive Design */
+@media (max-width: 1024px) {
+    .hero-container {
+        gap: 60px;
+    }
+    
+    .floating-nav-container {
+        gap: 20px;
+    }
+    
+    .floating-nav-link {
+        padding: 10px 14px;
+        font-size: 13px;
+    }
+}
+
+@media (max-width: 768px) {
+    .portfolio-floating-nav {
+        padding: 10px 15px;
+    }
+    
+    .floating-nav-container {
+        display: none;
+    }
+    
+    .floating-nav-contact {
+        display: none;
+    }
+    
+    .mobile-menu-toggle {
+        display: flex;
+        margin-left: auto;
+    }
+    
+    .hero-container {
+        grid-template-columns: 1fr;
+        gap: 40px;
+        text-align: center;
+    }
+    
+    .hero-content {
+        padding-right: 0;
+        order: 2;
+    }
+    
+    .hero-image {
+        order: 1;
+    }
+    
+    .hero-stats {
+        justify-content: center;
+        text-align: center;
+    }
+    
+    .hero-social-links {
+        justify-content: center;
+    }
+    
+    .hero-actions {
+        justify-content: center;
+    }
+    
+    .btn {
+        width: 100%;
+        max-width: 200px;
+    }
+    
+    .expertise-grid {
+        grid-template-columns: 1fr;
+    }
+    
+    .expertise-card {
+        padding: 25px 20px;
+    }
+}
+
+@media (max-width: 480px) {
+    .portfolio-hero-section {
+        padding: 100px 15px 60px;
+    }
+    
+    .hero-title {
+        font-size: 32px;
+    }
+    
+    .hero-stats {
+        flex-direction: column;
+        align-items: center;
+        gap: 20px;
+    }
+    
+    .stat-item {
+        text-align: center;
+    }
+    
+    .hero-social-links {
+        justify-content: center;
+    }
+    
+    .social-link {
+        padding: 6px 12px;
+        font-size: 12px;
+    }
+    
+    .hero-actions {
+        flex-direction: column;
+        align-items: center;
+    }
+    
+    .btn {
+        width: 100%;
+        max-width: none;
+    }
+    
+    .expertise-section {
+        padding: 60px 15px;
+    }
+}
+
+/* Smooth scrolling for navigation */
+html {
+    scroll-behavior: smooth;
+}
+
+/* Prevent horizontal scroll */
+body {
+    overflow-x: hidden;
+}
+</style>
+
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+    // --- FLOATING NAVIGATION LOGIC ---
+    const floatingNav = document.getElementById('floatingNav');
+    const mobileMenuToggle = document.getElementById('mobileMenuToggle');
+    const mobileMenuOverlay = document.getElementById('mobileMenuOverlay');
+    const mobileNavLinks = document.querySelectorAll('.mobile-nav-link');
+    const navLinks = document.querySelectorAll('.floating-nav-link');
+    let lastScrollY = window.scrollY;
+    let ticking = false;
+
+    function updateHeader() {
+        const currentScrollY = window.scrollY;
+        if (currentScrollY > lastScrollY && currentScrollY > 100) {
+            floatingNav.classList.add('hidden');
+        } else {
+            floatingNav.classList.remove('hidden');
+        }
+        lastScrollY = currentScrollY;
+        ticking = false;
+    }
+
+    window.addEventListener('scroll', () => {
+        if (!ticking) {
+            requestAnimationFrame(updateHeader);
+            ticking = true;
+        }
+    });
+
+    // Mobile Menu
+    function toggleMobileMenu() {
+        mobileMenuToggle.classList.toggle('active');
+        mobileMenuOverlay.classList.toggle('active');
+        document.body.style.overflow = mobileMenuOverlay.classList.contains('active') ? 'hidden' : '';
+    }
+
+    mobileMenuToggle.addEventListener('click', toggleMobileMenu);
+    mobileNavLinks.forEach(link => link.addEventListener('click', () => {
+        mobileMenuToggle.classList.remove('active');
+        mobileMenuOverlay.classList.remove('active');
+        document.body.style.overflow = '';
+    }));
+    mobileMenuOverlay.addEventListener('click', (e) => {
+        if (e.target === mobileMenuOverlay) toggleMobileMenu();
+    });
+
+    // Window resize
+    window.addEventListener('resize', function() {
+        if (window.innerWidth > 768) {
+            mobileMenuToggle.classList.remove('active');
+            mobileMenuOverlay.classList.remove('active');
+            document.body.style.overflow = '';
+        }
+    });
+});
+</script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<link href="https://fonts.googleapis.com/css2?family=Inter+Tight:ital,wght@0,300;0,400;0,500;0,600;0,700;1,400&display=swap" rel="stylesheet">
+
+<style>
+    /* --- Scoped Root Wrapper --- */
+    div-all-articles-root {
+        font-family: 'Inter Tight', sans-serif;
+        background-color: #f1f1f1; /* Matching reference bg */
+        color: #1a1a1a;
+        line-height: 1.5;
+        -webkit-font-smoothing: antialiased;
+        display: block;
+        width: 100%;
+        min-height: 100vh;
+    }
+
+    /* --- Shared Utilities --- */
+    .aa-wrapper {
+        width: 100%;
+        max-width: 1200px;
+        margin: 0 auto;
+        padding: 120px 20px 80px 20px;
+    }
+
+    /* --- Page Header & Filter --- */
+    .aa-header-group {
+        margin-bottom: 80px;
+        text-align: center;
+    }
+
+    .aa-page-title {
+        font-size: 72px;
+        font-weight: 500;
+        letter-spacing: -2px;
+        color: #000;
+        margin-bottom: 24px;
+        line-height: 1.05;
+    }
+
+    .aa-page-desc {
+        font-size: 18px;
+        color: #666;
+        max-width: 600px;
+        margin: 0 auto 48px auto;
+    }
+
+    .aa-filter-bar {
+        display: inline-flex;
+        background-color: #e5e5e5;
+        padding: 4px;
+        border-radius: 100px;
+        gap: 4px;
+    }
+
+    .aa-filter-btn {
+        border: none;
+        background: none;
+        padding: 10px 24px;
+        border-radius: 100px;
+        font-family: inherit;
+        font-size: 14px;
+        font-weight: 500;
+        color: #666;
+        cursor: pointer;
+        transition: all 0.2s ease;
+    }
+
+    .aa-filter-btn:hover {
+        color: #000;
+    }
+
+    /* Active state for filter button */
+    .aa-filter-btn.active {
+        background-color: #fff;
+        color: #000;
+        box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+    }
+
+    /* --- Articles Grid --- */
+    .aa-grid {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 40px;
+        margin-bottom: 80px;
+        /* Ensure the grid transitions smoothly if items are removed/added */
+        transition: all 0.3s ease;
+    }
+
+    /* --- Article Card --- */
+    .aa-card {
+        display: flex; /* Flex display is toggled by JS */
+        flex-direction: column;
+        text-decoration: none;
+        background-color: transparent;
+        /* Animation for filtering */
+        animation: fadeIn 0.5s ease forwards;
+    }
+
+    /* Keyframes for smooth appearance */
+    @keyframes fadeIn {
+        from { opacity: 0; transform: translateY(10px); }
+        to { opacity: 1; transform: translateY(0); }
+    }
+
+    .aa-card-image-wrap {
+        width: 100%;
+        aspect-ratio: 4/3;
+        overflow: hidden;
+        margin-bottom: 24px;
+        background-color: #ddd;
+        border-radius: 0;
+        position: relative;
+    }
+
+    .aa-card-img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        transition: transform 0.6s cubic-bezier(0.22, 1, 0.36, 1);
+    }
+
+    .aa-card:hover .aa-card-img {
+        transform: scale(1.08);
+    }
+
+    .aa-card-meta {
+        font-size: 12px;
+        font-weight: 700;
+        text-transform: uppercase;
+        letter-spacing: 1px;
+        color: #888;
+        margin-bottom: 12px;
+        display: flex;
+        align-items: center;
+        gap: 8px;
+    }
+
+    .aa-card-title {
+        font-size: 26px;
+        font-weight: 500;
+        color: #000;
+        margin-bottom: 12px;
+        letter-spacing: -1px;
+        line-height: 1.2;
+        transition: color 0.2s ease;
+    }
+
+    .aa-card:hover .aa-card-title {
+        text-decoration: underline;
+        text-decoration-thickness: 1px;
+        text-underline-offset: 4px;
+    }
+
+    .aa-card-excerpt {
+        font-size: 16px;
+        color: #555;
+        line-height: 1.6;
+        display: -webkit-box;
+        -webkit-line-clamp: 3;
+        -webkit-box-orient: vertical;
+        overflow: hidden;
+    }
+
+    /* --- Newsletter Section --- */
+    .aa-newsletter-section {
+        background-color: #fff;
+        padding: 100px 20px;
+        border-top: 1px solid #e5e5e5;
+        border-bottom: 1px solid #e5e5e5;
+    }
+
+    .aa-nl-container {
+        max-width: 600px;
+        margin: 0 auto;
+        text-align: center;
+    }
+
+    .aa-nl-title {
+        font-size: 32px;
+        font-weight: 500;
+        color: #000;
+        margin-bottom: 16px;
+        letter-spacing: -1px;
+    }
+
+    .aa-nl-desc {
+        font-size: 16px;
+        color: #666;
+        margin-bottom: 32px;
+        line-height: 1.6;
+    }
+
+    .aa-nl-form {
+        display: flex;
+        gap: 12px;
+    }
+
+    .aa-nl-input {
+        flex: 1;
+        padding: 16px;
+        background-color: #f9f9f9;
+        border: 1px solid #e5e5e5;
+        font-family: inherit;
+        font-size: 16px;
+        outline: none;
+        transition: border-color 0.2s ease;
+    }
+
+    .aa-nl-input:focus {
+        border-color: #000;
+    }
+
+    .aa-nl-btn {
+        padding: 16px 32px;
+        background-color: #000;
+        color: #fff;
+        border: none;
+        font-family: inherit;
+        font-weight: 600;
+        cursor: pointer;
+        transition: background-color 0.2s ease;
+    }
+
+    .aa-nl-btn:hover {
+        background-color: #333;
+    }
+
+    /* --- Responsive Styles --- */
+    @media (max-width: 900px) {
+        .aa-grid {
+            grid-template-columns: repeat(2, 1fr);
+            gap: 32px;
+        }
+        .aa-page-title {
+            font-size: 56px;
+        }
+    }
+
+    @media (max-width: 600px) {
+        .aa-grid {
+            grid-template-columns: 1fr;
+            gap: 48px;
+        }
+        .aa-page-title {
+            font-size: 42px;
+        }
+        .aa-filter-bar {
+            width: 100%;
+            overflow-x: auto;
+            white-space: nowrap;
+            justify-content: flex-start;
+            padding: 8px; /* Added slight padding for scroll feel */
+        }
+        .aa-nl-form {
+            flex-direction: column;
+        }
+        .aa-nl-btn {
+            width: 100%;
+        }
+    }
+</style>
+
+<div-all-articles-root>
+    
+    <section class="aa-wrapper">
+        
+        <header class="aa-header-group">
+            <h1 class="aa-page-title">The Journal</h1>
+            <p class="aa-page-desc">
+                Thoughts on design systems, frontend architecture, and the occasional rant about CSS specificity.
+            </p>
+            
+            <nav class="aa-filter-bar">
+                <button class="aa-filter-btn active" data-filter="all">All</button>
+                <button class="aa-filter-btn" data-filter="engineering">Engineering</button>
+                <button class="aa-filter-btn" data-filter="design">Design</button>
+                <button class="aa-filter-btn" data-filter="tutorials">Tutorials</button>
+                <button class="aa-filter-btn" data-filter="career">Career</button>
+            </nav>
+        </header>
+
+        <div class="aa-grid" id="articles-grid">
+
+            <a href="#" class="aa-card" data-category="engineering">
+                <div class="aa-card-image-wrap">
+                    <img src="https://images.unsplash.com/photo-1550751827-4bd374c3f58b?q=80&w=1470&auto=format&fit=crop" alt="Cybersecurity lock" class="aa-card-img">
+                </div>
+                <div class="aa-card-meta">
+                    <span>Engineering</span>
+                    <span>&bull;</span>
+                    <span>2 Days Ago</span>
+                </div>
+                <h3 class="aa-card-title">Zero Trust Architecture for Frontend</h3>
+                <p class="aa-card-excerpt">
+                    Moving beyond basic authentication. How to secure your client-side applications in an era of sophisticated attacks.
+                </p>
+            </a>
+
+            <a href="#" class="aa-card" data-category="design">
+                <div class="aa-card-image-wrap">
+                    <img src="https://images.unsplash.com/photo-1614850523459-c2f4c699c52e?q=80&w=1470&auto=format&fit=crop" alt="Fluid gradient" class="aa-card-img">
+                </div>
+                <div class="aa-card-meta">
+                    <span>Design</span>
+                    <span>&bull;</span>
+                    <span>Oct 24</span>
+                </div>
+                <h3 class="aa-card-title">Fluid Typography with CSS Clamp</h3>
+                <p class="aa-card-excerpt">
+                    Stop writing media queries for every 100px. Use modern CSS math functions to create typography that scales seamlessly.
+                </p>
+            </a>
+
+            <a href="#" class="aa-card" data-category="career">
+                <div class="aa-card-image-wrap">
+                    <img src="https://images.unsplash.com/photo-1526374965328-7f61d4dc18c5?q=80&w=1470&auto=format&fit=crop" alt="Matrix code" class="aa-card-img">
+                </div>
+                <div class="aa-card-meta">
+                    <span>Career</span>
+                    <span>&bull;</span>
+                    <span>Oct 10</span>
+                </div>
+                <h3 class="aa-card-title">From Junior to Senior: The Gap</h3>
+                <p class="aa-card-excerpt">
+                    It's not just about writing code faster. It's about solving the right problems. A reflection on my 5 years in tech.
+                </p>
+            </a>
+
+            <a href="#" class="aa-card" data-category="tutorials">
+                <div class="aa-card-image-wrap">
+                    <img src="https://images.unsplash.com/photo-1558655146-d09347e92766?q=80&w=1470&auto=format&fit=crop" alt="Minimalist desk" class="aa-card-img">
+                </div>
+                <div class="aa-card-meta">
+                    <span>Tutorials</span>
+                    <span>&bull;</span>
+                    <span>Sep 15</span>
+                </div>
+                <h3 class="aa-card-title">Building a Custom Router in Vanilla JS</h3>
+                <p class="aa-card-excerpt">
+                    Understanding how SPAs work under the hood by building a lightweight routing system from scratch.
+                </p>
+            </a>
+
+            <a href="#" class="aa-card" data-category="design">
+                <div class="aa-card-image-wrap">
+                    <img src="https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?q=80&w=1364&auto=format&fit=crop" alt="Abstract shapes" class="aa-card-img">
+                </div>
+                <div class="aa-card-meta">
+                    <span>Design</span>
+                    <span>&bull;</span>
+                    <span>Aug 30</span>
+                </div>
+                <h3 class="aa-card-title">The Psychology of Dark Mode</h3>
+                <p class="aa-card-excerpt">
+                    Why dark mode isn't just a color palette swap. Considerations for contrast, accessibility, and user environment.
+                </p>
+            </a>
+
+            <a href="#" class="aa-card" data-category="engineering">
+                <div class="aa-card-image-wrap">
+                    <img src="https://images.unsplash.com/photo-1550439062-609e1531270e?q=80&w=1470&auto=format&fit=crop" alt="Team meeting" class="aa-card-img">
+                </div>
+                <div class="aa-card-meta">
+                    <span>Engineering</span>
+                    <span>&bull;</span>
+                    <span>Aug 12</span>
+                </div>
+                <h3 class="aa-card-title">Managing State in 2024</h3>
+                <p class="aa-card-excerpt">
+                    Zustand, Recoil, Redux Toolkit, or Context? Breaking down the best tools for the job based on app complexity.
+                </p>
+            </a>
+            
+            <a href="#" class="aa-card" data-category="tutorials">
+                <div class="aa-card-image-wrap">
+                    <img src="https://images.unsplash.com/photo-1515879218367-8466d910aaa4?q=80&w=1469&auto=format&fit=crop" alt="Code laptop" class="aa-card-img">
+                </div>
+                <div class="aa-card-meta">
+                    <span>Tutorials</span>
+                    <span>&bull;</span>
+                    <span>July 20</span>
+                </div>
+                <h3 class="aa-card-title">Mastering CSS Grid</h3>
+                <p class="aa-card-excerpt">
+                    A comprehensive guide to building complex layouts with few lines of code.
+                </p>
+            </a>
+
+        </div>
+
+    </section>
+
+    <section class="aa-newsletter-section">
+        <div class="aa-nl-container">
+            <h2 class="aa-nl-title">Stay in the loop</h2>
+            <p class="aa-nl-desc">
+                Join 5,000+ developers receiving monthly insights on frontend trends, clean code, and design patterns. No spam, ever.
+            </p>
+            <form class="aa-nl-form" onsubmit="event.preventDefault();">
+                <input type="email" placeholder="Enter your email" class="aa-nl-input" required>
+                <button type="submit" class="aa-nl-btn">Subscribe</button>
+            </form>
+        </div>
+    </section>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const filterBtns = document.querySelectorAll('.aa-filter-btn');
+            const cards = document.querySelectorAll('.aa-card');
+
+            filterBtns.forEach(btn => {
+                btn.addEventListener('click', () => {
+                    // 1. Remove active class from all buttons
+                    filterBtns.forEach(b => b.classList.remove('active'));
+                    
+                    // 2. Add active class to clicked button
+                    btn.classList.add('active');
+
+                    // 3. Get the filter value
+                    const filterValue = btn.getAttribute('data-filter');
+
+                    // 4. Loop through cards and show/hide based on category
+                    cards.forEach(card => {
+                        const cardCategory = card.getAttribute('data-category');
+
+                        if (filterValue === 'all' || filterValue === cardCategory) {
+                            card.style.display = 'flex'; // Restore display
+                            // Optional: Reset animation
+                            card.style.animation = 'none';
+                            card.offsetHeight; /* trigger reflow */
+                            card.style.animation = 'fadeIn 0.5s ease forwards';
+                        } else {
+                            card.style.display = 'none'; // Hide
+                        }
+                    });
+                });
+            });
+        });
+    </script>
+
+</div-all-articles-root>

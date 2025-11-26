@@ -1,0 +1,1031 @@
+
+<!-- Google Fonts Import -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Big+Shoulders+Display:wght@400;500;600;700;800;900&family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
+    
+
+
+<!-- Floating Navigation Bar -->
+<div class="portfolio-floating-nav" id="floatingNav">
+    <div class="floating-nav-container">
+        <a href="projects.html" class="floating-nav-link">Projects</a>
+        <a href="pricing.html" class="floating-nav-link">Pricing</a>
+        <a href="blog.html" class="floating-nav-link">Articles</a>
+        <a href="about.html" class="floating-nav-link">About Me</a>
+    </div>
+
+    <div class="floating-nav-contact">
+        <a href="#contact" class="contact-button">Work With Me</a>
+    </div>
+    
+    <!-- Mobile Menu Button -->
+    <button class="mobile-menu-toggle" id="mobileMenuToggle">
+        <span></span>
+        <span></span>
+        <span></span>
+    </button>
+</div>
+
+<!-- Mobile Menu Overlay -->
+<div class="mobile-menu-overlay" id="mobileMenuOverlay">
+    <div class="mobile-menu-content">
+        <a href="index.html" class="mobile-nav-link">Projects</a>
+        <a href="#portfolio" class="mobile-nav-link">Pricing</a>
+        <a href="#webapps" class="mobile-nav-link">Articles</a>
+        <a href="#about" class="mobile-nav-link">About Me</a>
+        <a href="#contact" class="mobile-contact-button">Work With Me</a>
+    </div>
+</div>
+
+<style>
+* {
+    font-family: 'Inter tight', sans-serif;
+    margin: 0;
+    padding: 0;
+}
+
+/* Floating Navigation Styles */
+.portfolio-floating-nav {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 1000;
+    display: flex;
+    justify-content: center;
+    padding: 12px 20px;
+    transform: translateY(0);
+    transition: transform 0.3s ease, opacity 0.3s ease;
+}
+
+.portfolio-floating-nav.hidden {
+    transform: translateY(-100%);
+    opacity: 0;
+}
+
+.floating-nav-container {
+    background: white;
+    border-radius: 50px;
+    padding: 5px;
+    display: flex;
+    gap: 10px;
+    filter: drop-shadow(0 4px 8px rgba(0, 0, 0, 0.084));
+    max-width:600px;
+    width: 100%;
+    position: relative;
+    backface-visibility: visible;
+}
+
+.floating-nav-link {
+    text-decoration: none;
+    color: #434343;
+    font-weight: 500;
+    font-size: 14px;
+    padding: 11px 16px;
+    border-radius: 50px;
+    position: relative;
+    white-space: nowrap;
+    backface-visibility: visible;
+}
+
+.floating-nav-link:hover {
+    color: #000;
+    background: #e8e8e8;
+}
+
+.floating-nav-contact {
+    position: absolute;
+    right: 467px;
+    top: 50%;
+    transform: translateY(-50%);
+}
+
+.contact-button {
+    background: #000;
+    color: white;
+    text-decoration: none;
+    padding: 12px 20px;
+    border-radius: 25px;
+    font-weight: 600;
+    font-size: 14px;
+    transition: all 0.3s ease;
+    white-space: nowrap;
+}
+
+.contact-button:hover {
+    background: rgb(0, 0, 0);
+    color: #ffffff;
+}
+
+.mobile-menu-toggle {
+    display: none;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 30px;
+    height: 30px;
+    background: black;
+    border: none;
+    cursor: pointer;
+    padding: 0;
+    position: relative;
+    border-radius: 50px;
+}
+
+.mobile-menu-toggle span {
+    width: 20px;
+    height: 2px;
+    background: #fff;
+    position: absolute;
+    left: 5px;
+    transition: 0.3s;
+    transform-origin: center;
+}
+
+.mobile-menu-toggle span:nth-child(1) {
+    top: 10px;
+}
+
+.mobile-menu-toggle span:nth-child(2) {
+    top: 14px;
+}
+
+.mobile-menu-toggle span:nth-child(3) {
+    top: 18px;
+}
+
+/* Perfectly centered X */
+.mobile-menu-toggle.active span:nth-child(1) {
+    transform: rotate(45deg);
+    top: 14px;
+}
+
+.mobile-menu-toggle.active span:nth-child(2) {
+    opacity: 0;
+}
+
+.mobile-menu-toggle.active span:nth-child(3) {
+    transform: rotate(-45deg);
+    top: 14px;
+}
+
+/* Mobile Menu Overlay */
+.mobile-menu-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(255, 255, 255, 0.98);
+    z-index: 999;
+    display: none;
+    align-items: center;
+    justify-content: center;
+}
+
+.mobile-menu-overlay.active {
+    display: flex;
+}
+
+.mobile-menu-content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 20px;
+}
+
+.mobile-nav-link {
+    text-decoration: none;
+    color: #333;
+    font-size: 24px;
+    font-weight: 600;
+    padding: 15px 30px;
+    border-radius: 50px;
+    transition: all 0.3s ease;
+}
+
+.mobile-nav-link.active,
+.mobile-nav-link:hover {
+    background: #000;
+    color: white;
+}
+
+.mobile-contact-button {
+    background: #000;
+    color: white;
+    text-decoration: none;
+    padding: 15px 30px;
+    border-radius: 50px;
+    font-weight: 600;
+    font-size: 18px;
+    margin-top: 20px;
+}
+
+@keyframes draw {
+    to {
+        stroke-dashoffset: 0;
+    }
+}
+
+/* Responsive Design */
+@media (max-width: 1024px) {
+    .hero-container {
+        gap: 60px;
+    }
+    
+    .floating-nav-container {
+        gap: 20px;
+    }
+    
+    .floating-nav-link {
+        padding: 10px 14px;
+        font-size: 13px;
+    }
+}
+
+@media (max-width: 768px) {
+    .portfolio-floating-nav {
+        padding: 10px 15px;
+    }
+    
+    .floating-nav-container {
+        display: none;
+    }
+    
+    .floating-nav-contact {
+        display: none;
+    }
+    
+    .mobile-menu-toggle {
+        display: flex;
+        margin-left: auto;
+    }
+    
+    .hero-container {
+        grid-template-columns: 1fr;
+        gap: 40px;
+        text-align: center;
+    }
+    
+    .hero-content {
+        padding-right: 0;
+        order: 2;
+    }
+    
+    .hero-image {
+        order: 1;
+    }
+    
+    .hero-stats {
+        justify-content: center;
+        text-align: center;
+    }
+    
+    .hero-social-links {
+        justify-content: center;
+    }
+    
+    .hero-actions {
+        justify-content: center;
+    }
+    
+    .btn {
+        width: 100%;
+        max-width: 200px;
+    }
+    
+    .expertise-grid {
+        grid-template-columns: 1fr;
+    }
+    
+    .expertise-card {
+        padding: 25px 20px;
+    }
+}
+
+@media (max-width: 480px) {
+    .portfolio-hero-section {
+        padding: 100px 15px 60px;
+    }
+    
+    .hero-title {
+        font-size: 32px;
+    }
+    
+    .hero-stats {
+        flex-direction: column;
+        align-items: center;
+        gap: 20px;
+    }
+    
+    .stat-item {
+        text-align: center;
+    }
+    
+    .hero-social-links {
+        justify-content: center;
+    }
+    
+    .social-link {
+        padding: 6px 12px;
+        font-size: 12px;
+    }
+    
+    .hero-actions {
+        flex-direction: column;
+        align-items: center;
+    }
+    
+    .btn {
+        width: 100%;
+        max-width: none;
+    }
+    
+    .expertise-section {
+        padding: 60px 15px;
+    }
+}
+
+/* Smooth scrolling for navigation */
+html {
+    scroll-behavior: smooth;
+}
+
+/* Prevent horizontal scroll */
+body {
+    overflow-x: hidden;
+}
+</style>
+
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+    // --- FLOATING NAVIGATION LOGIC ---
+    const floatingNav = document.getElementById('floatingNav');
+    const mobileMenuToggle = document.getElementById('mobileMenuToggle');
+    const mobileMenuOverlay = document.getElementById('mobileMenuOverlay');
+    const mobileNavLinks = document.querySelectorAll('.mobile-nav-link');
+    const navLinks = document.querySelectorAll('.floating-nav-link');
+    let lastScrollY = window.scrollY;
+    let ticking = false;
+
+    function updateHeader() {
+        const currentScrollY = window.scrollY;
+        if (currentScrollY > lastScrollY && currentScrollY > 100) {
+            floatingNav.classList.add('hidden');
+        } else {
+            floatingNav.classList.remove('hidden');
+        }
+        lastScrollY = currentScrollY;
+        ticking = false;
+    }
+
+    window.addEventListener('scroll', () => {
+        if (!ticking) {
+            requestAnimationFrame(updateHeader);
+            ticking = true;
+        }
+    });
+
+    // Mobile Menu
+    function toggleMobileMenu() {
+        mobileMenuToggle.classList.toggle('active');
+        mobileMenuOverlay.classList.toggle('active');
+        document.body.style.overflow = mobileMenuOverlay.classList.contains('active') ? 'hidden' : '';
+    }
+
+    mobileMenuToggle.addEventListener('click', toggleMobileMenu);
+    mobileNavLinks.forEach(link => link.addEventListener('click', () => {
+        mobileMenuToggle.classList.remove('active');
+        mobileMenuOverlay.classList.remove('active');
+        document.body.style.overflow = '';
+    }));
+    mobileMenuOverlay.addEventListener('click', (e) => {
+        if (e.target === mobileMenuOverlay) toggleMobileMenu();
+    });
+
+    // Window resize
+    window.addEventListener('resize', function() {
+        if (window.innerWidth > 768) {
+            mobileMenuToggle.classList.remove('active');
+            mobileMenuOverlay.classList.remove('active');
+            document.body.style.overflow = '';
+        }
+    });
+});
+</script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Project Archive</title>
+    <!-- Import Inter Tight Font -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter+Tight:ital,wght@0,300;0,400;0,500;0,600;0,700;1,400&display=swap" rel="stylesheet">
+    
+    <style>
+        /* --- Reset & Base Styles --- */
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        /* Custom Tag Wrapper matches div-sv style */
+        div-pr {
+            font-family: 'Inter Tight', sans-serif;
+            background-color: #f1f1f1; 
+            color: #1a1a1a;
+            line-height: 1.5;
+            -webkit-font-smoothing: antialiased;
+            display: block;
+            min-height: 100vh;
+            width: 100%;
+        }
+
+        /* --- Main Layout Wrapper --- */
+        .pr-wrapper {
+            width: 100%;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 80px 20px 100px 20px;
+        }
+
+        /* --- Header Section --- */
+        .pr-header {
+            text-align: center;
+            margin-bottom: 60px;
+        }
+
+        .pr-title {
+            font-size: 56px;
+            font-weight: 500;
+            letter-spacing: -1.5px;
+            margin-bottom: 12px;
+            color: #000;
+        }
+
+        .pr-subtitle {
+            font-size: 16px;
+            color: #666;
+            font-weight: 400;
+            max-width: 500px;
+            margin: 0 auto;
+        }
+
+        /* --- Section Styling --- */
+        .pr-section {
+            margin-bottom: 100px;
+        }
+
+        .pr-section-header {
+            margin-bottom: 32px;
+        }
+
+        .pr-section-title {
+            font-size: 28px;
+            font-weight: 500;
+            letter-spacing: -1px;
+            color: #000;
+            margin-bottom: 24px;
+        }
+
+        /* --- Filters --- */
+        .pr-filter-bar {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 12px;
+            margin-bottom: 32px;
+            padding-bottom: 24px;
+            border-bottom: 1px solid rgba(0,0,0,0.05);
+        }
+
+        .pr-filter-btn {
+            background: transparent;
+            border: 1px solid #ddd;
+            padding: 8px 16px;
+            border-radius: 100px;
+            font-family: 'Inter Tight', sans-serif;
+            font-size: 14px;
+            color: #666;
+            cursor: pointer;
+            transition: all 0.2s ease;
+        }
+
+        .pr-filter-btn:hover {
+            border-color: #999;
+            color: #000;
+        }
+
+        .pr-filter-btn.active {
+            background-color: #1a1a1a;
+            color: #fff;
+            border-color: #1a1a1a;
+        }
+
+        /* --- Grid Layout --- */
+        .pr-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr); /* Changed to 3 Columns */
+            gap: 24px;
+            margin-bottom: 40px;
+        }
+
+        /* --- Project Card --- */
+        .pr-card {
+            background-color: #fff;
+            padding: 12px;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+            border-radius: 4px;
+        }
+
+        .pr-card:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 20px rgba(0,0,0,0.08);
+        }
+
+        .pr-image-container {
+            width: 100%;
+            aspect-ratio: 16/10;
+            overflow: hidden;
+            background-color: #eee;
+            margin-bottom: 12px;
+            position: relative;
+            border-radius: 2px;
+        }
+
+        .pr-image {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            display: block;
+            transition: transform 0.5s ease;
+        }
+
+        .pr-card:hover .pr-image {
+            transform: scale(1.05);
+        }
+
+        /* --- Image Overlay Styles --- */
+        .pr-image-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0,0,0,0.4); /* Dark semi-transparent background */
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            opacity: 0;
+            transition: opacity 0.3s ease;
+            z-index: 2;
+        }
+
+        .pr-card:hover .pr-image-overlay {
+            opacity: 1;
+        }
+
+        .pr-demo-btn {
+            background: #fff;
+            color: #000;
+            padding: 10px 20px;
+            border-radius: 100px;
+            text-decoration: none;
+            font-size: 13px;
+            font-weight: 600;
+            display: flex;
+            align-items: center;
+            gap: 6px;
+            transform: translateY(10px);
+            transition: transform 0.3s ease;
+        }
+
+        .pr-card:hover .pr-demo-btn {
+            transform: translateY(0);
+        }
+
+        .pr-demo-btn:hover {
+            background: #f0f0f0;
+        }
+
+        .pr-card-info {
+            flex-grow: 1;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .pr-card-title {
+            font-size: 16px;
+            font-weight: 600;
+            color: #000;
+            margin-bottom: 4px;
+            letter-spacing: -0.3px;
+        }
+
+        .pr-card-desc {
+            font-size: 13px;
+            color: #666;
+            margin-bottom: 12px;
+            line-height: 1.4;
+            flex-grow: 1;
+        }
+
+        /* --- Card Footer --- */
+        .pr-card-footer {
+            display: flex;
+            justify-content: flex-start; /* Changed to flex-start since link is gone */
+            align-items: center;
+            margin-top: auto;
+            padding-top: 12px;
+            border-top: 1px solid #f5f5f5;
+        }
+
+        .pr-tags {
+            display: flex;
+            gap: 6px;
+        }
+
+        .pr-tag {
+            font-size: 10px;
+            background-color: #f5f5f5;
+            color: #555;
+            padding: 3px 8px;
+            border-radius: 100px;
+            font-weight: 500;
+        }
+
+        /* --- Pagination --- */
+        .pr-pagination {
+            display: flex;
+            justify-content: center;
+            gap: 8px;
+            align-items: center;
+        }
+
+        .pr-page-btn {
+            width: 32px;
+            height: 32px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border: 1px solid #ddd;
+            background: transparent;
+            font-family: 'Inter Tight', sans-serif;
+            font-size: 14px;
+            color: #666;
+            cursor: pointer;
+            border-radius: 4px;
+            transition: all 0.2s ease;
+        }
+
+        .pr-page-btn:hover:not(:disabled) {
+            border-color: #000;
+            color: #000;
+        }
+
+        .pr-page-btn.active {
+            background-color: #1a1a1a;
+            color: #fff;
+            border-color: #1a1a1a;
+        }
+
+        .pr-page-btn:disabled {
+            opacity: 0.3;
+            cursor: not-allowed;
+            border-color: #eee;
+        }
+
+        /* --- Empty State --- */
+        .pr-empty-state {
+            grid-column: 1 / -1;
+            text-align: center;
+            padding: 40px;
+            color: #888;
+            font-size: 14px;
+            background: #fff;
+            border-radius: 8px;
+        }
+
+        /* --- Responsive Styles --- */
+        @media (max-width: 1024px) {
+            .pr-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+
+        @media (max-width: 600px) {
+            .pr-grid {
+                grid-template-columns: 1fr;
+            }
+            .pr-filter-bar {
+                gap: 8px;
+            }
+            .pr-filter-btn {
+                font-size: 12px;
+                padding: 6px 12px;
+            }
+        }
+    </style>
+</head>
+
+<div-pr>
+    <div class="pr-wrapper">
+        
+        <!-- Header -->
+        <header class="pr-header">
+            <h1 class="pr-title">Project Archive</h1>
+            <p class="pr-subtitle">Browse the complete collection of web experiments, features, and full-scale applications.</p>
+        </header>
+
+        <!-- Section 1: Web Features -->
+        <section class="pr-section" id="features-section">
+            <div class="pr-section-header">
+                <h2 class="pr-section-title">Web Features</h2>
+                <!-- Filters -->
+                <div class="pr-filter-bar" id="features-filters">
+                    <button class="pr-filter-btn active" data-filter="all">All Features</button>
+                    <button class="pr-filter-btn" data-filter="hero">Hero Sections</button>
+                    <button class="pr-filter-btn" data-filter="blog">Blog Layouts</button>
+                    <button class="pr-filter-btn" data-filter="feature">Feature Blocks</button>
+                    <button class="pr-filter-btn" data-filter="testimonial">Testimonials</button>
+                    <button class="pr-filter-btn" data-filter="header">Headers/Footers</button>
+                </div>
+            </div>
+
+            <!-- Features Grid -->
+            <div class="pr-grid" id="features-grid">
+                <!-- Content injected via JS -->
+            </div>
+
+            <!-- Features Pagination -->
+            <div class="pr-pagination" id="features-pagination">
+                <!-- Content injected via JS -->
+            </div>
+        </section>
+
+        <!-- Section 2: Web Applications -->
+        <section class="pr-section" id="apps-section">
+            <div class="pr-section-header">
+                <h2 class="pr-section-title">Web Applications</h2>
+                <!-- Filters -->
+                <div class="pr-filter-bar" id="apps-filters">
+                    <button class="pr-filter-btn active" data-filter="all">All Apps</button>
+                    <button class="pr-filter-btn" data-filter="ecommerce">E-commerce</button>
+                    <button class="pr-filter-btn" data-filter="portfolio">Portfolios</button>
+                    <button class="pr-filter-btn" data-filter="saas">SaaS</button>
+                    <button class="pr-filter-btn" data-filter="tool">Tools</button>
+                </div>
+            </div>
+
+            <!-- Apps Grid -->
+            <div class="pr-grid" id="apps-grid">
+                <!-- Content injected via JS -->
+            </div>
+
+            <!-- Apps Pagination -->
+            <div class="pr-pagination" id="apps-pagination">
+                <!-- Content injected via JS -->
+            </div>
+        </section>
+
+    </div>
+</div-pr>
+
+<script>
+    // --- Data Generation ---
+    // Helper to create dummy data for demonstration
+    const createItem = (id, title, category, type, imgUrl) => ({
+        id, title, category, type, 
+        image: imgUrl,
+        desc: `A robust ${type} implementation with responsive behavior and clean code structure.`,
+        tags: [type.charAt(0).toUpperCase() + type.slice(1), 'Responsive']
+    });
+
+    // Web Features Data (20+ items)
+    const featuresData = [
+        createItem(1, "Modern Hero Split", "hero", "layout", "https://images.unsplash.com/photo-1481487484168-9b930d5b7d89?auto=format&fit=crop&w=600&q=80"),
+        createItem(2, "Animated Sticky Header", "header", "animation", "https://images.unsplash.com/photo-1507721999472-8ed4421c4af2?auto=format&fit=crop&w=600&q=80"),
+        createItem(3, "Grid Blog Post", "blog", "grid", "https://images.unsplash.com/photo-1499750310159-5254f4cc1555?auto=format&fit=crop&w=600&q=80"),
+        createItem(4, "Dark Mode Toggle", "feature", "interaction", "https://images.unsplash.com/photo-1555421689-d68471e189f2?auto=format&fit=crop&w=600&q=80"),
+        createItem(5, "Client Testimonial Slider", "testimonial", "slider", "https://images.unsplash.com/photo-1522071820081-009f0129c71c?auto=format&fit=crop&w=600&q=80"),
+        createItem(6, "Video Background Hero", "hero", "video", "https://images.unsplash.com/photo-1536240478700-b869070f9279?auto=format&fit=crop&w=600&q=80"),
+        createItem(7, "Mega Menu Navigation", "header", "menu", "https://images.unsplash.com/photo-1616469829581-73993eb86b02?auto=format&fit=crop&w=600&q=80"),
+        createItem(8, "Feature Comparison Table", "feature", "table", "https://images.unsplash.com/photo-1551288049-bebda4e38f71?auto=format&fit=crop&w=600&q=80"),
+        createItem(9, "Minimal Footer", "header", "footer", "https://images.unsplash.com/photo-1460925895917-afdab827c52f?auto=format&fit=crop&w=600&q=80"),
+        createItem(10, "Article Reading Progress", "blog", "interaction", "https://images.unsplash.com/photo-1456324504439-367cee13d423?auto=format&fit=crop&w=600&q=80"),
+        createItem(11, "Masonry Gallery", "feature", "layout", "https://images.unsplash.com/photo-1518770660439-4636190af475?auto=format&fit=crop&w=600&q=80"),
+        createItem(12, "Newsletter Popup", "feature", "modal", "https://images.unsplash.com/photo-1557200130-4b2745a699eb?auto=format&fit=crop&w=600&q=80"),
+        createItem(13, "Typography Showcase", "blog", "text", "https://images.unsplash.com/photo-1496171367470-9ed9a91ea931?auto=format&fit=crop&w=600&q=80"),
+        createItem(14, "Parallax Hero", "hero", "scroll", "https://images.unsplash.com/photo-1506744038136-46273834b3fb?auto=format&fit=crop&w=600&q=80"),
+        createItem(15, "Review Cards", "testimonial", "card", "https://images.unsplash.com/photo-1517245386807-bb43f82c33c4?auto=format&fit=crop&w=600&q=80"),
+        createItem(16, "Search Bar with Autosuggest", "header", "search", "https://images.unsplash.com/photo-1486312338219-ce68d2c6f44d?auto=format&fit=crop&w=600&q=80"),
+        createItem(17, "Sidebar Navigation", "header", "layout", "https://images.unsplash.com/photo-1507238691126-5d920a518357?auto=format&fit=crop&w=600&q=80"),
+        createItem(18, "Related Posts Grid", "blog", "grid", "https://images.unsplash.com/photo-1432888498266-38ffec3eaf0a?auto=format&fit=crop&w=600&q=80"),
+    ];
+
+    // Web Apps Data (16+ items)
+    const appsData = [
+        createItem(101, "Luxe Fashion Store", "ecommerce", "shopify", "https://images.unsplash.com/photo-1441986300917-64674bd600d8?auto=format&fit=crop&w=600&q=80"),
+        createItem(102, "Creator Portfolio", "portfolio", "nextjs", "https://images.unsplash.com/photo-1467232004584-a241de8bcf5d?auto=format&fit=crop&w=600&q=80"),
+        createItem(103, "TaskFlow SaaS", "saas", "react", "https://images.unsplash.com/photo-1484480974693-6ca0a78fb36b?auto=format&fit=crop&w=600&q=80"),
+        createItem(104, "Crypto Dashboard", "tool", "web3", "https://images.unsplash.com/photo-1518546305927-5a555bb7020d?auto=format&fit=crop&w=600&q=80"),
+        createItem(105, "Digital Agency Site", "portfolio", "agency", "https://images.unsplash.com/photo-1497215728101-856f4ea42174?auto=format&fit=crop&w=600&q=80"),
+        createItem(106, "Furniture Shop", "ecommerce", "cart", "https://images.unsplash.com/photo-1524758631624-e2822e304c36?auto=format&fit=crop&w=600&q=80"),
+        createItem(107, "Invoice Generator", "tool", "utility", "https://images.unsplash.com/photo-1450101499163-c8848c66ca85?auto=format&fit=crop&w=600&q=80"),
+        createItem(108, "CRM Platform", "saas", "dashboard", "https://images.unsplash.com/photo-1460925895917-afdab827c52f?auto=format&fit=crop&w=600&q=80"),
+        createItem(109, "Photography Folio", "portfolio", "gallery", "https://images.unsplash.com/photo-1452587925049-a6a019868bf7?auto=format&fit=crop&w=600&q=80"),
+        createItem(110, "Sneaker Drop Store", "ecommerce", "retail", "https://images.unsplash.com/photo-1552346154-21d32810aba3?auto=format&fit=crop&w=600&q=80"),
+        createItem(111, "Color Palette Tool", "tool", "design", "https://images.unsplash.com/photo-1502691876148-a84978e59af8?auto=format&fit=crop&w=600&q=80"),
+        createItem(112, "Email Marketing App", "saas", "email", "https://images.unsplash.com/photo-1563986768609-322da13575f3?auto=format&fit=crop&w=600&q=80"),
+        createItem(113, "Dev Developer Folio", "portfolio", "minimal", "https://images.unsplash.com/photo-1507238691126-5d920a518357?auto=format&fit=crop&w=600&q=80"),
+        createItem(114, "Grocery Delivery", "ecommerce", "app", "https://images.unsplash.com/photo-1542838132-92c53300491e?auto=format&fit=crop&w=600&q=80"),
+    ];
+
+    // --- Logic ---
+    const ITEMS_PER_PAGE = 8;
+    
+    class ProjectSection {
+        constructor(sectionId, data) {
+            this.container = document.getElementById(sectionId);
+            this.grid = this.container.querySelector('.pr-grid');
+            this.pagination = this.container.querySelector('.pr-pagination');
+            this.filterBtns = this.container.querySelectorAll('.pr-filter-btn');
+            
+            this.allItems = data;
+            this.filteredItems = data;
+            this.currentPage = 1;
+            
+            this.init();
+        }
+
+        init() {
+            // Filter Click Events
+            this.filterBtns.forEach(btn => {
+                btn.addEventListener('click', (e) => {
+                    this.filterBtns.forEach(b => b.classList.remove('active'));
+                    e.target.classList.add('active');
+                    this.filterData(e.target.dataset.filter);
+                });
+            });
+
+            this.render();
+        }
+
+        filterData(category) {
+            if (category === 'all') {
+                this.filteredItems = this.allItems;
+            } else {
+                this.filteredItems = this.allItems.filter(item => item.category === category);
+            }
+            this.currentPage = 1; // Reset to page 1 on filter change
+            this.render();
+        }
+
+        getPaginatedData() {
+            const start = (this.currentPage - 1) * ITEMS_PER_PAGE;
+            const end = start + ITEMS_PER_PAGE;
+            return this.filteredItems.slice(start, end);
+        }
+
+        render() {
+            // Render Grid
+            const pageData = this.getPaginatedData();
+            
+            if (pageData.length === 0) {
+                this.grid.innerHTML = `<div class="pr-empty-state">No projects found in this category.</div>`;
+            } else {
+                this.grid.innerHTML = pageData.map(item => `
+                    <article class="pr-card">
+                        <div class="pr-image-container">
+                            <img src="${item.image}" alt="${item.title}" class="pr-image">
+                            <!-- Overlay with Button -->
+                            <div class="pr-image-overlay">
+                                <a href="#" class="pr-demo-btn" onclick="alert('Live Demo Preview: ${item.title}'); return false;">
+                                    Live Demo
+                                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="width:14px;height:14px;">
+                                        <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path>
+                                        <polyline points="15 3 21 3 21 9"></polyline>
+                                        <line x1="10" y1="14" x2="21" y2="3"></line>
+                                    </svg>
+                                </a>
+                            </div>
+                        </div>
+                        <div class="pr-card-info">
+                            <h3 class="pr-card-title">${item.title}</h3>
+                            <p class="pr-card-desc">${item.desc}</p>
+                            
+                            <div class="pr-card-footer">
+                                <div class="pr-tags">
+                                    ${item.tags.map(tag => `<span class="pr-tag">${tag}</span>`).join('')}
+                                </div>
+                            </div>
+                        </div>
+                    </article>
+                `).join('');
+            }
+
+            // Render Pagination
+            this.renderPagination();
+        }
+
+        renderPagination() {
+            const totalPages = Math.ceil(this.filteredItems.length / ITEMS_PER_PAGE);
+            
+            if (totalPages <= 1) {
+                this.pagination.innerHTML = '';
+                return;
+            }
+
+            let html = `
+                <button class="pr-page-btn" ${this.currentPage === 1 ? 'disabled' : ''} onclick="window.handlePageChange('${this.container.id}', ${this.currentPage - 1})">
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="15 18 9 12 15 6"></polyline></svg>
+                </button>
+            `;
+
+            for (let i = 1; i <= totalPages; i++) {
+                html += `
+                    <button class="pr-page-btn ${i === this.currentPage ? 'active' : ''}" onclick="window.handlePageChange('${this.container.id}', ${i})">
+                        ${i}
+                    </button>
+                `;
+            }
+
+            html += `
+                <button class="pr-page-btn" ${this.currentPage === totalPages ? 'disabled' : ''} onclick="window.handlePageChange('${this.container.id}', ${this.currentPage + 1})">
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 18 15 12 9 6"></polyline></svg>
+                </button>
+            `;
+
+            this.pagination.innerHTML = html;
+        }
+
+        setPage(page) {
+            this.currentPage = page;
+            this.render();
+            // Smooth scroll to top of section
+            this.container.scrollIntoView({ behavior: 'smooth', block: 'start' });
+        }
+    }
+
+    // Initialize Managers
+    const featuresManager = new ProjectSection('features-section', featuresData);
+    const appsManager = new ProjectSection('apps-section', appsData);
+
+    // Global handler for inline onclicks in HTML string
+    window.handlePageChange = (sectionId, page) => {
+        if (sectionId === 'features-section') featuresManager.setPage(page);
+        if (sectionId === 'apps-section') appsManager.setPage(page);
+    };
+
+</script>
+</html>

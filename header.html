@@ -1,0 +1,274 @@
+<nav class="nav-floating-bar">
+    <a href="#home" class="nav-logo">
+        <img src="images/Screenshot_2025-11-26_112518-removebg-preview.png" alt="Lefa Mofokeng Logo">
+    </a>
+
+    <div class="nav-menu" id="navMenu">
+        <ul class="nav-links">
+            <li><a href="#work" class="nav-link">Projects</a></li>
+            <li><a href="#process" class="nav-link">Pricing</a></li>
+            <li><a href="#articles" class="nav-link">Articles</a></li>
+            <li><a href="#about" class="nav-link">About Me</a></li>
+        </ul>
+        <a href="#contact" class="nav-cta nav-cta-mobile">Work With Me</a>
+    </div>
+
+    <button class="nav-toggle" id="navToggle" aria-label="Toggle navigation menu">
+        <span class="nav-toggle-icon"></span>
+        <span class="nav-toggle-icon"></span>
+        <span class="nav-toggle-icon"></span>
+    </button>
+</nav>
+
+<style>
+    /* =========================================
+       FLOATING HEADER (NAV) - BASE STYLES
+       ========================================= */
+    .nav-floating-bar {
+        position: fixed;
+        top: 24px;
+        left: 50%;
+        transform: translateX(-50%);
+        width: 90%;
+        max-width: 600px;
+        background-color: rgba(255, 255, 255, 0.95); /* Increased opacity slightly */
+        backdrop-filter: blur(16px);
+        -webkit-backdrop-filter: blur(16px);
+        padding: 5px 24px;
+        border-radius: 100px;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        z-index: 1000;
+        border: 1px solid rgba(255,255,255,0.6); /* Slightly firmer border */
+        box-shadow: 0 6px 30px rgba(0,0,0,0.08); /* Stronger shadow */
+        transition: all 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94); /* Smooth overall transition */
+    }
+
+    .nav-logo {
+        /* Existing logo styles */
+        margin-left: -15px;
+        padding: 5px 0; /* Add padding for click area */
+    }
+
+    .nav-logo img {
+        height: 50px;
+        width: auto; /* Fixed width issue */
+    }
+
+    /* --- Desktop Links --- */
+    .nav-links {
+        display: flex;
+        gap: 24px;
+        list-style: none;
+        margin: 0;
+        padding: 0;
+    }
+
+    .nav-link {
+        font-size: 14px;
+        font-weight: 500;
+        color: #555;
+        text-decoration: none;
+        position: relative;
+    }
+    
+    /* Subtle underline reveal on hover */
+    .nav-link::after {
+        content: '';
+        position: absolute;
+        bottom: -5px;
+        left: 0;
+        width: 0;
+        height: 2px;
+        background-color: #000;
+        transition: width 0.3s ease-out;
+    }
+
+    .nav-link:hover::after {
+        width: 100%;
+    }
+
+    .nav-link:hover {
+        color: #000;
+    }
+
+    /* --- Desktop CTA Button --- */
+    .nav-cta {
+        background-color: #1a1a1a;
+        color: #fff;
+        font-size: 13px;
+        font-weight: 600;
+        padding: 12px 18px; /* Slightly tighter padding for better fit */
+        border-radius: 50px;
+        margin-right: -19px;
+        text-decoration: none;
+        transition: all 0.3s ease;
+        box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+    }
+    
+    /* CTA Hover Animation */
+    .nav-cta:hover {
+        background-color: #000;
+        transform: translateY(-2px);
+        box-shadow: 0 6px 12px rgba(0,0,0,0.25);
+    }
+    
+    /* Hide the mobile CTA on desktop */
+    .nav-cta-mobile {
+        display: none;
+    }
+
+    /* Hide the toggle button on desktop */
+    .nav-toggle {
+        display: none;
+    }
+
+    /* =========================================
+       RESPONSIVE & MOBILE STYLES
+       ========================================= */
+
+    @media (max-width: 768px) {
+        /* --- General Mobile Layout --- */
+        .nav-floating-bar {
+            width: 95%;
+            padding: 5px 15px; /* Less horizontal padding */
+            max-width: 95%;
+            top: 15px;
+            border-radius: 10px; /* Squarer look for mobile */
+        }
+        
+        .nav-logo {
+            margin-left: 0; /* Align logo properly */
+        }
+        
+        /* --- Menu Container (Initially hidden) --- */
+        .nav-menu {
+            position: fixed;
+            top: 0;
+            right: 0;
+            width: 100%;
+            height: 100%;
+            background-color: #f1f1f1; /* Light background for the menu overlay */
+            transform: translateX(100%); /* Start off-screen */
+            transition: transform 0.4s ease-in-out;
+            padding: 100px 30px 40px;
+            display: flex;
+            flex-direction: column;
+            align-items: flex-start;
+            z-index: 999; /* Below the floating bar */
+        }
+        
+        /* Class added by JS when menu is open */
+        .nav-menu.active {
+            transform: translateX(0); /* Slide into view */
+            box-shadow: -10px 0 30px rgba(0, 0, 0, 0.1);
+        }
+
+        /* --- Mobile Links --- */
+        .nav-links {
+            flex-direction: column;
+            gap: 20px;
+            width: 100%;
+            margin-bottom: 40px;
+        }
+
+        .nav-link {
+            font-size: 28px; /* Larger text for mobile readability */
+            font-weight: 600;
+            color: #1a1a1a;
+            padding: 10px 0;
+            display: block;
+        }
+        
+        /* Remove desktop underline animation for mobile */
+        .nav-link::after {
+            display: none;
+        }
+        
+        /* Show the mobile CTA */
+        .nav-cta-mobile {
+            display: inline-block;
+            font-size: 16px;
+            padding: 15px 30px;
+            width: auto;
+            margin-right: 0;
+            border-radius: 5px;
+        }
+
+        /* Hide the original desktop CTA/links container */
+        .nav-floating-bar > .nav-cta {
+            display: none;
+        }
+        
+        /* --- Toggle Button (Hamburger) --- */
+        .nav-toggle {
+            display: flex;
+            flex-direction: column;
+            justify-content: space-around;
+            width: 30px;
+            height: 30px;
+            background: none;
+            border: none;
+            cursor: pointer;
+            padding: 0;
+            z-index: 1001; /* Above the menu overlay */
+        }
+
+        .nav-toggle-icon {
+            display: block;
+            width: 100%;
+            height: 3px;
+            background: #1a1a1a;
+            border-radius: 2px;
+            transition: all 0.3s linear;
+            transform-origin: 1px;
+        }
+
+        /* Animated hamburger to 'X' */
+        .nav-toggle.active .nav-toggle-icon:nth-child(1) {
+            transform: rotate(45deg);
+        }
+
+        .nav-toggle.active .nav-toggle-icon:nth-child(2) {
+            opacity: 0;
+            transform: translateX(10px);
+        }
+
+        .nav-toggle.active .nav-toggle-icon:nth-child(3) {
+            transform: rotate(-45deg);
+        }
+    }
+</style>
+
+<script>
+    const navToggle = document.getElementById('navToggle');
+    const navMenu = document.getElementById('navMenu');
+    const navLinks = document.querySelectorAll('.nav-menu a'); // Target all links within the menu
+
+    // 1. Toggle the mobile menu open/close
+    navToggle.addEventListener('click', () => {
+        navMenu.classList.toggle('active');
+        navToggle.classList.toggle('active');
+        // Prevent body scrolling when the menu is open
+        document.body.classList.toggle('no-scroll');
+    });
+
+    // 2. Close the menu when a link is clicked (for single-page navigation)
+    navLinks.forEach(link => {
+        link.addEventListener('click', () => {
+            if (navMenu.classList.contains('active')) {
+                navMenu.classList.remove('active');
+                navToggle.classList.remove('active');
+                document.body.classList.remove('no-scroll');
+            }
+        });
+    });
+</script>
+
+<style>
+    /* Add a utility class to prevent background scrolling on mobile */
+    body.no-scroll {
+        overflow: hidden;
+    }
+</style>

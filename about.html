@@ -1,0 +1,1007 @@
+<div-sv>
+    <style>
+        /* --- Import Inter Tight Font --- */
+        @import url('https://fonts.googleapis.com/css2?family=Inter+Tight:ital,wght@0,300;0,400;0,500;0,600;0,700;1,400&display=swap');
+
+        /* --- Reset & Base Styles --- */
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        /* The main wrapper tag - ensures font and background consistency */
+        div-sv {
+            font-family: 'Inter Tight', sans-serif;
+            background-color: #f1f1f1; /* Very light background */
+            color: #1a1a1a;
+            line-height: 1.5;
+            -webkit-font-smoothing: antialiased;
+            /* No min-height: 100vh here, as it's not the whole page */
+            display: block; 
+        }
+
+        /* --- Main Layout Wrapper --- */
+        .cs-wrapper {
+            width: 100%;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 60px 20px;
+        }
+
+        /* --- Section Header (Used for general section titles) --- */
+        .cs-header {
+            text-align: center;
+            margin-bottom: 60px; /* Slightly less margin than the main page header */
+            padding-top: 20px;
+        }
+
+        .cs-title {
+            font-size: 64px;
+            font-weight: 500;
+            letter-spacing: -1.5px;
+            margin-bottom: 16px;
+            color: #000;
+        }
+
+        .cs-subtitle {
+            font-size: 18px;
+            color: #555;
+            font-weight: 400;
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        /* --- General Content Grid (Reused from Client Stories) --- */
+        .cs-content-grid {
+            display: grid;
+            grid-template-columns: 1fr 1.2fr;
+            gap: 80px;
+            align-items: flex-start;
+        }
+        
+        /* --- Skill/Tech Card Styling (New section, styled like the profile card) --- */
+        .cs-skill-card {
+            background-color: #fff;
+            padding: 32px;
+            /* Matches the clean aesthetic */
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            text-align: center;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.02);
+            height: 100%; /* Important for grid alignment */
+        }
+        
+        .cs-skill-title {
+            font-size: 28px;
+            font-weight: 600;
+            margin-bottom: 15px;
+            letter-spacing: -0.5px;
+            color: #000;
+        }
+        
+        .cs-skill-list {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+
+        .cs-skill-list li {
+            font-size: 17px;
+            color: #666;
+            padding: 6px 0;
+            font-weight: 400;
+        }
+
+        .cs-skill-icon {
+            width: 50px;
+            height: 50px;
+            margin-bottom: 20px;
+            color: #000; /* Main accent color for icons */
+        }
+        
+        /* --- Story Block Styling (Similar to Testimonial Block) --- */
+        .cs-story-block {
+            padding-top: 10px;
+        }
+
+        .cs-story-text {
+            font-size: 38px;
+            line-height: 1.15;
+            font-weight: 500;
+            color: #000;
+            margin-bottom: 32px;
+            letter-spacing: -1px;
+        }
+
+        .cs-story-description {
+            font-size: 17px;
+            line-height: 1.6;
+            color: #666;
+            margin-bottom: 40px;
+        }
+
+        /* --- Callout/Image Card (Left Column) --- */
+        .cs-profile-card {
+            background-color: #fff;
+            padding: 24px 24px 32px 24px;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.02);
+        }
+
+        .cs-profile-image-container {
+            width: 100%;
+            aspect-ratio: 4/3; 
+            overflow: hidden;
+            margin-bottom: 24px;
+            background-color: #eee;
+        }
+
+        .cs-profile-image {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            display: block;
+        }
+
+        .cs-profile-info {
+            text-align: left;
+        }
+
+        .cs-profile-name {
+            font-size: 24px;
+            font-weight: 600;
+            color: #000;
+            margin-bottom: 4px;
+            letter-spacing: -0.5px;
+        }
+
+        .cs-profile-role {
+            font-size: 15px;
+            color: #666;
+            font-weight: 400;
+        }
+
+        /* --- Responsive Styles (Same as 14.html) --- */
+        @media (max-width: 900px) {
+            .cs-content-grid {
+                grid-template-columns: 1fr;
+                gap: 40px;
+            }
+
+            .cs-title {
+                font-size: 48px;
+            }
+
+            .cs-profile-card {
+                max-width: 500px;
+                margin: 0 auto;
+            }
+            
+            .cs-story-text {
+                font-size: 28px;
+            }
+        }
+
+        /* Specific styles for the 3-column skill grid on desktop */
+        .cs-skill-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 30px;
+            margin-bottom: 80px;
+        }
+
+        @media (max-width: 900px) {
+            .cs-skill-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+        
+        @media (max-width: 550px) {
+            .cs-skill-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+    
+    <section class="cs-wrapper">
+
+        <header class="cs-header">
+            <h1 class="cs-title">Hello, I'm Lefa Mofokeng.</h1>
+            <p class="cs-subtitle">A dedicated Web Developer focused on performance, precision, and practical problem-solving.</p>
+        </header>
+
+        <div class="cs-content-grid" style="margin-bottom: 100px;">
+            
+            <article class="cs-profile-card">
+                <div class="cs-profile-image-container">
+                    <img src="https://images.unsplash.com/photo-1542831371-29b0f74f9713?q=80&w=1170&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt="Lefa Mofokeng working at a computer" class="cs-profile-image">
+                </div>
+                <div class="cs-profile-info">
+                    <h3 class="cs-profile-name">Lefa Mofokeng</h3>
+                    <p class="cs-profile-role">Full-Stack Web Developer</p>
+                </div>
+            </article>
+
+            <div class="cs-story-block">
+                <div>
+                    <h2 class="cs-story-text">
+                        The journey from a curious mind to a dedicated developer, driven by the desire to build and innovate.
+                    </h2>
+
+                    <p class="cs-story-description">
+                        My development journey began not just with code, but with a deep curiosity about how digital experiences are truly built. I saw the power of software to solve real-world problems and enhance human connection. This led me to master the fundamentals of web development—from the structure of HTML to the logic of modern JavaScript frameworks.
+                    </p>
+                    
+                    <p class="cs-story-description">
+                        I am constantly seeking the next challenge, always focusing on writing clean, efficient, and scalable code. For me, development isn't just a job; it's a craft where performance and user experience are paramount. I aim to create solutions that are as beautiful under the hood as they are on the screen.
+                    </p>
+                </div>
+            </div>
+        </div>
+        
+        <header class="cs-header">
+            <h2 class="cs-title">My Technical Toolkit</h2>
+            <p class="cs-subtitle">A selection of technologies I use to build robust, modern, and high-performing applications.</p>
+        </header>
+
+        <div class="cs-skill-grid">
+            
+            <article class="cs-skill-card">
+                <svg class="cs-skill-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"></path></svg>
+                <h3 class="cs-skill-title">Frontend Mastery</h3>
+                <ul class="cs-skill-list">
+                    <li>React / Vue.js</li>
+                    <li>HTML5 / CSS3 / SCSS</li>
+                    <li>Tailwind CSS / Bootstrap</li>
+                    <li>Responsive Design</li>
+                </ul>
+            </article>
+            
+            <article class="cs-skill-card">
+                <svg class="cs-skill-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="8" rx="2" ry="2"></rect><rect x="2" y="14" width="20" height="8" rx="2" ry="2"></rect><line x1="6" y1="6" x2="6" y2="6"></line><line x1="6" y1="18" x2="6" y2="18"></line></svg>
+                <h3 class="cs-skill-title">Backend & APIs</h3>
+                <ul class="cs-skill-list">
+                    <li>Node.js / Express.js</li>
+                    <li>Python / Django (or similar)</li>
+                    <li>RESTful API Design</li>
+                    <li>Authentication (JWT, OAuth)</li>
+                </ul>
+            </article>
+
+            <article class="cs-skill-card">
+                <svg class="cs-skill-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2v20M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"></path></svg>
+                <h3 class="cs-skill-title">Database & DevOps</h3>
+                <ul class="cs-skill-list">
+                    <li>PostgreSQL / MongoDB</li>
+                    <li>Git / GitHub / GitLab</li>
+                    <li>Docker (Basics)</li>
+                    <li>Cloud Deployment (Vercel, AWS)</li>
+                </ul>
+            </article>
+        </div>
+
+        <header class="cs-header">
+            <h2 class="cs-title">Why Partner with Lefa?</h2>
+            <p class="cs-subtitle">My commitment goes beyond code—it's about delivering predictable quality and real business value.</p>
+        </header>
+
+        <div class="cs-content-grid" style="grid-template-columns: 1.2fr 1fr;">
+            
+            <div class="cs-story-block">
+                <div>
+                    <h2 class="cs-story-text">
+                        Predictability, performance, and a passion for project success from day one.
+                    </h2>
+
+                    <p class="cs-story-description">
+                        **Focus on Performance:** I don't just build features; I build fast features. I prioritize optimization and clean architecture to ensure your application loads quickly and scales efficiently, providing an excellent user experience.
+                    </p>
+                    
+                    <p class="cs-story-description">
+                        **Reliable Communication:** I believe in clear, proactive communication. You'll always be updated on progress, challenges, and next steps, ensuring we stay aligned with your vision and timelines.
+                    </p>
+                    
+                    <p class="cs-story-description">
+                        **Long-Term Vision:** I code for tomorrow. Every project is built with maintainability in mind, using industry best practices and thorough documentation, making future updates and expansions straightforward.
+                    </p>
+                </div>
+            </div>
+            
+            <article class="cs-profile-card">
+                <div class="cs-profile-image-container">
+                    <img src="https://images.unsplash.com/photo-1556761175-5973dc0f32e7?q=80&w=1000&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt="Clean desk with modern design" class="cs-profile-image">
+                </div>
+                <div class="cs-profile-info">
+                    <h3 class="cs-profile-name">The Lefa Difference</h3>
+                    <p class="cs-profile-role">Committed to Quality & Efficiency</p>
+                </div>
+            </article>
+
+        </div>
+    </section>
+</div-sv>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<!-- Google Fonts Import -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Big+Shoulders+Display:wght@400;500;600;700;800;900&family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
+    
+
+
+<!-- Floating Navigation Bar -->
+<div class="portfolio-floating-nav" id="floatingNav">
+    <div class="floating-nav-container">
+        <a href="projects.html" class="floating-nav-link">Projects</a>
+        <a href="pricing.html" class="floating-nav-link">Pricing</a>
+        <a href="blog.html" class="floating-nav-link">Articles</a>
+        <a href="about.html" class="floating-nav-link">About Me</a>
+    </div>
+
+    <div class="floating-nav-contact">
+        <a href="#contact" class="contact-button">Work With Me</a>
+    </div>
+    
+    <!-- Mobile Menu Button -->
+    <button class="mobile-menu-toggle" id="mobileMenuToggle">
+        <span></span>
+        <span></span>
+        <span></span>
+    </button>
+</div>
+
+<!-- Mobile Menu Overlay -->
+<div class="mobile-menu-overlay" id="mobileMenuOverlay">
+    <div class="mobile-menu-content">
+        <a href="index.html" class="mobile-nav-link">Projects</a>
+        <a href="#portfolio" class="mobile-nav-link">Pricing</a>
+        <a href="#webapps" class="mobile-nav-link">Articles</a>
+        <a href="#about" class="mobile-nav-link">About Me</a>
+        <a href="#contact" class="mobile-contact-button">Work With Me</a>
+    </div>
+</div>
+
+<style>
+* {
+    font-family: 'Inter tight', sans-serif;
+    margin: 0;
+    padding: 0;
+}
+
+/* Floating Navigation Styles */
+.portfolio-floating-nav {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 1000;
+    display: flex;
+    justify-content: center;
+    padding: 12px 20px;
+    transform: translateY(0);
+    transition: transform 0.3s ease, opacity 0.3s ease;
+}
+
+.portfolio-floating-nav.hidden {
+    transform: translateY(-100%);
+    opacity: 0;
+}
+
+.floating-nav-container {
+    background: white;
+    border-radius: 50px;
+    padding: 5px;
+    display: flex;
+    gap: 10px;
+    filter: drop-shadow(0 4px 8px rgba(0, 0, 0, 0.084));
+    max-width:600px;
+    width: 100%;
+    position: relative;
+    backface-visibility: visible;
+}
+
+.floating-nav-link {
+    text-decoration: none;
+    color: #434343;
+    font-weight: 500;
+    font-size: 14px;
+    padding: 11px 16px;
+    border-radius: 50px;
+    position: relative;
+    white-space: nowrap;
+    backface-visibility: visible;
+}
+
+.floating-nav-link:hover {
+    color: #000;
+    background: #e8e8e8;
+}
+
+.floating-nav-contact {
+    position: absolute;
+    right: 467px;
+    top: 50%;
+    transform: translateY(-50%);
+}
+
+.contact-button {
+    background: #000;
+    color: white;
+    text-decoration: none;
+    padding: 12px 20px;
+    border-radius: 25px;
+    font-weight: 600;
+    font-size: 14px;
+    transition: all 0.3s ease;
+    white-space: nowrap;
+}
+
+.contact-button:hover {
+    background: rgb(0, 0, 0);
+    color: #ffffff;
+}
+
+.mobile-menu-toggle {
+    display: none;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 30px;
+    height: 30px;
+    background: black;
+    border: none;
+    cursor: pointer;
+    padding: 0;
+    position: relative;
+    border-radius: 50px;
+}
+
+.mobile-menu-toggle span {
+    width: 20px;
+    height: 2px;
+    background: #fff;
+    position: absolute;
+    left: 5px;
+    transition: 0.3s;
+    transform-origin: center;
+}
+
+.mobile-menu-toggle span:nth-child(1) {
+    top: 10px;
+}
+
+.mobile-menu-toggle span:nth-child(2) {
+    top: 14px;
+}
+
+.mobile-menu-toggle span:nth-child(3) {
+    top: 18px;
+}
+
+/* Perfectly centered X */
+.mobile-menu-toggle.active span:nth-child(1) {
+    transform: rotate(45deg);
+    top: 14px;
+}
+
+.mobile-menu-toggle.active span:nth-child(2) {
+    opacity: 0;
+}
+
+.mobile-menu-toggle.active span:nth-child(3) {
+    transform: rotate(-45deg);
+    top: 14px;
+}
+
+/* Mobile Menu Overlay */
+.mobile-menu-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(255, 255, 255, 0.98);
+    z-index: 999;
+    display: none;
+    align-items: center;
+    justify-content: center;
+}
+
+.mobile-menu-overlay.active {
+    display: flex;
+}
+
+.mobile-menu-content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 20px;
+}
+
+.mobile-nav-link {
+    text-decoration: none;
+    color: #333;
+    font-size: 24px;
+    font-weight: 600;
+    padding: 15px 30px;
+    border-radius: 50px;
+    transition: all 0.3s ease;
+}
+
+.mobile-nav-link.active,
+.mobile-nav-link:hover {
+    background: #000;
+    color: white;
+}
+
+.mobile-contact-button {
+    background: #000;
+    color: white;
+    text-decoration: none;
+    padding: 15px 30px;
+    border-radius: 50px;
+    font-weight: 600;
+    font-size: 18px;
+    margin-top: 20px;
+}
+
+@keyframes draw {
+    to {
+        stroke-dashoffset: 0;
+    }
+}
+
+/* Responsive Design */
+@media (max-width: 1024px) {
+    .hero-container {
+        gap: 60px;
+    }
+    
+    .floating-nav-container {
+        gap: 20px;
+    }
+    
+    .floating-nav-link {
+        padding: 10px 14px;
+        font-size: 13px;
+    }
+}
+
+@media (max-width: 768px) {
+    .portfolio-floating-nav {
+        padding: 10px 15px;
+    }
+    
+    .floating-nav-container {
+        display: none;
+    }
+    
+    .floating-nav-contact {
+        display: none;
+    }
+    
+    .mobile-menu-toggle {
+        display: flex;
+        margin-left: auto;
+    }
+    
+    .hero-container {
+        grid-template-columns: 1fr;
+        gap: 40px;
+        text-align: center;
+    }
+    
+    .hero-content {
+        padding-right: 0;
+        order: 2;
+    }
+    
+    .hero-image {
+        order: 1;
+    }
+    
+    .hero-stats {
+        justify-content: center;
+        text-align: center;
+    }
+    
+    .hero-social-links {
+        justify-content: center;
+    }
+    
+    .hero-actions {
+        justify-content: center;
+    }
+    
+    .btn {
+        width: 100%;
+        max-width: 200px;
+    }
+    
+    .expertise-grid {
+        grid-template-columns: 1fr;
+    }
+    
+    .expertise-card {
+        padding: 25px 20px;
+    }
+}
+
+@media (max-width: 480px) {
+    .portfolio-hero-section {
+        padding: 100px 15px 60px;
+    }
+    
+    .hero-title {
+        font-size: 32px;
+    }
+    
+    .hero-stats {
+        flex-direction: column;
+        align-items: center;
+        gap: 20px;
+    }
+    
+    .stat-item {
+        text-align: center;
+    }
+    
+    .hero-social-links {
+        justify-content: center;
+    }
+    
+    .social-link {
+        padding: 6px 12px;
+        font-size: 12px;
+    }
+    
+    .hero-actions {
+        flex-direction: column;
+        align-items: center;
+    }
+    
+    .btn {
+        width: 100%;
+        max-width: none;
+    }
+    
+    .expertise-section {
+        padding: 60px 15px;
+    }
+}
+
+/* Smooth scrolling for navigation */
+html {
+    scroll-behavior: smooth;
+}
+
+/* Prevent horizontal scroll */
+body {
+    overflow-x: hidden;
+}
+</style>
+
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+    // --- FLOATING NAVIGATION LOGIC ---
+    const floatingNav = document.getElementById('floatingNav');
+    const mobileMenuToggle = document.getElementById('mobileMenuToggle');
+    const mobileMenuOverlay = document.getElementById('mobileMenuOverlay');
+    const mobileNavLinks = document.querySelectorAll('.mobile-nav-link');
+    const navLinks = document.querySelectorAll('.floating-nav-link');
+    let lastScrollY = window.scrollY;
+    let ticking = false;
+
+    function updateHeader() {
+        const currentScrollY = window.scrollY;
+        if (currentScrollY > lastScrollY && currentScrollY > 100) {
+            floatingNav.classList.add('hidden');
+        } else {
+            floatingNav.classList.remove('hidden');
+        }
+        lastScrollY = currentScrollY;
+        ticking = false;
+    }
+
+    window.addEventListener('scroll', () => {
+        if (!ticking) {
+            requestAnimationFrame(updateHeader);
+            ticking = true;
+        }
+    });
+
+    // Mobile Menu
+    function toggleMobileMenu() {
+        mobileMenuToggle.classList.toggle('active');
+        mobileMenuOverlay.classList.toggle('active');
+        document.body.style.overflow = mobileMenuOverlay.classList.contains('active') ? 'hidden' : '';
+    }
+
+    mobileMenuToggle.addEventListener('click', toggleMobileMenu);
+    mobileNavLinks.forEach(link => link.addEventListener('click', () => {
+        mobileMenuToggle.classList.remove('active');
+        mobileMenuOverlay.classList.remove('active');
+        document.body.style.overflow = '';
+    }));
+    mobileMenuOverlay.addEventListener('click', (e) => {
+        if (e.target === mobileMenuOverlay) toggleMobileMenu();
+    });
+
+    // Window resize
+    window.addEventListener('resize', function() {
+        if (window.innerWidth > 768) {
+            mobileMenuToggle.classList.remove('active');
+            mobileMenuOverlay.classList.remove('active');
+            document.body.style.overflow = '';
+        }
+    });
+});
+</script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div-port-ext>
+
+<footer class="ft-section">
+        <div class="ext-wrapper">
+            
+            <div class="ft-content-grid">
+                <div class="ft-brand-col">
+                    <div>
+                        <a href="#" class="ft-logo">YourName.</a>
+                        <p class="ft-tagline">
+                            Building digital experiences that merge clean aesthetics with robust performance.
+                        </p>
+                    </div>
+                </div>
+
+                <div>
+                    <h4 class="ft-col-title">Menu</h4>
+                    <ul class="ft-link-list">
+                        <li class="ft-link-item"><a href="#" class="ft-link">Work</a></li>
+                        <li class="ft-link-item"><a href="#" class="ft-link">Services</a></li>
+                        <li class="ft-link-item"><a href="#" class="ft-link">About</a></li>
+                        <li class="ft-link-item"><a href="#" class="ft-link">Contact</a></li>
+                    </ul>
+                </div>
+
+                <div>
+                    <h4 class="ft-col-title">Socials</h4>
+                    <ul class="ft-link-list">
+                        <li class="ft-link-item"><a href="#" class="ft-link">LinkedIn</a></li>
+                        <li class="ft-link-item"><a href="#" class="ft-link">Twitter / X</a></li>
+                        <li class="ft-link-item"><a href="#" class="ft-link">GitHub</a></li>
+                        <li class="ft-link-item"><a href="#" class="ft-link">Instagram</a></li>
+                    </ul>
+                </div>
+
+                <div>
+                    <h4 class="ft-col-title">Get in Touch</h4>
+                    <ul class="ft-link-list">
+                        <li class="ft-link-item"><a href="mailto:hello@yourname.com" class="ft-link">hello@yourname.com</a></li>
+                        <li class="ft-link-item"><span class="ft-link" style="cursor: default; color: #888;">San Francisco, CA</span></li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="ft-bottom-bar">
+                <span>&copy; 2024 YourName Dev. All Rights Reserved.</span>
+                <span>Designed & Developed in-house.</span>
+            </div>
+
+        </div>
+    </footer>
+</div-port-ext>
+
+    <style>
+
+    div-port-ext {
+        font-family: 'Inter Tight', sans-serif;
+        background-color: #f1f1f1; /* Matching reference bg */
+        color: #1a1a1a;
+        line-height: 1.5;
+        -webkit-font-smoothing: antialiased;
+        display: block;
+        width: 100%;
+    }
+
+     /* --- Shared Utilities based on Reference --- */
+    .ext-wrapper {
+        width: 100%;
+        max-width: 1200px;
+        margin: 0 auto;
+        padding: 60px 20px;
+    }
+
+    .ext-header {
+        text-align: center;
+        margin-bottom: 60px;
+    }
+
+    .ext-title {
+        font-size: 64px;
+        font-weight: 500;
+        letter-spacing: -1.5px;
+        margin-bottom: 16px;
+        color: #000;
+    }
+
+    .ext-subtitle {
+        font-size: 18px;
+        color: #555;
+        font-weight: 400;
+        max-width: 600px;
+        margin: 0 auto;
+    }
+     
+    /* --- Shared Utilities based on Reference --- */
+    .ext-wrapper {
+        width: 100%;
+        max-width: 1200px;
+        margin: 0 auto;
+        padding: 60px 20px;
+    }
+        /* =========================================
+       FOOTER SECTION STYLES
+       ========================================= */
+    .ft-section {
+        background-color: #fff; /* White bg for footer to separate it */
+        border-top: 1px solid #e5e5e5;
+    }
+
+    .ft-content-grid {
+        display: grid;
+        grid-template-columns: 1.5fr 1fr 1fr 1fr;
+        gap: 60px;
+        padding: 80px 0;
+    }
+
+    .ft-brand-col {
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+    }
+
+    .ft-logo {
+        font-size: 24px;
+        font-weight: 600;
+        color: #000;
+        letter-spacing: -1px;
+        text-decoration: none;
+        display: inline-block;
+        margin-bottom: 24px;
+    }
+
+    .ft-tagline {
+        font-size: 16px;
+        color: #666;
+        line-height: 1.5;
+        max-width: 300px;
+    }
+
+    .ft-col-title {
+        font-size: 14px;
+        font-weight: 600;
+        color: #000;
+        text-transform: uppercase;
+        letter-spacing: 0.5px;
+        margin-bottom: 24px;
+    }
+
+    .ft-link-list {
+        list-style: none;
+    }
+
+    .ft-link-item {
+        margin-bottom: 12px;
+    }
+
+    .ft-link {
+        font-size: 16px;
+        color: #555;
+        text-decoration: none;
+        transition: color 0.2s ease;
+    }
+
+    .ft-link:hover {
+        color: #000;
+    }
+
+    .ft-bottom-bar {
+        border-top: 1px solid #eee;
+        padding: 32px 0;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        font-size: 14px;
+        color: #888;
+    }
+
+    /* --- Responsive Styles --- */
+    @media (max-width: 900px) {
+        .ext-title { font-size: 48px; }
+        
+        .ft-content-grid {
+            grid-template-columns: 1fr 1fr;
+            gap: 40px;
+        }
+        
+        .ft-brand-col { grid-column: span 2; margin-bottom: 20px; }
+    }
+
+    @media (max-width: 600px) {
+        .ext-title { font-size: 42px; }
+        .faq-trigger { padding: 24px; }
+        .faq-question { font-size: 18px; }
+        
+        .ft-content-grid { grid-template-columns: 1fr; }
+        .ft-brand-col { grid-column: span 1; }
+        
+        .ft-bottom-bar {
+            flex-direction: column;
+            gap: 16px;
+            text-align: center;
+        }
+    }
+    </style>

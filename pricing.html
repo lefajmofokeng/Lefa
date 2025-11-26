@@ -1,0 +1,913 @@
+
+<!-- Google Fonts Import -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Big+Shoulders+Display:wght@400;500;600;700;800;900&family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
+    
+
+
+<!-- Floating Navigation Bar -->
+<div class="portfolio-floating-nav" id="floatingNav">
+    <div class="floating-nav-container">
+        <a href="projects.html" class="floating-nav-link">Projects</a>
+        <a href="pricing.html" class="floating-nav-link">Pricing</a>
+        <a href="blog.html" class="floating-nav-link">Articles</a>
+        <a href="about.html" class="floating-nav-link">About Me</a>
+    </div>
+
+    <div class="floating-nav-contact">
+        <a href="#contact" class="contact-button">Work With Me</a>
+    </div>
+    
+    <!-- Mobile Menu Button -->
+    <button class="mobile-menu-toggle" id="mobileMenuToggle">
+        <span></span>
+        <span></span>
+        <span></span>
+    </button>
+</div>
+
+<!-- Mobile Menu Overlay -->
+<div class="mobile-menu-overlay" id="mobileMenuOverlay">
+    <div class="mobile-menu-content">
+        <a href="index.html" class="mobile-nav-link">Projects</a>
+        <a href="#portfolio" class="mobile-nav-link">Pricing</a>
+        <a href="#webapps" class="mobile-nav-link">Articles</a>
+        <a href="#about" class="mobile-nav-link">About Me</a>
+        <a href="#contact" class="mobile-contact-button">Work With Me</a>
+    </div>
+</div>
+
+<style>
+* {
+    font-family: 'Inter tight', sans-serif;
+    margin: 0;
+    padding: 0;
+}
+
+/* Floating Navigation Styles */
+.portfolio-floating-nav {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 1000;
+    display: flex;
+    justify-content: center;
+    padding: 12px 20px;
+    transform: translateY(0);
+    transition: transform 0.3s ease, opacity 0.3s ease;
+}
+
+.portfolio-floating-nav.hidden {
+    transform: translateY(-100%);
+    opacity: 0;
+}
+
+.floating-nav-container {
+    background: white;
+    border-radius: 50px;
+    padding: 5px;
+    display: flex;
+    gap: 10px;
+    filter: drop-shadow(0 4px 8px rgba(0, 0, 0, 0.084));
+    max-width:600px;
+    width: 100%;
+    position: relative;
+    backface-visibility: visible;
+}
+
+.floating-nav-link {
+    text-decoration: none;
+    color: #434343;
+    font-weight: 500;
+    font-size: 14px;
+    padding: 11px 16px;
+    border-radius: 50px;
+    position: relative;
+    white-space: nowrap;
+    backface-visibility: visible;
+}
+
+.floating-nav-link:hover {
+    color: #000;
+    background: #e8e8e8;
+}
+
+.floating-nav-contact {
+    position: absolute;
+    right: 467px;
+    top: 50%;
+    transform: translateY(-50%);
+}
+
+.contact-button {
+    background: #000;
+    color: white;
+    text-decoration: none;
+    padding: 12px 20px;
+    border-radius: 25px;
+    font-weight: 600;
+    font-size: 14px;
+    transition: all 0.3s ease;
+    white-space: nowrap;
+}
+
+.contact-button:hover {
+    background: rgb(0, 0, 0);
+    color: #ffffff;
+}
+
+.mobile-menu-toggle {
+    display: none;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 30px;
+    height: 30px;
+    background: black;
+    border: none;
+    cursor: pointer;
+    padding: 0;
+    position: relative;
+    border-radius: 50px;
+}
+
+.mobile-menu-toggle span {
+    width: 20px;
+    height: 2px;
+    background: #fff;
+    position: absolute;
+    left: 5px;
+    transition: 0.3s;
+    transform-origin: center;
+}
+
+.mobile-menu-toggle span:nth-child(1) {
+    top: 10px;
+}
+
+.mobile-menu-toggle span:nth-child(2) {
+    top: 14px;
+}
+
+.mobile-menu-toggle span:nth-child(3) {
+    top: 18px;
+}
+
+/* Perfectly centered X */
+.mobile-menu-toggle.active span:nth-child(1) {
+    transform: rotate(45deg);
+    top: 14px;
+}
+
+.mobile-menu-toggle.active span:nth-child(2) {
+    opacity: 0;
+}
+
+.mobile-menu-toggle.active span:nth-child(3) {
+    transform: rotate(-45deg);
+    top: 14px;
+}
+
+/* Mobile Menu Overlay */
+.mobile-menu-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(255, 255, 255, 0.98);
+    z-index: 999;
+    display: none;
+    align-items: center;
+    justify-content: center;
+}
+
+.mobile-menu-overlay.active {
+    display: flex;
+}
+
+.mobile-menu-content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 20px;
+}
+
+.mobile-nav-link {
+    text-decoration: none;
+    color: #333;
+    font-size: 24px;
+    font-weight: 600;
+    padding: 15px 30px;
+    border-radius: 50px;
+    transition: all 0.3s ease;
+}
+
+.mobile-nav-link.active,
+.mobile-nav-link:hover {
+    background: #000;
+    color: white;
+}
+
+.mobile-contact-button {
+    background: #000;
+    color: white;
+    text-decoration: none;
+    padding: 15px 30px;
+    border-radius: 50px;
+    font-weight: 600;
+    font-size: 18px;
+    margin-top: 20px;
+}
+
+@keyframes draw {
+    to {
+        stroke-dashoffset: 0;
+    }
+}
+
+/* Responsive Design */
+@media (max-width: 1024px) {
+    .hero-container {
+        gap: 60px;
+    }
+    
+    .floating-nav-container {
+        gap: 20px;
+    }
+    
+    .floating-nav-link {
+        padding: 10px 14px;
+        font-size: 13px;
+    }
+}
+
+@media (max-width: 768px) {
+    .portfolio-floating-nav {
+        padding: 10px 15px;
+    }
+    
+    .floating-nav-container {
+        display: none;
+    }
+    
+    .floating-nav-contact {
+        display: none;
+    }
+    
+    .mobile-menu-toggle {
+        display: flex;
+        margin-left: auto;
+    }
+    
+    .hero-container {
+        grid-template-columns: 1fr;
+        gap: 40px;
+        text-align: center;
+    }
+    
+    .hero-content {
+        padding-right: 0;
+        order: 2;
+    }
+    
+    .hero-image {
+        order: 1;
+    }
+    
+    .hero-stats {
+        justify-content: center;
+        text-align: center;
+    }
+    
+    .hero-social-links {
+        justify-content: center;
+    }
+    
+    .hero-actions {
+        justify-content: center;
+    }
+    
+    .btn {
+        width: 100%;
+        max-width: 200px;
+    }
+    
+    .expertise-grid {
+        grid-template-columns: 1fr;
+    }
+    
+    .expertise-card {
+        padding: 25px 20px;
+    }
+}
+
+@media (max-width: 480px) {
+    .portfolio-hero-section {
+        padding: 100px 15px 60px;
+    }
+    
+    .hero-title {
+        font-size: 32px;
+    }
+    
+    .hero-stats {
+        flex-direction: column;
+        align-items: center;
+        gap: 20px;
+    }
+    
+    .stat-item {
+        text-align: center;
+    }
+    
+    .hero-social-links {
+        justify-content: center;
+    }
+    
+    .social-link {
+        padding: 6px 12px;
+        font-size: 12px;
+    }
+    
+    .hero-actions {
+        flex-direction: column;
+        align-items: center;
+    }
+    
+    .btn {
+        width: 100%;
+        max-width: none;
+    }
+    
+    .expertise-section {
+        padding: 60px 15px;
+    }
+}
+
+/* Smooth scrolling for navigation */
+html {
+    scroll-behavior: smooth;
+}
+
+/* Prevent horizontal scroll */
+body {
+    overflow-x: hidden;
+}
+</style>
+
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+    // --- FLOATING NAVIGATION LOGIC ---
+    const floatingNav = document.getElementById('floatingNav');
+    const mobileMenuToggle = document.getElementById('mobileMenuToggle');
+    const mobileMenuOverlay = document.getElementById('mobileMenuOverlay');
+    const mobileNavLinks = document.querySelectorAll('.mobile-nav-link');
+    const navLinks = document.querySelectorAll('.floating-nav-link');
+    let lastScrollY = window.scrollY;
+    let ticking = false;
+
+    function updateHeader() {
+        const currentScrollY = window.scrollY;
+        if (currentScrollY > lastScrollY && currentScrollY > 100) {
+            floatingNav.classList.add('hidden');
+        } else {
+            floatingNav.classList.remove('hidden');
+        }
+        lastScrollY = currentScrollY;
+        ticking = false;
+    }
+
+    window.addEventListener('scroll', () => {
+        if (!ticking) {
+            requestAnimationFrame(updateHeader);
+            ticking = true;
+        }
+    });
+
+    // Mobile Menu
+    function toggleMobileMenu() {
+        mobileMenuToggle.classList.toggle('active');
+        mobileMenuOverlay.classList.toggle('active');
+        document.body.style.overflow = mobileMenuOverlay.classList.contains('active') ? 'hidden' : '';
+    }
+
+    mobileMenuToggle.addEventListener('click', toggleMobileMenu);
+    mobileNavLinks.forEach(link => link.addEventListener('click', () => {
+        mobileMenuToggle.classList.remove('active');
+        mobileMenuOverlay.classList.remove('active');
+        document.body.style.overflow = '';
+    }));
+    mobileMenuOverlay.addEventListener('click', (e) => {
+        if (e.target === mobileMenuOverlay) toggleMobileMenu();
+    });
+
+    // Window resize
+    window.addEventListener('resize', function() {
+        if (window.innerWidth > 768) {
+            mobileMenuToggle.classList.remove('active');
+            mobileMenuOverlay.classList.remove('active');
+            document.body.style.overflow = '';
+        }
+    });
+});
+</script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<link href="https://fonts.googleapis.com/css2?family=Inter+Tight:ital,wght@0,300;0,400;0,500;0,600;0,700;1,400&display=swap" rel="stylesheet">
+
+<style>
+    /* --- Scoped Styles --- */
+    section-pricing {
+        display: block;
+        font-family: 'Inter Tight', sans-serif;
+        background-color: #f1f1f1;
+        color: #1a1a1a;
+        line-height: 1.5;
+        -webkit-font-smoothing: antialiased;
+        padding: 80px 0;
+    }
+
+    section-pricing * {
+        box-sizing: border-box;
+        margin: 0;
+        padding: 0;
+    }
+
+    /* --- Layout Wrapper --- */
+    .pr-wrapper {
+        width: 100%;
+        max-width: 1200px;
+        margin: 0 auto;
+        padding: 0 24px; /* Slightly increased padding for mobile edges */
+    }
+
+    /* --- Header --- */
+    .pr-header {
+        text-align: center;
+        margin-bottom: 80px;
+    }
+
+    .pr-title {
+        font-size: 64px;
+        font-weight: 500;
+        letter-spacing: -1.5px;
+        margin-bottom: 16px;
+        color: #000;
+        line-height: 1.1;
+    }
+
+    .pr-subtitle {
+        font-size: 18px;
+        color: #666;
+        font-weight: 400;
+        max-width: 600px;
+        margin: 0 auto;
+    }
+
+    /* --- Pricing Grid (Desktop Default) --- */
+    .pr-grid {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 24px;
+        margin-bottom: 120px;
+        align-items: stretch; /* Ensures cards are equal height */
+    }
+
+    .pr-card {
+        background-color: #fff;
+        padding: 40px 32px;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        transition: transform 0.3s ease, box-shadow 0.3s ease;
+        height: 100%;
+        border: 1px solid rgba(0,0,0,0.05);
+        /* Flex grow logic to push button to bottom */
+    }
+
+    .pr-card-content {
+        flex-grow: 1; /* Pushes button down */
+    }
+
+    .pr-card:hover {
+        transform: translateY(-5px);
+        box-shadow: 0 20px 40px rgba(0,0,0,0.06);
+    }
+
+    .pr-card.featured {
+        background-color: #1a1a1a;
+        color: #fff;
+        border-color: #1a1a1a;
+        position: relative;
+        transform: scale(1.02); /* Slight pop for desktop */
+        z-index: 2;
+        box-shadow: 0 20px 40px rgba(0,0,0,0.1);
+    }
+
+    .pr-package-name {
+        font-size: 15px;
+        font-weight: 600;
+        text-transform: uppercase;
+        letter-spacing: 1px;
+        color: #666;
+        margin-bottom: 24px;
+    }
+
+    .pr-card.featured .pr-package-name { color: #bbb; }
+
+    .pr-price-block { margin-bottom: 32px; }
+
+    .pr-price {
+        font-size: 48px;
+        font-weight: 500;
+        letter-spacing: -1px;
+        line-height: 1;
+    }
+
+    .pr-period {
+        font-size: 16px;
+        color: #888;
+        font-weight: 400;
+        margin-left: 4px;
+    }
+
+    .pr-desc {
+        font-size: 16px;
+        color: #555;
+        line-height: 1.6;
+        margin-bottom: 32px;
+        min-height: 48px; /* Alignment fix */
+    }
+
+    .pr-card.featured .pr-desc { color: #ccc; }
+
+    .pr-features {
+        list-style: none;
+        margin-bottom: 40px;
+    }
+
+    .pr-feature-item {
+        display: flex;
+        align-items: flex-start;
+        gap: 12px;
+        margin-bottom: 16px;
+        font-size: 15px;
+        color: #333;
+    }
+
+    .pr-card.featured .pr-feature-item { color: #eee; }
+
+    .pr-check-icon {
+        width: 20px;
+        height: 20px;
+        flex-shrink: 0;
+        stroke: #1a1a1a;
+    }
+
+    .pr-card.featured .pr-check-icon { stroke: #fff; }
+
+    .pr-btn {
+        width: 100%;
+        padding: 16px;
+        background-color: #1a1a1a;
+        color: #fff;
+        border: none;
+        font-family: 'Inter Tight', sans-serif;
+        font-weight: 500;
+        font-size: 16px;
+        cursor: pointer;
+        transition: opacity 0.2s ease;
+        text-align: center;
+        text-decoration: none;
+        display: block;
+    }
+
+    .pr-card.featured .pr-btn {
+        background-color: #fff;
+        color: #000;
+    }
+
+    .pr-btn:hover { opacity: 0.9; }
+
+    /* --- "How I Work" Split Section --- */
+    .pr-split-section {
+        display: grid;
+        grid-template-columns: 1fr 1.2fr;
+        gap: 80px;
+        align-items: center;
+        padding-top: 40px;
+        border-top: 1px solid #e5e5e5;
+    }
+
+    .pr-image-wrapper {
+        width: 100%;
+        aspect-ratio: 4/3;
+        background-color: #ddd;
+        overflow: hidden;
+    }
+
+    .pr-image {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+    }
+
+    .pr-section-label {
+        font-size: 14px;
+        color: #666;
+        font-weight: 600;
+        margin-bottom: 24px;
+        display: block;
+        letter-spacing: 0.5px;
+    }
+
+    .pr-headline {
+        font-size: 38px;
+        line-height: 1.15;
+        font-weight: 500;
+        color: #000;
+        margin-bottom: 32px;
+        letter-spacing: -1px;
+    }
+
+    .pr-process-list {
+        display: flex;
+        flex-direction: column;
+        gap: 32px;
+    }
+
+    .pr-process-item h4 {
+        font-size: 20px;
+        font-weight: 600;
+        margin-bottom: 8px;
+        color: #1a1a1a;
+    }
+
+    .pr-process-item p {
+        font-size: 17px;
+        color: #666;
+        line-height: 1.6;
+    }
+
+    /* --- RESPONSIVE MEDIA QUERIES --- */
+
+    /* Tablet Landscape / Small Desktop (max-width: 1024px) */
+    @media (max-width: 1024px) {
+        .pr-title { font-size: 56px; }
+        
+        .pr-grid {
+            gap: 16px; /* Tighter gap */
+        }
+        
+        .pr-card {
+            padding: 32px 20px; /* Slimmer padding inside cards */
+        }
+
+        .pr-split-section {
+            gap: 40px;
+        }
+    }
+
+    /* Tablet Portrait (max-width: 900px) */
+    @media (max-width: 900px) {
+        .pr-grid {
+            /* Switch to single column for readability on tablets */
+            grid-template-columns: 1fr; 
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .pr-card.featured {
+            transform: none; /* Remove scale effect on mobile/tablet */
+            order: -1; /* Move featured card to top if desired, or keep as is */
+        }
+        
+        .pr-split-section {
+            grid-template-columns: 1fr; /* Stack "Why Me" section */
+        }
+
+        .pr-image-wrapper {
+            max-width: 600px;
+            margin: 0 auto;
+        }
+    }
+
+    /* Mobile (max-width: 600px) */
+    @media (max-width: 600px) {
+        section-pricing { padding: 60px 0; }
+        
+        .pr-header { margin-bottom: 48px; }
+        
+        .pr-title {
+            font-size: 42px; /* Prevent header text overflow */
+        }
+        
+        .pr-subtitle { font-size: 16px; }
+
+        .pr-headline {
+            font-size: 28px; /* Smaller headline for readability */
+        }
+
+        .pr-card {
+            padding: 32px 24px;
+        }
+        
+        .pr-price { font-size: 40px; }
+    }
+</style>
+
+<section-pricing>
+    <div class="pr-wrapper">
+        
+        <header class="pr-header">
+            <h2 class="pr-title">Transparent Pricing</h2>
+            <p class="pr-subtitle">Simple packages for businesses of all sizes. No hidden fees, just clean code and high-impact design.</p>
+        </header>
+
+        <div class="pr-grid">
+            
+            <article class="pr-card">
+                <div class="pr-card-content">
+                    <div class="pr-package-name">Starter</div>
+                    <div class="pr-price-block">
+                        <span class="pr-price">$1,500</span>
+                        <span class="pr-period">/ project</span>
+                    </div>
+                    <p class="pr-desc">Perfect for landing pages or small personal portfolios looking for a professional edge.</p>
+                    <ul class="pr-features">
+                        <li class="pr-feature-item">
+                            <svg class="pr-check-icon" viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg>
+                            <span>One-page responsive website</span>
+                        </li>
+                        <li class="pr-feature-item">
+                            <svg class="pr-check-icon" viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg>
+                            <span>SEO best practices</span>
+                        </li>
+                        <li class="pr-feature-item">
+                            <svg class="pr-check-icon" viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg>
+                            <span>Fast loading assets</span>
+                        </li>
+                        <li class="pr-feature-item">
+                            <svg class="pr-check-icon" viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg>
+                            <span>1 week delivery</span>
+                        </li>
+                    </ul>
+                </div>
+                <a href="#contact" class="pr-btn">Select Starter</a>
+            </article>
+
+            <article class="pr-card featured">
+                <div class="pr-card-content">
+                    <div class="pr-package-name">Professional</div>
+                    <div class="pr-price-block">
+                        <span class="pr-price">$3,500</span>
+                        <span class="pr-period">/ project</span>
+                    </div>
+                    <p class="pr-desc">A complete multi-page solution for growing businesses that need specific functionality.</p>
+                    <ul class="pr-features">
+                        <li class="pr-feature-item">
+                            <svg class="pr-check-icon" viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg>
+                            <span>5-page Custom Design</span>
+                        </li>
+                        <li class="pr-feature-item">
+                            <svg class="pr-check-icon" viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg>
+                            <span>CMS Integration (Wordpress/Webflow)</span>
+                        </li>
+                        <li class="pr-feature-item">
+                            <svg class="pr-check-icon" viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg>
+                            <span>Advanced SEO & Analytics</span>
+                        </li>
+                        <li class="pr-feature-item">
+                            <svg class="pr-check-icon" viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg>
+                            <span>Newsletter & Contact Forms</span>
+                        </li>
+                        <li class="pr-feature-item">
+                            <svg class="pr-check-icon" viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg>
+                            <span>2 weeks support</span>
+                        </li>
+                    </ul>
+                </div>
+                <a href="#contact" class="pr-btn">Select Professional</a>
+            </article>
+
+            <article class="pr-card">
+                <div class="pr-card-content">
+                    <div class="pr-package-name">Enterprise</div>
+                    <div class="pr-price-block">
+                        <span class="pr-price">Custom</span>
+                    </div>
+                    <p class="pr-desc">Complex web applications, SaaS products, or large-scale e-commerce solutions.</p>
+                    <ul class="pr-features">
+                        <li class="pr-feature-item">
+                            <svg class="pr-check-icon" viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg>
+                            <span>Full-stack Development (React/Next)</span>
+                        </li>
+                        <li class="pr-feature-item">
+                            <svg class="pr-check-icon" viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg>
+                            <span>Database Design & API Integration</span>
+                        </li>
+                        <li class="pr-feature-item">
+                            <svg class="pr-check-icon" viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg>
+                            <span>User Auth & Payments</span>
+                        </li>
+                        <li class="pr-feature-item">
+                            <svg class="pr-check-icon" viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg>
+                            <span>Priority Support</span>
+                        </li>
+                    </ul>
+                </div>
+                <a href="#contact" class="pr-btn">Contact Sales</a>
+            </article>
+
+        </div>
+
+        <div class="pr-split-section">
+            
+            <div class="pr-image-wrapper">
+                <img src="https://images.unsplash.com/photo-1498050108023-c5249f4df085?q=80&w=2072&auto=format&fit=crop" alt="Clean code on a laptop screen" class="pr-image">
+            </div>
+
+            <div class="pr-content-side">
+                <span class="pr-section-label">HOW I WORK</span>
+                
+                <h3 class="pr-headline">
+                    “I don't just write code; I build systems that help your business scale efficiently.”
+                </h3>
+
+                <div class="pr-process-list">
+                    <div class="pr-process-item">
+                        <h4>1. Strategic Discovery</h4>
+                        <p>We start by identifying your core audience and business goals. I don't touch a line of code until I understand exactly what problem we are solving.</p>
+                    </div>
+                    
+                    <div class="pr-process-item">
+                        <h4>2. Pixel-Perfect Development</h4>
+                        <p>Using modern frameworks and clean architecture, I build responsive, fast-loading interfaces that match the design exactly.</p>
+                    </div>
+
+                    <div class="pr-process-item">
+                        <h4>3. Optimization & Launch</h4>
+                        <p>Before launch, I run rigorous testing on SEO, performance, and accessibility to ensure your site ranks well and converts visitors.</p>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+
+    </div>
+</section-pricing>
