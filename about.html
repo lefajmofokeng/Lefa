@@ -1,3 +1,482 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Portfolio Header</title>
+    <!-- Importing a font similar to Creato Display (Outfit is a great geometric sans-serif match) -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600&display=swap" rel="stylesheet">
+    
+    <style>
+        /* * NAMESPACE PROTECTION
+         * All classes use the 'st-ph-' prefix (Standalone Portfolio Header)
+         * to prevent conflicts with your existing codebase.
+         */
+
+        :root {
+            --st-ph-font: 'Outfit', sans-serif;
+            --st-ph-bg-color: #ffffff;
+            --st-ph-text-primary: #1a1a1a;
+            --st-ph-text-secondary: #555555;
+            --st-ph-accent: #e0e0e0;
+            --st-ph-transition: 0.6s cubic-bezier(0.19, 1, 0.22, 1); /* Expo easing for smooth slide */
+        }
+
+        /* Reset for the header component only */
+        .st-ph-reset, .st-ph-reset * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+            font-family: var(--st-ph-font);
+        }
+
+        /* --- Trigger Button (Hamburger) --- */
+        .st-ph-trigger {
+            position: fixed;
+            top: 30px;
+            left: 30px;
+            z-index: 9998; /* High z-index but below the modal */
+            background: #000;
+            color: #fff;
+            border: none;
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-direction: column;
+            gap: 6px;
+            transition: transform 0.3s ease;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+        }
+
+        .st-ph-trigger:hover {
+            transform: scale(1.1);
+        }
+
+        .st-ph-line {
+            width: 24px;
+            height: 2px;
+            background-color: #fff;
+            transition: 0.3s;
+        }
+
+        /* --- Overlay (The Dark Background) --- */
+        .st-ph-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100vw;
+            height: 100vh;
+            background-color: rgba(0, 0, 0, 0.6);
+            backdrop-filter: blur(8px);
+            z-index: 9999;
+            opacity: 0;
+            visibility: hidden;
+            transition: opacity 0.4s ease, visibility 0.4s ease;
+        }
+
+        .st-ph-overlay.st-ph-active {
+            opacity: 1;
+            visibility: visible;
+        }
+
+        /* --- The Main Menu Card (Drawer Style) --- */
+        .st-ph-modal {
+            position: absolute;
+            top: 0;
+            left: 0;
+            bottom: 0;
+            height: 100vh;
+            /* Mobile Default: Full height, partial width slide-in */
+            width: 85%; 
+            max-width: 400px;
+            background-color: var(--st-ph-bg-color);
+            /* Rounded corners only on the right side for drawer look */
+            border-radius: 0 16px 16px 0; 
+            padding: 2rem 2rem;
+            display: flex;
+            flex-direction: column;
+            
+            /* Animation Setup: Start off-screen left */
+            transform: translateX(-100%);
+            opacity: 0; 
+            transition: var(--st-ph-transition);
+            box-shadow: 10px 0 30px rgba(0,0,0,0.15);
+            
+            overflow-y: auto;
+            /* Hide scrollbar */
+            scrollbar-width: none; 
+            -ms-overflow-style: none;
+        }
+
+        .st-ph-modal::-webkit-scrollbar { 
+            display: none; 
+        }
+
+        /* Animation State: Slide In */
+        .st-ph-overlay.st-ph-active .st-ph-modal {
+            transform: translateX(0);
+            opacity: 1;
+        }
+
+        /* Desktop Override: Wider drawer */
+        @media (min-width: 768px) {
+            .st-ph-modal {
+                width: 500px; 
+                max-width: none;
+                padding: 3rem 2.5rem;
+            }
+        }
+
+        /* --- Close Button --- */
+        .st-ph-close-btn {
+            position: absolute;
+            top: 25px;
+            right: 25px;
+            background: none;
+            border: none;
+            cursor: pointer;
+            width: 40px;
+            height: 40px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: transform 0.3s ease;
+        }
+
+        .st-ph-close-btn:hover {
+            transform: rotate(90deg);
+        }
+
+        .st-ph-close-icon {
+            width: 32px;
+            height: 32px;
+            position: relative;
+        }
+
+        .st-ph-close-icon::before,
+        .st-ph-close-icon::after {
+            content: '';
+            position: absolute;
+            top: 50%;
+            left: 0;
+            width: 100%;
+            height: 2px;
+            background-color: #1a1a1a;
+            transform-origin: center;
+        }
+
+        .st-ph-close-icon::before { transform: rotate(45deg); }
+        .st-ph-close-icon::after { transform: rotate(-45deg); }
+
+
+        /* --- Navigation List --- */
+        .st-ph-nav {
+            margin-top: 2rem;
+            list-style: none;
+        }
+
+        .st-ph-nav-item {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 0.8rem 0;
+            cursor: pointer;
+            transition: color 0.3s ease;
+            group: hover;
+        }
+
+        .st-ph-nav-link {
+            font-size: 2.2rem; /* Large text like image */
+            font-weight: 500;
+            color: var(--st-ph-text-secondary);
+            text-decoration: none;
+            letter-spacing: -0.02em;
+            transition: color 0.3s ease;
+        }
+
+        .st-ph-nav-item:hover .st-ph-nav-link {
+            color: #000;
+        }
+
+        .st-ph-plus {
+            font-size: 1.5rem;
+            color: var(--st-ph-text-secondary);
+            font-weight: 300;
+        }
+
+        /* --- Info Section (Bottom) --- */
+        .st-ph-info-grid {
+            margin-top: auto; /* Push to bottom */
+            padding-top: 3rem;
+            display: grid;
+            grid-template-columns: 80px 1fr;
+            gap: 1.5rem;
+            align-items: start;
+            border-bottom: 1px solid #eee;
+            padding-bottom: 2rem;
+            margin-bottom: 2rem;
+        }
+
+        /* The Big Arrow */
+        .st-ph-big-arrow {
+            width: 50px;
+            height: 50px;
+        }
+        
+        /* SVG Arrow styling */
+        .st-ph-arrow-svg {
+            width: 100%;
+            height: 100%;
+            stroke: #d1d1d1;
+            stroke-width: 2;
+            fill: none;
+        }
+
+        .st-ph-details {
+            display: flex;
+            flex-direction: column;
+            gap: 0.5rem;
+        }
+
+        .st-ph-phone {
+            font-size: 1.1rem;
+            color: #000;
+            font-weight: 500;
+            text-decoration: none;
+            margin-bottom: 0.2rem;
+        }
+
+        .st-ph-address {
+            font-size: 0.95rem;
+            color: #000;
+            line-height: 1.4;
+            max-width: 200px;
+        }
+
+        /* --- Social Footer --- */
+        .st-ph-social {
+            display: flex;
+            gap: 1rem;
+            align-items: center;
+            justify-content: flex-start;
+            flex-wrap: wrap; /* Allow wrapping on very small screens */
+        }
+
+        .st-ph-social-link {
+            color: #000;
+            text-decoration: none;
+            font-size: 0.95rem;
+            font-weight: 400;
+            position: relative;
+        }
+
+        /* The separators | */
+        .st-ph-separator {
+            color: #ccc;
+            font-weight: 300;
+        }
+
+        /* Hover effect for social */
+        .st-ph-social-link::after {
+            content: '';
+            position: absolute;
+            width: 0;
+            height: 1px;
+            bottom: -2px;
+            left: 0;
+            background-color: #000;
+            transition: width 0.3s ease;
+        }
+
+        .st-ph-social-link:hover::after {
+            width: 100%;
+        }
+
+        /* Specific Mobile Adjustments */
+        @media (max-width: 480px) {
+            .st-ph-nav-link {
+                font-size: 1.8rem; /* Slightly smaller text for mobile */
+            }
+            .st-ph-modal {
+                width: 85%; /* Comfortable width */
+                padding: 2rem 1.5rem; /* Less padding */
+            }
+            .st-ph-info-grid {
+                grid-template-columns: 50px 1fr; /* Smaller arrow column */
+                gap: 1rem;
+            }
+            .st-ph-big-arrow {
+                width: 40px;
+                height: 40px;
+            }
+        }
+        
+        /* Demo Background Image for Context */
+        body {
+            
+            background-color: #f1f1f1;
+            margin: 0;
+            min-height: 100vh;
+        }
+    </style>
+</head>
+<body>
+
+    <!-- 1. The Trigger Button -->
+    <button class="st-ph-reset st-ph-trigger" id="stHeaderToggle" aria-label="Open Menu">
+        <span class="st-ph-line"></span>
+        <span class="st-ph-line"></span>
+    </button>
+
+    <!-- 2. The Overlay & Modal Container -->
+    <div class="st-ph-reset st-ph-overlay" id="stHeaderOverlay">
+        
+        <!-- The Menu Card -->
+        <div class="st-ph-modal">
+            
+            <!-- Close Icon -->
+            <button class="st-ph-close-btn" id="stHeaderClose" aria-label="Close Menu">
+                <div class="st-ph-close-icon"></div>
+            </button>
+
+            <!-- Navigation Links -->
+            <ul class="st-ph-nav">
+                <li class="st-ph-nav-item">
+                    <a href="index.html" class="st-ph-nav-link">Home</a>
+                    <span class="st-ph-plus">+</span>
+                </li>
+                <li class="st-ph-nav-item">
+                    <a href="projects.html" class="st-ph-nav-link">Projects</a>
+                    <span class="st-ph-plus">+</span>
+                </li>
+                <li class="st-ph-nav-item">
+                    <a href="pricing.html" class="st-ph-nav-link">Pricing</a>
+                    <span class="st-ph-plus">+</span>
+                </li>
+                <li class="st-ph-nav-item">
+                    <a href="blog.html" class="st-ph-nav-link">Articles</a>
+                    <span class="st-ph-plus">+</span>
+                </li>
+                <li class="st-ph-nav-item">
+                    <a href="about.html" class="st-ph-nav-link">About</a>
+                    <span class="st-ph-plus">+</span>
+                </li>
+            </ul>
+
+            <!-- Info Section (Arrow + Address) -->
+            <div class="st-ph-info-grid">
+                <!-- Large Arrow Graphic (SVG) -->
+                <div class="st-ph-big-arrow">
+                    <svg class="st-ph-arrow-svg" viewBox="0 0 100 100" preserveAspectRatio="none">
+                        <!-- Diagonal down-right arrow composed of two lines -->
+                        <line x1="0" y1="0" x2="100" y2="100" />
+                        <line x1="100" y1="0" x2="100" y2="100" />
+                    </svg>
+                </div>
+
+                <div class="st-ph-details">
+                    <a href="tel:8881234567" class="st-ph-phone">(888) 123 4567</a>
+                    <p class="st-ph-address">
+                        410 Sandtown, California<br>
+                        94001, USA
+                    </p>
+                </div>
+            </div>
+
+            <!-- Social Footer -->
+            <div class="st-ph-social">
+                <a href="#" class="st-ph-social-link">Facebook</a>
+                <span class="st-ph-separator">|</span>
+                <a href="#" class="st-ph-social-link">Instagram</a>
+                <span class="st-ph-separator">|</span>
+                <a href="#" class="st-ph-social-link">Dribbble</a>
+            </div>
+
+        </div>
+    </div>
+
+    <!-- 3. Scripts -->
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const toggleBtn = document.getElementById('stHeaderToggle');
+            const closeBtn = document.getElementById('stHeaderClose');
+            const overlay = document.getElementById('stHeaderOverlay');
+
+            function openMenu() {
+                overlay.classList.add('st-ph-active');
+                // Prevent background scrolling
+                document.body.style.overflow = 'hidden';
+            }
+
+            function closeMenu() {
+                overlay.classList.remove('st-ph-active');
+                // Restore background scrolling
+                document.body.style.overflow = '';
+            }
+
+            // Event Listeners
+            toggleBtn.addEventListener('click', openMenu);
+            closeBtn.addEventListener('click', closeMenu);
+
+            // Close when clicking outside the modal (on the dark overlay)
+            overlay.addEventListener('click', (e) => {
+                if (e.target === overlay) {
+                    closeMenu();
+                }
+            });
+
+            // Close on Escape key
+            document.addEventListener('keydown', (e) => {
+                if (e.key === 'Escape' && overlay.classList.contains('st-ph-active')) {
+                    closeMenu();
+                }
+            });
+        });
+    </script>
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 <div-sv>
     <style>
         /* --- Import Inter Tight Font --- */
@@ -346,425 +825,6 @@
 
 
 
-
-
-
-
-<!-- Google Fonts Import -->
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Big+Shoulders+Display:wght@400;500;600;700;800;900&family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
-    
-
-
-<!-- Floating Navigation Bar -->
-<div class="portfolio-floating-nav" id="floatingNav">
-    <div class="floating-nav-container">
-        <a href="projects.html" class="floating-nav-link">Projects</a>
-        <a href="pricing.html" class="floating-nav-link">Pricing</a>
-        <a href="blog.html" class="floating-nav-link">Articles</a>
-        <a href="about.html" class="floating-nav-link">About Me</a>
-    </div>
-
-    <div class="floating-nav-contact">
-        <a href="#contact" class="contact-button">Work With Me</a>
-    </div>
-    
-    <!-- Mobile Menu Button -->
-    <button class="mobile-menu-toggle" id="mobileMenuToggle">
-        <span></span>
-        <span></span>
-        <span></span>
-    </button>
-</div>
-
-<!-- Mobile Menu Overlay -->
-<div class="mobile-menu-overlay" id="mobileMenuOverlay">
-    <div class="mobile-menu-content">
-        <a href="index.html" class="mobile-nav-link">Projects</a>
-        <a href="#portfolio" class="mobile-nav-link">Pricing</a>
-        <a href="#webapps" class="mobile-nav-link">Articles</a>
-        <a href="#about" class="mobile-nav-link">About Me</a>
-        <a href="#contact" class="mobile-contact-button">Work With Me</a>
-    </div>
-</div>
-
-<style>
-* {
-    font-family: 'Inter tight', sans-serif;
-    margin: 0;
-    padding: 0;
-}
-
-/* Floating Navigation Styles */
-.portfolio-floating-nav {
-    position: fixed;
-    top: 0;
-    left: 0;
-    right: 0;
-    z-index: 1000;
-    display: flex;
-    justify-content: center;
-    padding: 12px 20px;
-    transform: translateY(0);
-    transition: transform 0.3s ease, opacity 0.3s ease;
-}
-
-.portfolio-floating-nav.hidden {
-    transform: translateY(-100%);
-    opacity: 0;
-}
-
-.floating-nav-container {
-    background: white;
-    border-radius: 50px;
-    padding: 5px;
-    display: flex;
-    gap: 10px;
-    filter: drop-shadow(0 4px 8px rgba(0, 0, 0, 0.084));
-    max-width:600px;
-    width: 100%;
-    position: relative;
-    backface-visibility: visible;
-}
-
-.floating-nav-link {
-    text-decoration: none;
-    color: #434343;
-    font-weight: 500;
-    font-size: 14px;
-    padding: 11px 16px;
-    border-radius: 50px;
-    position: relative;
-    white-space: nowrap;
-    backface-visibility: visible;
-}
-
-.floating-nav-link:hover {
-    color: #000;
-    background: #e8e8e8;
-}
-
-.floating-nav-contact {
-    position: absolute;
-    right: 467px;
-    top: 50%;
-    transform: translateY(-50%);
-}
-
-.contact-button {
-    background: #000;
-    color: white;
-    text-decoration: none;
-    padding: 12px 20px;
-    border-radius: 25px;
-    font-weight: 600;
-    font-size: 14px;
-    transition: all 0.3s ease;
-    white-space: nowrap;
-}
-
-.contact-button:hover {
-    background: rgb(0, 0, 0);
-    color: #ffffff;
-}
-
-.mobile-menu-toggle {
-    display: none;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    width: 30px;
-    height: 30px;
-    background: black;
-    border: none;
-    cursor: pointer;
-    padding: 0;
-    position: relative;
-    border-radius: 50px;
-}
-
-.mobile-menu-toggle span {
-    width: 20px;
-    height: 2px;
-    background: #fff;
-    position: absolute;
-    left: 5px;
-    transition: 0.3s;
-    transform-origin: center;
-}
-
-.mobile-menu-toggle span:nth-child(1) {
-    top: 10px;
-}
-
-.mobile-menu-toggle span:nth-child(2) {
-    top: 14px;
-}
-
-.mobile-menu-toggle span:nth-child(3) {
-    top: 18px;
-}
-
-/* Perfectly centered X */
-.mobile-menu-toggle.active span:nth-child(1) {
-    transform: rotate(45deg);
-    top: 14px;
-}
-
-.mobile-menu-toggle.active span:nth-child(2) {
-    opacity: 0;
-}
-
-.mobile-menu-toggle.active span:nth-child(3) {
-    transform: rotate(-45deg);
-    top: 14px;
-}
-
-/* Mobile Menu Overlay */
-.mobile-menu-overlay {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background: rgba(255, 255, 255, 0.98);
-    z-index: 999;
-    display: none;
-    align-items: center;
-    justify-content: center;
-}
-
-.mobile-menu-overlay.active {
-    display: flex;
-}
-
-.mobile-menu-content {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    gap: 20px;
-}
-
-.mobile-nav-link {
-    text-decoration: none;
-    color: #333;
-    font-size: 24px;
-    font-weight: 600;
-    padding: 15px 30px;
-    border-radius: 50px;
-    transition: all 0.3s ease;
-}
-
-.mobile-nav-link.active,
-.mobile-nav-link:hover {
-    background: #000;
-    color: white;
-}
-
-.mobile-contact-button {
-    background: #000;
-    color: white;
-    text-decoration: none;
-    padding: 15px 30px;
-    border-radius: 50px;
-    font-weight: 600;
-    font-size: 18px;
-    margin-top: 20px;
-}
-
-@keyframes draw {
-    to {
-        stroke-dashoffset: 0;
-    }
-}
-
-/* Responsive Design */
-@media (max-width: 1024px) {
-    .hero-container {
-        gap: 60px;
-    }
-    
-    .floating-nav-container {
-        gap: 20px;
-    }
-    
-    .floating-nav-link {
-        padding: 10px 14px;
-        font-size: 13px;
-    }
-}
-
-@media (max-width: 768px) {
-    .portfolio-floating-nav {
-        padding: 10px 15px;
-    }
-    
-    .floating-nav-container {
-        display: none;
-    }
-    
-    .floating-nav-contact {
-        display: none;
-    }
-    
-    .mobile-menu-toggle {
-        display: flex;
-        margin-left: auto;
-    }
-    
-    .hero-container {
-        grid-template-columns: 1fr;
-        gap: 40px;
-        text-align: center;
-    }
-    
-    .hero-content {
-        padding-right: 0;
-        order: 2;
-    }
-    
-    .hero-image {
-        order: 1;
-    }
-    
-    .hero-stats {
-        justify-content: center;
-        text-align: center;
-    }
-    
-    .hero-social-links {
-        justify-content: center;
-    }
-    
-    .hero-actions {
-        justify-content: center;
-    }
-    
-    .btn {
-        width: 100%;
-        max-width: 200px;
-    }
-    
-    .expertise-grid {
-        grid-template-columns: 1fr;
-    }
-    
-    .expertise-card {
-        padding: 25px 20px;
-    }
-}
-
-@media (max-width: 480px) {
-    .portfolio-hero-section {
-        padding: 100px 15px 60px;
-    }
-    
-    .hero-title {
-        font-size: 32px;
-    }
-    
-    .hero-stats {
-        flex-direction: column;
-        align-items: center;
-        gap: 20px;
-    }
-    
-    .stat-item {
-        text-align: center;
-    }
-    
-    .hero-social-links {
-        justify-content: center;
-    }
-    
-    .social-link {
-        padding: 6px 12px;
-        font-size: 12px;
-    }
-    
-    .hero-actions {
-        flex-direction: column;
-        align-items: center;
-    }
-    
-    .btn {
-        width: 100%;
-        max-width: none;
-    }
-    
-    .expertise-section {
-        padding: 60px 15px;
-    }
-}
-
-/* Smooth scrolling for navigation */
-html {
-    scroll-behavior: smooth;
-}
-
-/* Prevent horizontal scroll */
-body {
-    overflow-x: hidden;
-}
-</style>
-
-<script>
-document.addEventListener('DOMContentLoaded', function() {
-    // --- FLOATING NAVIGATION LOGIC ---
-    const floatingNav = document.getElementById('floatingNav');
-    const mobileMenuToggle = document.getElementById('mobileMenuToggle');
-    const mobileMenuOverlay = document.getElementById('mobileMenuOverlay');
-    const mobileNavLinks = document.querySelectorAll('.mobile-nav-link');
-    const navLinks = document.querySelectorAll('.floating-nav-link');
-    let lastScrollY = window.scrollY;
-    let ticking = false;
-
-    function updateHeader() {
-        const currentScrollY = window.scrollY;
-        if (currentScrollY > lastScrollY && currentScrollY > 100) {
-            floatingNav.classList.add('hidden');
-        } else {
-            floatingNav.classList.remove('hidden');
-        }
-        lastScrollY = currentScrollY;
-        ticking = false;
-    }
-
-    window.addEventListener('scroll', () => {
-        if (!ticking) {
-            requestAnimationFrame(updateHeader);
-            ticking = true;
-        }
-    });
-
-    // Mobile Menu
-    function toggleMobileMenu() {
-        mobileMenuToggle.classList.toggle('active');
-        mobileMenuOverlay.classList.toggle('active');
-        document.body.style.overflow = mobileMenuOverlay.classList.contains('active') ? 'hidden' : '';
-    }
-
-    mobileMenuToggle.addEventListener('click', toggleMobileMenu);
-    mobileNavLinks.forEach(link => link.addEventListener('click', () => {
-        mobileMenuToggle.classList.remove('active');
-        mobileMenuOverlay.classList.remove('active');
-        document.body.style.overflow = '';
-    }));
-    mobileMenuOverlay.addEventListener('click', (e) => {
-        if (e.target === mobileMenuOverlay) toggleMobileMenu();
-    });
-
-    // Window resize
-    window.addEventListener('resize', function() {
-        if (window.innerWidth > 768) {
-            mobileMenuToggle.classList.remove('active');
-            mobileMenuOverlay.classList.remove('active');
-            document.body.style.overflow = '';
-        }
-    });
-});
-</script>
 
 
 
