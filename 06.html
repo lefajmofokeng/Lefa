@@ -1,0 +1,374 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Why Choose Us Header</title>
+    
+    <!-- Font: Outfit (Similar to Creato Display) -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+    <style>
+        /* * NAMESPACE: wc- 
+         * All classes use this prefix to prevent conflicts.
+         */
+
+        :root {
+            --wc-font: 'Outfit', sans-serif;
+            --wc-white: #ffffff;
+            --wc-black: #111111;
+            --wc-gray: #666666;
+            --wc-card-radius: 16px;
+            --wc-padding: 4rem;
+        }
+
+        /* Component Reset */
+        body, html {
+            margin: 0;
+            padding: 0;
+            width: 100%;
+            height: 100%;
+            overflow-x: hidden;
+            background-color: #f1f1f1;
+        }
+
+        .wc-wrapper {
+            position: relative;
+            width: 100%;
+            min-height: 100vh;
+            font-family: var(--wc-font);
+            color: var(--wc-white);
+            box-sizing: border-box;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+        }
+
+        .wc-wrapper * {
+            box-sizing: border-box;
+        }
+
+
+        /* --- Header / Top Section --- */
+        .wc-header {
+            padding: 2rem var(--wc-padding) 0;
+            margin-bottom: 3rem;
+            max-width: 1400px;
+            width: 100%;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        /* Logo Area */
+        .wc-logo {
+            margin-bottom: 3rem;
+        }
+        .wc-logo-icon {
+            width: 40px;
+            height: auto;
+            fill: var(--wc-white);
+        }
+
+        .wc-subtitle {
+            font-size: 0.9rem;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            font-weight: 600;
+            margin-bottom: 1rem;
+            color: #000;
+        }
+
+        .wc-title {
+            font-size: 3.5rem;
+            line-height: 1.1;
+            font-weight: 500;
+            max-width: 600px;
+            margin: 0;
+            letter-spacing: -0.02em;
+            color: #000;
+        }
+
+        /* --- Cards Grid --- */
+        .wc-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 2rem;
+            padding: 0 var(--wc-padding) 4rem;
+            max-width: 1400px;
+            width: 100%;
+            margin: 0 auto;
+        }
+
+        /* General Card Styles */
+        .wc-card {
+            border-radius: var(--wc-card-radius);
+            padding: 2rem;
+            display: flex;
+            flex-direction: column;
+            position: relative;
+            min-height: 480px;
+            transition: transform 0.3s ease;
+        }
+
+        .wc-card:hover {
+            transform: translateY(-5px);
+        }
+
+        /* --- Card 1: Stats (Left) --- */
+        .wc-card-stats {
+           
+            justify-content: space-between;
+            overflow: hidden;
+        }
+
+        /* Image inside stats card to match reference style */
+        .wc-stats-bg-img {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            z-index: 0;
+            
+        }
+
+        .wc-stats-content {
+            position: relative;
+            z-index: 1;
+        }
+
+        .wc-stat-header {
+            display: flex;
+            gap: 1rem;
+            margin-bottom: 2rem;
+        }
+
+        .wc-stat-icon {
+            width: 24px;
+            height: 24px;
+            fill: var(--wc-white);
+        }
+
+        .wc-stat-text {
+            font-size: 1.2rem;
+            line-height: 1.3;
+            font-weight: 500;
+        }
+
+        .wc-stat-big {
+            font-size: 5rem;
+            font-weight: 500;
+            line-height: 1;
+            margin-bottom: 0.5rem;
+            letter-spacing: -0.03em;
+        }
+
+        .wc-stat-label {
+            font-size: 1.1rem;
+            opacity: 0.9;
+            font-weight: 400;
+        }
+
+        /* --- Cards 2 & 3: White Cards --- */
+        .wc-card-white {
+            background-color: var(--wc-white);
+            color: var(--wc-black);
+        }
+
+        .wc-card-header {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .wc-icon-box {
+            width: 24px;
+            height: 24px;
+        }
+        
+        .wc-card-title {
+            font-size: 1.25rem;
+            font-weight: 500;
+        }
+
+        .wc-card-image-container {
+            width: 100%;
+            height: 220px;
+            border-radius: 12px;
+            overflow: hidden;
+            margin-bottom: 1.5rem;
+        }
+
+        .wc-card-img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.5s ease;
+        }
+
+        .wc-card-desc {
+            font-size: 0.95rem;
+            line-height: 1.5;
+            color: var(--wc-gray);
+            margin-bottom: auto;
+        }
+
+        /* Arrow Button */
+        .wc-btn-circle {
+            width: 40px;
+            height: 40px;
+            background-color: #1a1a1a;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-top: 1.5rem;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+
+        .wc-btn-circle:hover {
+            background-color: #000;
+        }
+
+        .wc-arrow-icon {
+            width: 12px;
+            height: 12px;
+            fill: none;
+            stroke: white;
+            stroke-width: 2;
+        }
+
+        /* --- Responsive --- */
+        @media (max-width: 1024px) {
+            .wc-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+            .wc-card-stats {
+                grid-column: span 2;
+            }
+            .wc-title {
+                font-size: 2.5rem;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .wc-grid {
+                grid-template-columns: 1fr;
+                padding: 0 1.5rem 4rem;
+            }
+            .wc-card-stats {
+                grid-column: span 1;
+                min-height: 300px;
+            }
+            .wc-card {
+                min-height: auto;
+            }
+            .wc-header {
+                padding: 2rem 1.5rem 0;
+            }
+            .wc-title {
+                font-size: 2rem;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="wc-wrapper">
+
+        <!-- Header Content -->
+        <header class="wc-header">
+            <!-- Simple 'b' logo placeholder SVG -->
+            <div class="wc-logo">
+                <svg class="wc-logo-icon" viewBox="0 0 50 60">
+                    <path d="M10,0 L10,60 L40,60 C50,60 50,45 40,40 C35,38 35,38 40,35 C50,30 50,15 40,15 Z" fill="currentColor"/>
+                </svg>
+            </div>
+
+            <div class="wc-subtitle">WHY CHOOSE US</div>
+            <h1 class="wc-title">The role of user experience in modern design</h1>
+        </header>
+
+        <!-- Grid Cards -->
+        <div class="wc-grid">
+            
+            <!-- 1. Stats Card (Left) -->
+            <div class="wc-card wc-card-stats">
+                <img src="https://images.unsplash.com/photo-1556761175-5973dc0f32e7?q=80&w=2664&auto=format&fit=crop" class="wc-stats-bg-img" alt="Background">
+                
+                <div class="wc-stats-content wc-stat-header">
+                    <!-- Flag Icon -->
+                    <svg class="wc-stat-icon" viewBox="0 0 24 24">
+                        <path d="M4 2v18h2v-8h14l-4-5 4-5H6z" fill="currentColor"/>
+                    </svg>
+                    <span class="wc-stat-text">Our creative impact<br>gets recognized</span>
+                </div>
+
+                <div class="wc-stats-content">
+                    <div class="wc-stat-big">95%</div>
+                    <div class="wc-stat-label">Customer satisfaction rate</div>
+                </div>
+            </div>
+
+            <!-- 2. Web & Digital Design (Middle) -->
+            <div class="wc-card wc-card-white">
+                <div class="wc-card-header">
+                    <!-- Layers Icon -->
+                    <svg class="wc-icon-box" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"/>
+                    </svg>
+                    <span class="wc-card-title">Web & digital design</span>
+                </div>
+
+                <div class="wc-card-image-container">
+                    <img src="https://images.unsplash.com/photo-1550684848-fac1c5b4e853?q=80&w=2070&auto=format&fit=crop" class="wc-card-img" alt="Web Design">
+                </div>
+
+                <p class="wc-card-desc">
+                    Lorem ipsum dolor sit amet consectetur platea aliquet sapien sed quisque.
+                </p>
+
+                <div class="wc-btn-circle">
+                    <svg class="wc-arrow-icon" viewBox="0 0 24 24">
+                        <path d="M7 17L17 7M17 7H7M17 7V17" />
+                    </svg>
+                </div>
+            </div>
+
+            <!-- 3. Branding & Identity (Right) -->
+            <div class="wc-card wc-card-white">
+                <div class="wc-card-header">
+                    <!-- Box/Cube Icon -->
+                    <svg class="wc-icon-box" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"></path>
+                        <polyline points="3.27 6.96 12 12.01 20.73 6.96"></polyline>
+                        <line x1="12" y1="22.08" x2="12" y2="12"></line>
+                    </svg>
+                    <span class="wc-card-title">Branding & identity</span>
+                </div>
+
+                <div class="wc-card-image-container">
+                    <img src="https://images.unsplash.com/photo-1634152962476-4b8a00e1915c?q=80&w=2788&auto=format&fit=crop" class="wc-card-img" alt="Branding">
+                </div>
+
+                <p class="wc-card-desc">
+                    Lorem ipsum dolor sit amet consectetur platea aliquet sapien sed quisque.
+                </p>
+
+                <div class="wc-btn-circle">
+                    <svg class="wc-arrow-icon" viewBox="0 0 24 24">
+                        <path d="M7 17L17 7M17 7H7M17 7V17" />
+                    </svg>
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+</body>
+</html>

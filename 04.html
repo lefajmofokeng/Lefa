@@ -3,356 +3,442 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Digital Designer</title>
-    <link href="https://fonts.googleapis.com/css2?family=Creato+Display:wght@400;500;700&display=swap" rel="stylesheet">
+    <title>Portfolio Header</title>
+    <!-- Importing a font similar to Creato Display (Outfit is a great geometric sans-serif match) -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600&display=swap" rel="stylesheet">
+    
     <style>
-        /* Global Reset with unique prefix 'gs' (General Section) */
-        .gs-body * {
+        /* * NAMESPACE PROTECTION
+         * All classes use the 'st-ph-' prefix (Standalone Portfolio Header)
+         * to prevent conflicts with your existing codebase.
+         */
+
+        :root {
+            --st-ph-font: 'Outfit', sans-serif;
+            --st-ph-bg-color: #ffffff;
+            --st-ph-text-primary: #1a1a1a;
+            --st-ph-text-secondary: #555555;
+            --st-ph-accent: #e0e0e0;
+            --st-ph-transition: 0.6s cubic-bezier(0.19, 1, 0.22, 1); /* Expo easing for smooth slide */
+        }
+
+        /* Reset for the header component only */
+        .st-ph-reset, .st-ph-reset * {
+            box-sizing: border-box;
             margin: 0;
             padding: 0;
-            box-sizing: border-box;
+            font-family: var(--st-ph-font);
         }
 
-        .gs-body {
-            font-family: 'Creato Display', sans-serif;
-            background-color: #e8e8e8;
-            overflow-x: hidden;
-            min-height: 100vh;
-        }
-
-        /* --- Hero Section Styling (Highly Responsive) --- */
-
-        .gs-hero-section {
-            min-height: 90vh; /* Adjusted to allow space for content above/below */
+        /* --- Trigger Button (Hamburger) --- */
+        .st-ph-trigger {
+            position: fixed;
+            top: 30px;
+            left: 30px;
+            z-index: 9998; /* High z-index but below the modal */
+            background: #000;
+            color: #fff;
+            border: none;
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            cursor: pointer;
             display: flex;
             align-items: center;
             justify-content: center;
-            padding: 40px 20px;
+            flex-direction: column;
+            gap: 6px;
+            transition: transform 0.3s ease;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.1);
         }
 
-        .gs-hero-container {
-            max-width: 1400px;
-            width: 100%;
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 60px;
-            align-items: flex-start; /* Align content to the top */
+        .st-ph-trigger:hover {
+            transform: scale(1.1);
         }
 
-        .gs-hero-left {
+        .st-ph-line {
+            width: 24px;
+            height: 2px;
+            background-color: #fff;
+            transition: 0.3s;
+        }
+
+        /* --- Overlay (The Dark Background) --- */
+        .st-ph-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100vw;
+            height: 100vh;
+            background-color: rgba(0, 0, 0, 0.6);
+            backdrop-filter: blur(8px);
+            z-index: 9999;
+            opacity: 0;
+            visibility: hidden;
+            transition: opacity 0.4s ease, visibility 0.4s ease;
+        }
+
+        .st-ph-overlay.st-ph-active {
+            opacity: 1;
+            visibility: visible;
+        }
+
+        /* --- The Main Menu Card (Drawer Style) --- */
+        .st-ph-modal {
+            position: absolute;
+            top: 0;
+            left: 0;
+            bottom: 0;
+            height: 100vh;
+            /* Mobile Default: Full height, partial width slide-in */
+            width: 85%; 
+            max-width: 400px;
+            background-color: var(--st-ph-bg-color);
+            /* Rounded corners only on the right side for drawer look */
+            border-radius: 0 16px 16px 0; 
+            padding: 2rem 2rem;
             display: flex;
             flex-direction: column;
-            gap: 10px; /* Reduced gap between title and subtitle */
-        }
-
-        .gs-hero-title {
-            /* Title: Digital (Black, Bold) */
-            font-size: clamp(80px, 12vw, 150px);
-            font-weight: 700;
-            line-height: 0.9;
-            color: #000000;
-            letter-spacing: -0.02em;
-            display: block; /* Ensure it takes full width */
-        }
-
-        .gs-hero-subtitle {
-            /* Subtitle: Designer (Grey, Light) */
-            font-size: clamp(80px, 12vw, 150px);
-            font-weight: 400; /* Adjusted to 400 for a lighter look */
-            line-height: 0.9;
-            color: #8a8a8a;
-            letter-spacing: -0.02em;
-            position: relative;
-            display: block;
-        }
-
-        .gs-copyright-symbol {
-            /* Styled to match the image's small grey circle */
-            display: inline-flex;
-            align-items: center;
-            justify-content: center;
-            width: 0.1em; /* Adjusted size */
-            height: 0.1em; /* Adjusted size */
-            padding: 0.3em;
-            border: 0.08em solid #8a8a8a;
-            border-radius: 50%;
-            font-size: 0.4em; /* Size of the 'c' inside */
-            margin-left: 0.1em;
-            vertical-align: middle;
-            position: relative;
-            top: -0.15em;
-        }
-
-        .gs-hero-right {
-            display: flex;
-            flex-direction: column;
-            gap: 40px;
-            padding-top: 20px; /* Aligns description/links with the top of the title */
-            align-items: flex-start;
-        }
-
-        .gs-hero-description {
-            font-size: clamp(18px, 1.5vw, 24px);
-            line-height: 1.5;
-            color: #000000;
-            font-weight: 400;
-            max-width: 350px;
-        }
-
-        .gs-social-links {
-            display: flex;
-            gap: 15px; /* Reduced gap slightly */
-        }
-
-        .gs-social-link {
-            width: 45px; /* Reduced size slightly */
-            height: 45px; /* Reduced size slightly */
-            background-color: #000000;
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            color: #ffffff;
-            text-decoration: none;
-            transition: all 0.3s ease;
-            font-size: 18px;
-        }
-
-        .gs-social-link:hover {
-            background-color: #333333;
-            transform: scale(1.05);
-        }
-
-        .gs-social-link svg {
-            width: 22px;
-            height: 22px;
-            fill: currentColor;
-        }
-
-        /* --- Footer Section Styling (New Layout) --- */
-
-        .gs-footer-section {
-            background-color: #e8e8e8;
-            padding: 40px 20px;
-        }
-
-        .gs-footer-container {
-            max-width: 1400px;
-            width: 100%;
-            margin: 0 auto;
-            display: flex;
-            justify-content: space-between; /* Space out links and copyright */
-            align-items: center;
-            flex-wrap: wrap; /* Allow wrapping on small screens */
-            gap: 20px; /* Gap when wrapping */
-        }
-
-        .gs-footer-links-nav {
-            display: flex;
-            gap: 40px; /* Adjusted link spacing */
-            flex-wrap: wrap;
-            order: 1; /* Links first */
-        }
-
-        .gs-footer-link {
-            color: #000000;
-            text-decoration: none;
-            font-size: 18px;
-            font-weight: 500;
-            transition: color 0.3s ease;
-            display: inline-block;
-        }
-
-        .gs-footer-link:hover {
-            color: #666666;
-        }
-
-        .gs-footer-copyright-text {
-            color: #8a8a8a;
-            font-size: 16px;
-            font-weight: 400;
-            order: 2; /* Copyright second */
-            margin-left: auto; /* Push to the right */
-        }
-
-        /* --- Media Queries for Perfect Responsiveness --- */
-
-        @media (max-width: 1200px) {
-            .gs-hero-container {
-                gap: 40px;
-            }
-        }
-
-        @media (max-width: 1024px) {
-            .gs-hero-section {
-                min-height: 80vh;
-            }
-
-            .gs-hero-container {
-                grid-template-columns: 1fr; /* Stack on mobile/tablet */
-                gap: 40px;
-            }
-
-            .gs-hero-left {
-                order: 2; /* Move title below description */
-                margin-top: 20px;
-            }
-
-            .gs-hero-right {
-                order: 1; /* Move description/links to the top */
-                padding-top: 0;
-            }
-
-            .gs-hero-title, .gs-hero-subtitle {
-                 font-size: clamp(60px, 15vw, 100px);
-            }
-        }
-
-        @media (max-width: 768px) {
-            .gs-hero-section {
-                padding: 20px;
-                min-height: 70vh;
-            }
             
-            .gs-footer-container {
-                flex-direction: column;
-                align-items: flex-start; /* Align everything to the left */
-            }
+            /* Animation Setup: Start off-screen left */
+            transform: translateX(-100%);
+            opacity: 0; 
+            transition: var(--st-ph-transition);
+            box-shadow: 10px 0 30px rgba(0,0,0,0.15);
+            
+            overflow-y: auto;
+            /* Hide scrollbar */
+            scrollbar-width: none; 
+            -ms-overflow-style: none;
+        }
 
-            .gs-footer-links-nav {
-                width: 100%;
-                gap: 20px;
-                margin-bottom: 15px;
-            }
+        .st-ph-modal::-webkit-scrollbar { 
+            display: none; 
+        }
 
-            .gs-footer-copyright-text {
-                margin-left: 0; /* Remove auto margin */
-                width: 100%;
-            }
+        /* Animation State: Slide In */
+        .st-ph-overlay.st-ph-active .st-ph-modal {
+            transform: translateX(0);
+            opacity: 1;
+        }
 
-            .gs-hero-description {
-                max-width: 100%;
+        /* Desktop Override: Wider drawer */
+        @media (min-width: 768px) {
+            .st-ph-modal {
+                width: 500px; 
+                max-width: none;
+                padding: 3rem 2.5rem;
             }
+        }
 
-            .gs-social-link {
+        /* --- Close Button --- */
+        .st-ph-close-btn {
+            position: absolute;
+            top: 25px;
+            right: 25px;
+            background: none;
+            border: none;
+            cursor: pointer;
+            width: 40px;
+            height: 40px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: transform 0.3s ease;
+        }
+
+        .st-ph-close-btn:hover {
+            transform: rotate(90deg);
+        }
+
+        .st-ph-close-icon {
+            width: 32px;
+            height: 32px;
+            position: relative;
+        }
+
+        .st-ph-close-icon::before,
+        .st-ph-close-icon::after {
+            content: '';
+            position: absolute;
+            top: 50%;
+            left: 0;
+            width: 100%;
+            height: 2px;
+            background-color: #1a1a1a;
+            transform-origin: center;
+        }
+
+        .st-ph-close-icon::before { transform: rotate(45deg); }
+        .st-ph-close-icon::after { transform: rotate(-45deg); }
+
+
+        /* --- Navigation List --- */
+        .st-ph-nav {
+            margin-top: 2rem;
+            list-style: none;
+        }
+
+        .st-ph-nav-item {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 0.8rem 0;
+            cursor: pointer;
+            transition: color 0.3s ease;
+            group: hover;
+        }
+
+        .st-ph-nav-link {
+            font-size: 2.2rem; /* Large text like image */
+            font-weight: 500;
+            color: var(--st-ph-text-secondary);
+            text-decoration: none;
+            letter-spacing: -0.02em;
+            transition: color 0.3s ease;
+        }
+
+        .st-ph-nav-item:hover .st-ph-nav-link {
+            color: #000;
+        }
+
+        .st-ph-plus {
+            font-size: 1.5rem;
+            color: var(--st-ph-text-secondary);
+            font-weight: 300;
+        }
+
+        /* --- Info Section (Bottom) --- */
+        .st-ph-info-grid {
+            margin-top: auto; /* Push to bottom */
+            padding-top: 3rem;
+            display: grid;
+            grid-template-columns: 80px 1fr;
+            gap: 1.5rem;
+            align-items: start;
+            border-bottom: 1px solid #eee;
+            padding-bottom: 2rem;
+            margin-bottom: 2rem;
+        }
+
+        /* The Big Arrow */
+        .st-ph-big-arrow {
+            width: 50px;
+            height: 50px;
+        }
+        
+        /* SVG Arrow styling */
+        .st-ph-arrow-svg {
+            width: 100%;
+            height: 100%;
+            stroke: #d1d1d1;
+            stroke-width: 2;
+            fill: none;
+        }
+
+        .st-ph-details {
+            display: flex;
+            flex-direction: column;
+            gap: 0.5rem;
+        }
+
+        .st-ph-phone {
+            font-size: 1.1rem;
+            color: #000;
+            font-weight: 500;
+            text-decoration: none;
+            margin-bottom: 0.2rem;
+        }
+
+        .st-ph-address {
+            font-size: 0.95rem;
+            color: #000;
+            line-height: 1.4;
+            max-width: 200px;
+        }
+
+        /* --- Social Footer --- */
+        .st-ph-social {
+            display: flex;
+            gap: 1rem;
+            align-items: center;
+            justify-content: flex-start;
+            flex-wrap: wrap; /* Allow wrapping on very small screens */
+        }
+
+        .st-ph-social-link {
+            color: #000;
+            text-decoration: none;
+            font-size: 0.95rem;
+            font-weight: 400;
+            position: relative;
+        }
+
+        /* The separators | */
+        .st-ph-separator {
+            color: #ccc;
+            font-weight: 300;
+        }
+
+        /* Hover effect for social */
+        .st-ph-social-link::after {
+            content: '';
+            position: absolute;
+            width: 0;
+            height: 1px;
+            bottom: -2px;
+            left: 0;
+            background-color: #000;
+            transition: width 0.3s ease;
+        }
+
+        .st-ph-social-link:hover::after {
+            width: 100%;
+        }
+
+        /* Specific Mobile Adjustments */
+        @media (max-width: 480px) {
+            .st-ph-nav-link {
+                font-size: 1.8rem; /* Slightly smaller text for mobile */
+            }
+            .st-ph-modal {
+                width: 85%; /* Comfortable width */
+                padding: 2rem 1.5rem; /* Less padding */
+            }
+            .st-ph-info-grid {
+                grid-template-columns: 50px 1fr; /* Smaller arrow column */
+                gap: 1rem;
+            }
+            .st-ph-big-arrow {
                 width: 40px;
                 height: 40px;
             }
         }
-
-        @media (max-width: 480px) {
-            .gs-hero-section {
-                padding: 15px;
-            }
-
-            .gs-hero-title, .gs-hero-subtitle {
-                font-size: clamp(40px, 18vw, 70px);
-            }
-
-            .gs-social-links {
-                gap: 10px;
-            }
-
-            .gs-social-link {
-                width: 35px;
-                height: 35px;
-            }
-
-            .gs-footer-link {
-                font-size: 15px;
-            }
+        
+        /* Demo Background Image for Context */
+        body {
+            background-image: url('https://images.unsplash.com/photo-1492551557933-34265f7af79e?q=80&w=2070&auto=format&fit=crop');
+            background-size: cover;
+            background-position: center;
+            margin: 0;
+            min-height: 100vh;
         }
     </style>
 </head>
-<body class="gs-body">
-    <section class="gs-hero-section">
-        <div class="gs-hero-container">
-            <div class="gs-hero-right">
-                <p class="gs-hero-description">
-                    — Designing thoughtful products and striking visuals that make digital unforgettable.
-                </p>
-                
-                <nav class="gs-social-links" aria-label="Social media links">
-                    <a href="https://twitter.com" class="gs-social-link" aria-label="X (Twitter)" target="_blank" rel="noopener">
-                        <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg>
-                    </a>
-                    <a href="https://instagram.com" class="gs-social-link" aria-label="Instagram" target="_blank" rel="noopener">
-                        <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zM18.406 5.595c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/></svg>
-                    </a>
-                    <a href="https://dribbble.com" class="gs-social-link" aria-label="Dribbble" target="_blank" rel="noopener">
-                        <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M12 0c-6.628 0-12 5.373-12 12s5.372 12 12 12 12-5.373 12-12-5.372-12-12-12zm9.885 11.441c-2.575-.422-4.943-.445-7.103-.073-.244-.563-.497-1.125-.767-1.68 2.31-1 4.165-2.358 5.548-4.082 1.35 1.594 2.197 3.619 2.322 5.835zm-3.842-7.282c-1.205 1.554-2.868 2.783-4.986 3.68-1.016-1.861-2.178-3.676-3.488-5.438.779-.197 1.591-.314 2.431-.314 2.275 0 4.368.779 6.043 2.072zm-10.516-.993c1.331 1.742 2.511 3.538 3.537 5.381-2.43.715-5.331 1.082-8.684 1.105.692-2.835 2.601-5.193 5.147-6.486zm-5.44 8.834l.013-.256c3.849-.005 7.169-.448 9.95-1.322.233.475.456.952.67 1.432-3.38 1.057-6.165 3.222-8.337 6.48-1.432-1.719-2.296-3.927-2.296-6.334zm3.829 7.81c1.969-3.088 4.482-5.098 7.598-6.027.928 2.42 1.609 4.91 2.043 7.46-3.349 1.291-7.21.872-10.381-1.433h.74zm11.647.72c-.455-2.066-1.079-4.075-1.874-6.026 1.86-.276 3.9-.184 6.113.278-.251 2.787-1.638 5.249-3.742 6.901l-.497-1.153z"/></svg>
-                    </a>
-                    <a href="https://behance.net" class="gs-social-link" aria-label="Behance" target="_blank" rel="noopener">
-                        <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M22 7h-7v-2h7v2zm1.726 10c-.442 1.297-2.029 3-5.101 3-3.074 0-5.564-1.729-5.564-5.675 0-3.91 2.325-5.92 5.466-5.92 3.082 0 4.964 1.782 5.375 4.426.078.506.109 1.188.095 2.14h-8.027c.13 3.211 3.483 3.312 4.588 2.029h3.168zm-7.686-4h4.965c-.105-1.547-1.136-2.219-2.477-2.219-1.466 0-2.277.768-2.488 2.219zm-9.574 6.988h-6.466v-14.967h6.953c5.476.081 5.58 5.444 2.72 6.906 3.461 1.26 3.577 8.061-3.207 8.061zm-3.466-8.988h3.584c2.508 0 2.906-3-.312-3h-3.272v3zm3.391 3h-3.391v3.016h3.341c3.055 0 2.868-3.016.05-3.016z"/></svg>
-                    </a>
-                </nav>
-            </div>
+<body>
 
-            <div class="gs-hero-left">
-                <h1 class="gs-hero-title">Digital</h1>
-                <h2 class="gs-hero-subtitle">Designer<span class="gs-copyright-symbol">c</span></h2>
-            </div>
-        </div>
-    </section>
+    <!-- 1. The Trigger Button -->
+    <button class="st-ph-reset st-ph-trigger" id="stHeaderToggle" aria-label="Open Menu">
+        <span class="st-ph-line"></span>
+        <span class="st-ph-line"></span>
+    </button>
 
-    <footer class="gs-footer-section">
-        <div class="gs-footer-container">
-            <nav class="gs-footer-links-nav" aria-label="Footer navigation">
-                <a href="#about" class="gs-footer-link">About</a>
-                <a href="#projects" class="gs-footer-link">Projects</a>
-                <a href="#pricing" class="gs-footer-link">Pricing</a>
-                <a href="#services" class="gs-footer-link">Services</a>
-                <a href="#contact" class="gs-footer-link">Contact</a>
-            </nav>
+    <!-- 2. The Overlay & Modal Container -->
+    <div class="st-ph-reset st-ph-overlay" id="stHeaderOverlay">
+        
+        <!-- The Menu Card -->
+        <div class="st-ph-modal">
             
-            <p class="gs-footer-copyright-text">
-                © 2025 Digital Designer. All rights reserved.
-            </p>
+            <!-- Close Icon -->
+            <button class="st-ph-close-btn" id="stHeaderClose" aria-label="Close Menu">
+                <div class="st-ph-close-icon"></div>
+            </button>
+
+            <!-- Navigation Links -->
+            <ul class="st-ph-nav">
+                <li class="st-ph-nav-item">
+                    <a href="#" class="st-ph-nav-link">Home</a>
+                    <span class="st-ph-plus">+</span>
+                </li>
+                <li class="st-ph-nav-item">
+                    <a href="#" class="st-ph-nav-link">Pages</a>
+                    <span class="st-ph-plus">+</span>
+                </li>
+                <li class="st-ph-nav-item">
+                    <a href="#" class="st-ph-nav-link">Portfolio</a>
+                    <span class="st-ph-plus">+</span>
+                </li>
+                <li class="st-ph-nav-item">
+                    <a href="#" class="st-ph-nav-link">Blog</a>
+                    <span class="st-ph-plus">+</span>
+                </li>
+                <li class="st-ph-nav-item">
+                    <a href="#" class="st-ph-nav-link">Contact</a>
+                    <span class="st-ph-plus">+</span>
+                </li>
+            </ul>
+
+            <!-- Info Section (Arrow + Address) -->
+            <div class="st-ph-info-grid">
+                <!-- Large Arrow Graphic (SVG) -->
+                <div class="st-ph-big-arrow">
+                    <svg class="st-ph-arrow-svg" viewBox="0 0 100 100" preserveAspectRatio="none">
+                        <!-- Diagonal down-right arrow composed of two lines -->
+                        <line x1="0" y1="0" x2="100" y2="100" />
+                        <line x1="100" y1="0" x2="100" y2="100" />
+                    </svg>
+                </div>
+
+                <div class="st-ph-details">
+                    <a href="tel:8881234567" class="st-ph-phone">(888) 123 4567</a>
+                    <p class="st-ph-address">
+                        410 Sandtown, California<br>
+                        94001, USA
+                    </p>
+                </div>
+            </div>
+
+            <!-- Social Footer -->
+            <div class="st-ph-social">
+                <a href="#" class="st-ph-social-link">Facebook</a>
+                <span class="st-ph-separator">|</span>
+                <a href="#" class="st-ph-social-link">Instagram</a>
+                <span class="st-ph-separator">|</span>
+                <a href="#" class="st-ph-social-link">Dribbble</a>
+            </div>
+
         </div>
-    </footer>
+    </div>
+
+    <!-- 3. Scripts -->
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const toggleBtn = document.getElementById('stHeaderToggle');
+            const closeBtn = document.getElementById('stHeaderClose');
+            const overlay = document.getElementById('stHeaderOverlay');
+
+            function openMenu() {
+                overlay.classList.add('st-ph-active');
+                // Prevent background scrolling
+                document.body.style.overflow = 'hidden';
+            }
+
+            function closeMenu() {
+                overlay.classList.remove('st-ph-active');
+                // Restore background scrolling
+                document.body.style.overflow = '';
+            }
+
+            // Event Listeners
+            toggleBtn.addEventListener('click', openMenu);
+            closeBtn.addEventListener('click', closeMenu);
+
+            // Close when clicking outside the modal (on the dark overlay)
+            overlay.addEventListener('click', (e) => {
+                if (e.target === overlay) {
+                    closeMenu();
+                }
+            });
+
+            // Close on Escape key
+            document.addEventListener('keydown', (e) => {
+                if (e.key === 'Escape' && overlay.classList.contains('st-ph-active')) {
+                    closeMenu();
+                }
+            });
+        });
+    </script>
 </body>
 </html>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

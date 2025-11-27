@@ -687,8 +687,8 @@ ul {
 
         /* The Big Arrow */
         .st-ph-big-arrow {
-            width: 50px;
-            height: 50px;
+            width: 90px;
+            height: 90px;
         }
         
         /* SVG Arrow styling */
@@ -835,11 +835,8 @@ ul {
             <div class="st-ph-info-grid">
                 <!-- Large Arrow Graphic (SVG) -->
                 <div class="st-ph-big-arrow">
-                    <svg class="st-ph-arrow-svg" viewBox="0 0 100 100" preserveAspectRatio="none">
-                        <!-- Diagonal down-right arrow composed of two lines -->
-                        <line x1="0" y1="0" x2="100" y2="100" />
-                        <line x1="100" y1="0" x2="100" y2="100" />
-                    </svg>
+                    <svg class="st-ph-arrow-svg" xmlns="http://www.w3.org/2000/svg" width="200" height="200" viewBox="0 0 24 24"><path fill="none" stroke="#9e9e9e" stroke-linecap="round" stroke-linejoin="round" stroke-width="1" d="M17 7v10m0 0H7m10 0L7 7"/></svg>
+                    
                 </div>
 
                 <div class="st-ph-details">
@@ -958,7 +955,7 @@ ul {
         font-family: 'Inter Tight', sans-serif;
         background-color: #f1f1f1; /* Matching reference bg */
         color: #1a1a1a;
-        line-height: 1.5;
+        line-height: 1;
         -webkit-font-smoothing: antialiased;
         display: block;
         width: 100%;
@@ -2127,7 +2124,7 @@ ul {
 
     .blog-meta {
         font-size: 13px;
-        font-weight: 600;
+        font-weight: 500;
         text-transform: uppercase;
         letter-spacing: 0.5px;
         color: #888;
@@ -2206,7 +2203,7 @@ ul {
                 <h2 class="blog-title">Notes On Development</h2>
                 <p class="blog-subtitle">Insights on frontend architecture, creative coding, and the evolving landscape of web design.</p>
             </div>
-            <a href="#" class="blog-view-all">View all articles</a>
+            <a href="blog.html" class="blog-view-all">View all articles</a>
         </header>
 
         <div class="blog-grid">
@@ -2694,6 +2691,7 @@ ul {
             align-items: center;
             flex-wrap: wrap; /* Allow wrapping on small screens */
             gap: 20px; /* Gap when wrapping */
+            padding-top: 1rem;
         }
 
         .gs-footer-links-nav {
@@ -2822,17 +2820,17 @@ ul {
                 </p>
                 
                 <nav class="gs-social-links" aria-label="Social media links">
-                    <a href="https://twitter.com" class="gs-social-link" aria-label="X (Twitter)" target="_blank" rel="noopener">
+                    <a href="https://x.com/thisislefa" class="gs-social-link" aria-label="X (Twitter)" target="_blank" rel="noopener">
                         <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg>
                     </a>
-                    <a href="https://instagram.com" class="gs-social-link" aria-label="Instagram" target="_blank" rel="noopener">
-                        <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zM18.406 5.595c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/></svg>
+                    <a href="https://thisislefa.webflow.io" class="gs-social-link" aria-label="Weblow" target="_blank" rel="noopener">
+                        <svg width="20" height="20" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 512"><path fill="#ffffff" d="M640 64L435.8 463.2H244l85.5-165.5h-3.8C255.1 389.3 149.9 449.5 0 463.2V300.1s95.9-5.7 152.3-64.9H0V64h171.1v140.8h3.8l70-140.8h129.4v139.9h3.8L450.7 64z"/></svg>
                     </a>
-                    <a href="https://dribbble.com" class="gs-social-link" aria-label="Dribbble" target="_blank" rel="noopener">
-                        <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M12 0c-6.628 0-12 5.373-12 12s5.372 12 12 12 12-5.373 12-12-5.372-12-12-12zm9.885 11.441c-2.575-.422-4.943-.445-7.103-.073-.244-.563-.497-1.125-.767-1.68 2.31-1 4.165-2.358 5.548-4.082 1.35 1.594 2.197 3.619 2.322 5.835zm-3.842-7.282c-1.205 1.554-2.868 2.783-4.986 3.68-1.016-1.861-2.178-3.676-3.488-5.438.779-.197 1.591-.314 2.431-.314 2.275 0 4.368.779 6.043 2.072zm-10.516-.993c1.331 1.742 2.511 3.538 3.537 5.381-2.43.715-5.331 1.082-8.684 1.105.692-2.835 2.601-5.193 5.147-6.486zm-5.44 8.834l.013-.256c3.849-.005 7.169-.448 9.95-1.322.233.475.456.952.67 1.432-3.38 1.057-6.165 3.222-8.337 6.48-1.432-1.719-2.296-3.927-2.296-6.334zm3.829 7.81c1.969-3.088 4.482-5.098 7.598-6.027.928 2.42 1.609 4.91 2.043 7.46-3.349 1.291-7.21.872-10.381-1.433h.74zm11.647.72c-.455-2.066-1.079-4.075-1.874-6.026 1.86-.276 3.9-.184 6.113.278-.251 2.787-1.638 5.249-3.742 6.901l-.497-1.153z"/></svg>
+                    <a href="https://linkedin.com/in/mofokenglj" class="gs-social-link" aria-label="LinkedIn" target="_blank" rel="noopener">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 464 480"><path fill="#ffffff" d="M462 274v170h-98V285q0-67-50-67q-37 0-51 36q-3 7-3 24v166h-99q1-269 0-297h99v42l-1 1h1v-1q32-49 89-49q51 0 82 34t31 100zM58 4Q33 4 17.5 18.5T2 55t15 37t39 15h1q25 0 40.5-15T113 55q-1-22-16-36.5T58 4zM7 444h99V147H7v297z"/></svg>
                     </a>
-                    <a href="https://behance.net" class="gs-social-link" aria-label="Behance" target="_blank" rel="noopener">
-                        <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M22 7h-7v-2h7v2zm1.726 10c-.442 1.297-2.029 3-5.101 3-3.074 0-5.564-1.729-5.564-5.675 0-3.91 2.325-5.92 5.466-5.92 3.082 0 4.964 1.782 5.375 4.426.078.506.109 1.188.095 2.14h-8.027c.13 3.211 3.483 3.312 4.588 2.029h3.168zm-7.686-4h4.965c-.105-1.547-1.136-2.219-2.477-2.219-1.466 0-2.277.768-2.488 2.219zm-9.574 6.988h-6.466v-14.967h6.953c5.476.081 5.58 5.444 2.72 6.906 3.461 1.26 3.577 8.061-3.207 8.061zm-3.466-8.988h3.584c2.508 0 2.906-3-.312-3h-3.272v3zm3.391 3h-3.391v3.016h3.341c3.055 0 2.868-3.016.05-3.016z"/></svg>
+                    <a href="https://github.com/thisislefa" class="gs-social-link" aria-label="Github" target="_blank" rel="noopener">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 432 416"><path fill="#ffffff" d="M213.5 0q88.5 0 151 62.5T427 213q0 70-41 125.5T281 416q-14 2-14-11v-58q0-27-15-40q44-5 70.5-27t26.5-77q0-34-22-58q11-26-2-57q-18-5-58 22q-26-7-54-7t-53 7q-18-12-32.5-17.5T107 88h-6q-12 31-2 57q-22 24-22 58q0 55 27 77t70 27q-11 10-13 29q-42 18-62-18q-12-20-33-22q-2 0-4.5.5t-5 3.5t8.5 9q14 7 23 31q1 2 2 4.5t6.5 9.5t13 10.5T130 371t30-2v36q0 13-14 11q-64-22-105-77.5T0 213q0-88 62.5-150.5T213.5 0z"/></svg>
                     </a>
                 </nav>
             </div>
@@ -2845,17 +2843,16 @@ ul {
     </section>
 
     <footer class="gs-footer-section">
-        <div class="gs-footer-container">
+        <div class="gs-footer-container" style="border-top: 1px solid #c5c5c5;">
             <nav class="gs-footer-links-nav" aria-label="Footer navigation">
-                <a href="#about" class="gs-footer-link">About</a>
-                <a href="#projects" class="gs-footer-link">Projects</a>
-                <a href="#pricing" class="gs-footer-link">Pricing</a>
-                <a href="#services" class="gs-footer-link">Services</a>
-                <a href="#contact" class="gs-footer-link">Contact</a>
+                <a href="projects.html" class="gs-footer-link">Projects</a>
+                <a href="pricing.html" class="gs-footer-link">Pricing</a>
+                <a href="blog.html" class="gs-footer-link"> Articles</a>
+                <a href="about.html" class="gs-footer-link">About</a>
             </nav>
             
             <p class="gs-footer-copyright-text">
-                © 2025 Digital Designer. All rights reserved.
+                Copyright © Lefa Mofokeng 2025. All rights reserved.
             </p>
         </div>
     </footer>
