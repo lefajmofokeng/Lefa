@@ -1,3 +1,10 @@
+<link href="https://fonts.googleapis.com/css2?family=Creato+Display:wght@400;500;700&display=swap" rel="stylesheet">
+<style>
+    * {
+        font-family: 'Creato Display', sans-serif;
+    }
+</style>
+
 
 <!DOCTYPE html>
 <html lang="en">
@@ -226,8 +233,8 @@
 
         /* The Big Arrow */
         .st-ph-big-arrow {
-            width: 50px;
-            height: 50px;
+            width: 90px;
+            height: 90px;
         }
         
         /* SVG Arrow styling */
@@ -374,29 +381,28 @@
             <div class="st-ph-info-grid">
                 <!-- Large Arrow Graphic (SVG) -->
                 <div class="st-ph-big-arrow">
-                    <svg class="st-ph-arrow-svg" viewBox="0 0 100 100" preserveAspectRatio="none">
-                        <!-- Diagonal down-right arrow composed of two lines -->
-                        <line x1="0" y1="0" x2="100" y2="100" />
-                        <line x1="100" y1="0" x2="100" y2="100" />
-                    </svg>
+                    <svg class="st-ph-arrow-svg" xmlns="http://www.w3.org/2000/svg" width="200" height="200" viewBox="0 0 24 24"><path fill="none" stroke="#9e9e9e" stroke-linecap="round" stroke-linejoin="round" stroke-width="1" d="M17 7v10m0 0H7m10 0L7 7"/></svg>
+                    
                 </div>
 
                 <div class="st-ph-details">
-                    <a href="tel:8881234567" class="st-ph-phone">(888) 123 4567</a>
+                    <a href="tel:8881234567" class="st-ph-phone">(078) 006 2713</a>
                     <p class="st-ph-address">
-                        410 Sandtown, California<br>
-                        94001, USA
+                        Phuthaditjhaba<br>
+                        Free State, South Africa
                     </p>
                 </div>
             </div>
 
             <!-- Social Footer -->
             <div class="st-ph-social">
-                <a href="#" class="st-ph-social-link">Facebook</a>
+                <a href="https://x.com/thisislefa" class="st-ph-social-link">X</a>
                 <span class="st-ph-separator">|</span>
-                <a href="#" class="st-ph-social-link">Instagram</a>
+                <a href="https://thisislefa.weblow.io" class="st-ph-social-link">Webflow</a>
                 <span class="st-ph-separator">|</span>
-                <a href="#" class="st-ph-social-link">Dribbble</a>
+                <a href="https://linkedin.com/in/thisislefa" class="st-ph-social-link">LinkedIn</a>
+                <span class="st-ph-separator">|</span>
+                <a href="https://github.com/thisislefa" class="st-ph-social-link">Github</a>
             </div>
 
         </div>
@@ -466,602 +472,1128 @@
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-<div-sv>
-    <style>
-        /* --- Import Inter Tight Font --- */
-        @import url('https://fonts.googleapis.com/css2?family=Inter+Tight:ital,wght@0,300;0,400;0,500;0,600;0,700;1,400&display=swap');
-
-        /* --- Reset & Base Styles --- */
-        * {
-            box-sizing: border-box;
-            margin: 0;
-            padding: 0;
-        }
-
-        /* The main wrapper tag - ensures font and background consistency */
-        div-sv {
-            font-family: 'Inter Tight', sans-serif;
-            background-color: #f1f1f1; /* Very light background */
-            color: #1a1a1a;
-            line-height: 1.5;
-            -webkit-font-smoothing: antialiased;
-            /* No min-height: 100vh here, as it's not the whole page */
-            display: block; 
-        }
-
-        /* --- Main Layout Wrapper --- */
-        .cs-wrapper {
-            width: 100%;
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 60px 20px;
-        }
-
-        /* --- Section Header (Used for general section titles) --- */
-        .cs-header {
-            text-align: center;
-            margin-bottom: 60px; /* Slightly less margin than the main page header */
-            padding-top: 20px;
-        }
-
-        .cs-title {
-            font-size: 64px;
-            font-weight: 500;
-            letter-spacing: -1.5px;
-            margin-bottom: 16px;
-            color: #000;
-        }
-
-        .cs-subtitle {
-            font-size: 18px;
-            color: #555;
-            font-weight: 400;
-            max-width: 600px;
-            margin: 0 auto;
-        }
-
-        /* --- General Content Grid (Reused from Client Stories) --- */
-        .cs-content-grid {
-            display: grid;
-            grid-template-columns: 1fr 1.2fr;
-            gap: 80px;
-            align-items: flex-start;
-        }
-        
-        /* --- Skill/Tech Card Styling (New section, styled like the profile card) --- */
-        .cs-skill-card {
-            background-color: #fff;
-            padding: 32px;
-            /* Matches the clean aesthetic */
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            text-align: center;
-            box-shadow: 0 4px 10px rgba(0,0,0,0.02);
-            height: 100%; /* Important for grid alignment */
-        }
-        
-        .cs-skill-title {
-            font-size: 28px;
-            font-weight: 600;
-            margin-bottom: 15px;
-            letter-spacing: -0.5px;
-            color: #000;
-        }
-        
-        .cs-skill-list {
-            list-style: none;
-            padding: 0;
-            margin: 0;
-        }
-
-        .cs-skill-list li {
-            font-size: 17px;
-            color: #666;
-            padding: 6px 0;
-            font-weight: 400;
-        }
-
-        .cs-skill-icon {
-            width: 50px;
-            height: 50px;
-            margin-bottom: 20px;
-            color: #000; /* Main accent color for icons */
-        }
-        
-        /* --- Story Block Styling (Similar to Testimonial Block) --- */
-        .cs-story-block {
-            padding-top: 10px;
-        }
-
-        .cs-story-text {
-            font-size: 38px;
-            line-height: 1.15;
-            font-weight: 500;
-            color: #000;
-            margin-bottom: 32px;
-            letter-spacing: -1px;
-        }
-
-        .cs-story-description {
-            font-size: 17px;
-            line-height: 1.6;
-            color: #666;
-            margin-bottom: 40px;
-        }
-
-        /* --- Callout/Image Card (Left Column) --- */
-        .cs-profile-card {
-            background-color: #fff;
-            padding: 24px 24px 32px 24px;
-            box-shadow: 0 4px 10px rgba(0,0,0,0.02);
-        }
-
-        .cs-profile-image-container {
-            width: 100%;
-            aspect-ratio: 4/3; 
-            overflow: hidden;
-            margin-bottom: 24px;
-            background-color: #eee;
-        }
-
-        .cs-profile-image {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-            display: block;
-        }
-
-        .cs-profile-info {
-            text-align: left;
-        }
-
-        .cs-profile-name {
-            font-size: 24px;
-            font-weight: 600;
-            color: #000;
-            margin-bottom: 4px;
-            letter-spacing: -0.5px;
-        }
-
-        .cs-profile-role {
-            font-size: 15px;
-            color: #666;
-            font-weight: 400;
-        }
-
-        /* --- Responsive Styles (Same as 14.html) --- */
-        @media (max-width: 900px) {
-            .cs-content-grid {
-                grid-template-columns: 1fr;
-                gap: 40px;
-            }
-
-            .cs-title {
-                font-size: 48px;
-            }
-
-            .cs-profile-card {
-                max-width: 500px;
-                margin: 0 auto;
-            }
-            
-            .cs-story-text {
-                font-size: 28px;
-            }
-        }
-
-        /* Specific styles for the 3-column skill grid on desktop */
-        .cs-skill-grid {
-            display: grid;
-            grid-template-columns: repeat(3, 1fr);
-            gap: 30px;
-            margin-bottom: 80px;
-        }
-
-        @media (max-width: 900px) {
-            .cs-skill-grid {
-                grid-template-columns: repeat(2, 1fr);
-            }
-        }
-        
-        @media (max-width: 550px) {
-            .cs-skill-grid {
-                grid-template-columns: 1fr;
-            }
-        }
-    </style>
-    
-    <section class="cs-wrapper">
-
-        <header class="cs-header">
-            <h1 class="cs-title">Hello, I'm Lefa Mofokeng.</h1>
-            <p class="cs-subtitle">A dedicated Web Developer focused on performance, precision, and practical problem-solving.</p>
-        </header>
-
-        <div class="cs-content-grid" style="margin-bottom: 100px;">
-            
-            <article class="cs-profile-card">
-                <div class="cs-profile-image-container">
-                    <img src="https://images.unsplash.com/photo-1542831371-29b0f74f9713?q=80&w=1170&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt="Lefa Mofokeng working at a computer" class="cs-profile-image">
-                </div>
-                <div class="cs-profile-info">
-                    <h3 class="cs-profile-name">Lefa Mofokeng</h3>
-                    <p class="cs-profile-role">Full-Stack Web Developer</p>
-                </div>
-            </article>
-
-            <div class="cs-story-block">
-                <div>
-                    <h2 class="cs-story-text">
-                        The journey from a curious mind to a dedicated developer, driven by the desire to build and innovate.
-                    </h2>
-
-                    <p class="cs-story-description">
-                        My development journey began not just with code, but with a deep curiosity about how digital experiences are truly built. I saw the power of software to solve real-world problems and enhance human connection. This led me to master the fundamentals of web development—from the structure of HTML to the logic of modern JavaScript frameworks.
-                    </p>
-                    
-                    <p class="cs-story-description">
-                        I am constantly seeking the next challenge, always focusing on writing clean, efficient, and scalable code. For me, development isn't just a job; it's a craft where performance and user experience are paramount. I aim to create solutions that are as beautiful under the hood as they are on the screen.
-                    </p>
-                </div>
-            </div>
-        </div>
-        
-        <header class="cs-header">
-            <h2 class="cs-title">My Technical Toolkit</h2>
-            <p class="cs-subtitle">A selection of technologies I use to build robust, modern, and high-performing applications.</p>
-        </header>
-
-        <div class="cs-skill-grid">
-            
-            <article class="cs-skill-card">
-                <svg class="cs-skill-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"></path></svg>
-                <h3 class="cs-skill-title">Frontend Mastery</h3>
-                <ul class="cs-skill-list">
-                    <li>React / Vue.js</li>
-                    <li>HTML5 / CSS3 / SCSS</li>
-                    <li>Tailwind CSS / Bootstrap</li>
-                    <li>Responsive Design</li>
-                </ul>
-            </article>
-            
-            <article class="cs-skill-card">
-                <svg class="cs-skill-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="8" rx="2" ry="2"></rect><rect x="2" y="14" width="20" height="8" rx="2" ry="2"></rect><line x1="6" y1="6" x2="6" y2="6"></line><line x1="6" y1="18" x2="6" y2="18"></line></svg>
-                <h3 class="cs-skill-title">Backend & APIs</h3>
-                <ul class="cs-skill-list">
-                    <li>Node.js / Express.js</li>
-                    <li>Python / Django (or similar)</li>
-                    <li>RESTful API Design</li>
-                    <li>Authentication (JWT, OAuth)</li>
-                </ul>
-            </article>
-
-            <article class="cs-skill-card">
-                <svg class="cs-skill-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2v20M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"></path></svg>
-                <h3 class="cs-skill-title">Database & DevOps</h3>
-                <ul class="cs-skill-list">
-                    <li>PostgreSQL / MongoDB</li>
-                    <li>Git / GitHub / GitLab</li>
-                    <li>Docker (Basics)</li>
-                    <li>Cloud Deployment (Vercel, AWS)</li>
-                </ul>
-            </article>
-        </div>
-
-        <header class="cs-header">
-            <h2 class="cs-title">Why Partner with Lefa?</h2>
-            <p class="cs-subtitle">My commitment goes beyond code—it's about delivering predictable quality and real business value.</p>
-        </header>
-
-        <div class="cs-content-grid" style="grid-template-columns: 1.2fr 1fr;">
-            
-            <div class="cs-story-block">
-                <div>
-                    <h2 class="cs-story-text">
-                        Predictability, performance, and a passion for project success from day one.
-                    </h2>
-
-                    <p class="cs-story-description">
-                        **Focus on Performance:** I don't just build features; I build fast features. I prioritize optimization and clean architecture to ensure your application loads quickly and scales efficiently, providing an excellent user experience.
-                    </p>
-                    
-                    <p class="cs-story-description">
-                        **Reliable Communication:** I believe in clear, proactive communication. You'll always be updated on progress, challenges, and next steps, ensuring we stay aligned with your vision and timelines.
-                    </p>
-                    
-                    <p class="cs-story-description">
-                        **Long-Term Vision:** I code for tomorrow. Every project is built with maintainability in mind, using industry best practices and thorough documentation, making future updates and expansions straightforward.
-                    </p>
-                </div>
-            </div>
-            
-            <article class="cs-profile-card">
-                <div class="cs-profile-image-container">
-                    <img src="https://images.unsplash.com/photo-1556761175-5973dc0f32e7?q=80&w=1000&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt="Clean desk with modern design" class="cs-profile-image">
-                </div>
-                <div class="cs-profile-info">
-                    <h3 class="cs-profile-name">The Lefa Difference</h3>
-                    <p class="cs-profile-role">Committed to Quality & Efficiency</p>
-                </div>
-            </article>
-
-        </div>
-    </section>
-</div-sv>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-<div-port-ext>
-
-<footer class="ft-section">
-        <div class="ext-wrapper">
-            
-            <div class="ft-content-grid">
-                <div class="ft-brand-col">
-                    <div>
-                        <a href="#" class="ft-logo">YourName.</a>
-                        <p class="ft-tagline">
-                            Building digital experiences that merge clean aesthetics with robust performance.
-                        </p>
-                    </div>
-                </div>
-
-                <div>
-                    <h4 class="ft-col-title">Menu</h4>
-                    <ul class="ft-link-list">
-                        <li class="ft-link-item"><a href="#" class="ft-link">Work</a></li>
-                        <li class="ft-link-item"><a href="#" class="ft-link">Services</a></li>
-                        <li class="ft-link-item"><a href="#" class="ft-link">About</a></li>
-                        <li class="ft-link-item"><a href="#" class="ft-link">Contact</a></li>
-                    </ul>
-                </div>
-
-                <div>
-                    <h4 class="ft-col-title">Socials</h4>
-                    <ul class="ft-link-list">
-                        <li class="ft-link-item"><a href="#" class="ft-link">LinkedIn</a></li>
-                        <li class="ft-link-item"><a href="#" class="ft-link">Twitter / X</a></li>
-                        <li class="ft-link-item"><a href="#" class="ft-link">GitHub</a></li>
-                        <li class="ft-link-item"><a href="#" class="ft-link">Instagram</a></li>
-                    </ul>
-                </div>
-
-                <div>
-                    <h4 class="ft-col-title">Get in Touch</h4>
-                    <ul class="ft-link-list">
-                        <li class="ft-link-item"><a href="mailto:hello@yourname.com" class="ft-link">hello@yourname.com</a></li>
-                        <li class="ft-link-item"><span class="ft-link" style="cursor: default; color: #888;">San Francisco, CA</span></li>
-                    </ul>
-                </div>
-            </div>
-
-            <div class="ft-bottom-bar">
-                <span>&copy; 2024 YourName Dev. All Rights Reserved.</span>
-                <span>Designed & Developed in-house.</span>
-            </div>
-
-        </div>
-    </footer>
-</div-port-ext>
-
-    <style>
-
-    div-port-ext {
-        font-family: 'Inter Tight', sans-serif;
-        background-color: #f1f1f1; /* Matching reference bg */
-        color: #1a1a1a;
-        line-height: 1.5;
-        -webkit-font-smoothing: antialiased;
-        display: block;
+<style>
+    /* 1. FONTS & RESET (Matching Source) */
+    @import url('https://fonts.cdnfonts.com/css/creato-display');
+
+    /* Wrapper to ensure styles apply correctly when pasted */
+    .about-page-wrapper {
+        font-family: 'Creato Display', sans-serif;
+        background-color: #e8e8e8;
+        color: #000000;
         width: 100%;
+        overflow-x: hidden;
+        /* Reset for this section */
+        box-sizing: border-box;
     }
 
-     /* --- Shared Utilities based on Reference --- */
-    .ext-wrapper {
-        width: 100%;
-        max-width: 1200px;
-        margin: 0 auto;
-        padding: 60px 20px;
+    .about-page-wrapper * {
+        box-sizing: border-box;
+        margin: 0;
+        padding: 0;
     }
 
-    .ext-header {
-        text-align: center;
-        margin-bottom: 60px;
-    }
-
-    .ext-title {
-        font-size: 64px;
-        font-weight: 500;
-        letter-spacing: -1.5px;
-        margin-bottom: 16px;
-        color: #000;
-    }
-
-    .ext-subtitle {
-        font-size: 18px;
-        color: #555;
-        font-weight: 400;
-        max-width: 600px;
-        margin: 0 auto;
-    }
-     
-    /* --- Shared Utilities based on Reference --- */
-    .ext-wrapper {
-        width: 100%;
-        max-width: 1200px;
-        margin: 0 auto;
-        padding: 60px 20px;
-    }
-        /* =========================================
-       FOOTER SECTION STYLES
-       ========================================= */
-    .ft-section {
-        background-color: #fff; /* White bg for footer to separate it */
-        border-top: 1px solid #e5e5e5;
-    }
-
-    .ft-content-grid {
-        display: grid;
-        grid-template-columns: 1.5fr 1fr 1fr 1fr;
-        gap: 60px;
-        padding: 80px 0;
-    }
-
-    .ft-brand-col {
+    /* 2. HERO SECTION (Based on 02.html structure) */
+    .abt-hero-section {
+        min-height: 90vh; /* Slightly shorter to show content below */
         display: flex;
         flex-direction: column;
-        justify-content: space-between;
+        justify-content: center;
+        padding: 60px 20px;
     }
 
-    .ft-logo {
-        font-size: 24px;
-        font-weight: 600;
-        color: #000;
-        letter-spacing: -1px;
-        text-decoration: none;
-        display: inline-block;
-        margin-bottom: 24px;
+    .abt-hero-container {
+        max-width: 1200px;
+        width: 100%;
+        margin: 0 auto;
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 60px;
+        align-items: center;
     }
 
-    .ft-tagline {
-        font-size: 16px;
-        color: #666;
-        line-height: 1.5;
-        max-width: 300px;
+    .abt-left {
+        display: flex;
+        flex-direction: column;
     }
 
-    .ft-col-title {
-        font-size: 14px;
-        font-weight: 600;
-        color: #000;
+    .abt-title {
+        font-size: clamp(80px, 11vw, 180px);
+        font-weight: 700;
+        line-height: 0.85;
+        color: #000000;
+        letter-spacing: -0.03em;
         text-transform: uppercase;
-        letter-spacing: 0.5px;
-        margin-bottom: 24px;
     }
 
-    .ft-link-list {
+    .abt-subtitle {
+        font-size: clamp(80px, 11vw, 180px);
+        font-weight: 500;
+        line-height: 0.85;
+        color: #8a8a8a;
+        letter-spacing: -0.03em;
+        text-transform: uppercase;
+        position: relative;
+    }
+
+    /* The Signature Symbol from 02.html */
+    .abt-symbol {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        width: 0.35em;
+        height: 0.35em;
+        border: 0.06em solid #8a8a8a;
+        border-radius: 50%;
+        font-size: 0.4em;
+        margin-left: 0.1em;
+        vertical-align: top;
+        position: relative;
+        top: 0.2em;
+    }
+
+    .abt-right {
+        display: flex;
+        flex-direction: column;
+        gap: 40px;
+        padding-left: 40px;
+    }
+
+    .abt-description {
+        font-size: clamp(20px, 2vw, 26px);
+        line-height: 1.4;
+        color: #000000;
+        font-weight: 400;
+        max-width: 90%;
+    }
+
+    .abt-highlight {
+        color: #8a8a8a;
+        border-bottom: 2px solid #000000;
+        display: inline-block;
+        line-height: 1;
+    }
+
+    /* 3. SERVICES ACCORDION SECTION */
+    .services-section {
+        max-width: 1200px;
+        margin: 0 auto;
+        padding: 0 20px 120px 20px;
+    }
+
+    .services-header {
+        font-size: 14px;
+        text-transform: uppercase;
+        letter-spacing: 0.05em;
+        font-weight: 700;
+        color: #8a8a8a;
+        margin-bottom: 40px;
+        display: block;
+        border-bottom: 1px solid #d1d1d1;
+        padding-bottom: 20px;
+    }
+
+    /* Pure CSS Accordion Styling */
+    .accordion-item {
+        border-bottom: 1px solid #000000;
+        margin-bottom: 0;
+    }
+
+    .accordion-item[open] .accordion-summary {
+        padding-bottom: 20px;
+    }
+
+    .accordion-summary {
         list-style: none;
-    }
-
-    .ft-link-item {
-        margin-bottom: 12px;
-    }
-
-    .ft-link {
-        font-size: 16px;
-        color: #555;
-        text-decoration: none;
-        transition: color 0.2s ease;
-    }
-
-    .ft-link:hover {
-        color: #000;
-    }
-
-    .ft-bottom-bar {
-        border-top: 1px solid #eee;
-        padding: 32px 0;
+        cursor: pointer;
+        padding: 40px 0;
         display: flex;
         justify-content: space-between;
         align-items: center;
-        font-size: 14px;
-        color: #888;
+        transition: padding 0.3s ease;
     }
 
-    /* --- Responsive Styles --- */
-    @media (max-width: 900px) {
-        .ext-title { font-size: 48px; }
-        
-        .ft-content-grid {
-            grid-template-columns: 1fr 1fr;
+    /* Remove default triangle */
+    .accordion-summary::-webkit-details-marker {
+        display: none;
+    }
+
+    .acc-title {
+        font-size: clamp(32px, 4vw, 56px);
+        font-weight: 500;
+        letter-spacing: -0.02em;
+        color: #000000;
+        transition: color 0.3s ease;
+    }
+
+    .accordion-item:hover .acc-title {
+        color: #555;
+    }
+
+    /* The +/- Icon */
+    .acc-icon {
+        position: relative;
+        width: 24px;
+        height: 24px;
+    }
+
+    .acc-icon::before, .acc-icon::after {
+        content: '';
+        position: absolute;
+        background-color: #000000;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        transition: transform 0.3s ease;
+    }
+
+    .acc-icon::before {
+        width: 24px;
+        height: 2px;
+    }
+
+    .acc-icon::after {
+        width: 2px;
+        height: 24px;
+    }
+
+    /* Rotate icon when open */
+    .accordion-item[open] .acc-icon::after {
+        transform: translate(-50%, -50%) rotate(90deg);
+    }
+    
+    .accordion-item[open] .acc-icon {
+        transform: rotate(45deg);
+    }
+
+    /* Hidden Content */
+    .acc-content {
+        padding-bottom: 40px;
+        font-size: clamp(18px, 1.5vw, 22px);
+        line-height: 1.5;
+        color: #555;
+        max-width: 800px;
+        animation: slideDown 0.4s ease-out forwards;
+    }
+    
+    .acc-tags {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 10px;
+        margin-top: 20px;
+    }
+    
+    .acc-tag {
+        font-size: 14px;
+        border: 1px solid #8a8a8a;
+        padding: 8px 16px;
+        border-radius: 50px;
+        color: #000000;
+    }
+
+    @keyframes slideDown {
+        from { opacity: 0; transform: translateY(-10px); }
+        to { opacity: 1; transform: translateY(0); }
+    }
+
+    /* 4. RESPONSIVE DESIGN */
+    @media (max-width: 1024px) {
+        .abt-hero-container {
+            grid-template-columns: 1fr;
             gap: 40px;
         }
-        
-        .ft-brand-col { grid-column: span 2; margin-bottom: 20px; }
-    }
 
-    @media (max-width: 600px) {
-        .ext-title { font-size: 42px; }
-        .faq-trigger { padding: 24px; }
-        .faq-question { font-size: 18px; }
+        .abt-right {
+            padding-left: 0;
+        }
         
-        .ft-content-grid { grid-template-columns: 1fr; }
-        .ft-brand-col { grid-column: span 1; }
-        
-        .ft-bottom-bar {
-            flex-direction: column;
-            gap: 16px;
-            text-align: center;
+        .abt-hero-section {
+            padding-top: 100px; /* Space for nav if needed */
         }
     }
+
+    @media (max-width: 768px) {
+        .abt-hero-section {
+            padding: 40px 20px;
+            min-height: auto;
+        }
+        
+        .services-section {
+            padding-bottom: 60px;
+        }
+
+        .accordion-summary {
+            padding: 30px 0;
+        }
+        
+        .acc-icon {
+            transform: scale(0.8);
+        }
+    }
+</style>
+
+<div class="about-page-wrapper">
+    
+    <section class="abt-hero-section">
+        <div class="abt-hero-container">
+            <div class="abt-left">
+                <h1 class="abt-title">About</h1>
+                <h2 class="abt-subtitle">Myself</h2>
+            </div>
+            
+            <div class="abt-right">
+                <p class="abt-description">
+                    — I am a creative frontend developer obsessed with the space where <span class="abt-highlight">logic meets aesthetics</span>. 
+                    <br><br>
+                    I don't just build websites; I engineer fluid, responsive, and performant digital experiences. My code is clean, my motion is smooth, and my focus is always on the user.
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <section class="services-section">
+        <span class="services-header">01 — What I Offer</span>
+
+        <details class="accordion-item">
+            <summary class="accordion-summary">
+                <span class="acc-title">Frontend Architecture</span>
+                <div class="acc-icon"></div>
+            </summary>
+            <div class="acc-content">
+                <p>I build scalable, component-driven applications using modern frameworks. I focus on modularity, maintainability, and clean code structure that allows projects to grow without technical debt.</p>
+                <div class="acc-tags">
+                    <span class="acc-tag">React.js</span>
+                    <span class="acc-tag">Next.js</span>
+                    <span class="acc-tag">TypeScript</span>
+                    <span class="acc-tag">Redux</span>
+                </div>
+            </div>
+        </details>
+
+        <details class="accordion-item">
+            <summary class="accordion-summary">
+                <span class="acc-title">Creative Interaction</span>
+                <div class="acc-icon"></div>
+            </summary>
+            <div class="acc-content">
+                <p>The web shouldn't be static. I implement physics-based animations, micro-interactions, and 3D elements to make your interface feel alive and memorable, setting it apart from standard templates.</p>
+                <div class="acc-tags">
+                    <span class="acc-tag">GSAP</span>
+                    <span class="acc-tag">Framer Motion</span>
+                    <span class="acc-tag">Three.js</span>
+                    <span class="acc-tag">WebGL</span>
+                </div>
+            </div>
+        </details>
+
+        <details class="accordion-item">
+            <summary class="accordion-summary">
+                <span class="acc-title">UI/UX Implementation</span>
+                <div class="acc-icon"></div>
+            </summary>
+            <div class="acc-content">
+                <p>I translate Figma designs into pixel-perfect code. I care deeply about accessibility, responsive behavior across all devices, and ensuring the final product matches the designer's original vision perfectly.</p>
+                <div class="acc-tags">
+                    <span class="acc-tag">Tailwind CSS</span>
+                    <span class="acc-tag">SCSS</span>
+                    <span class="acc-tag">Responsive</span>
+                    <span class="acc-tag">A11y</span>
+                </div>
+            </div>
+        </details>
+        
+        <details class="accordion-item" style="border-bottom: 1px solid #d1d1d1;">
+            <summary class="accordion-summary">
+                <span class="acc-title">Performance Optimization</span>
+                <div class="acc-icon"></div>
+            </summary>
+            <div class="acc-content">
+                <p>Speed is a feature. I optimize assets, code splitting, and rendering paths to ensure your site loads instantly and runs at 60fps, improving SEO and user retention.</p>
+                <div class="acc-tags">
+                    <span class="acc-tag">SEO</span>
+                    <span class="acc-tag">Lighthouse</span>
+                    <span class="acc-tag">Core Web Vitals</span>
+                </div>
+            </div>
+        </details>
+
+    </section>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<section class="bs-container">
+    
+    <div class="bs-header">
+        <h2 class="bs-title"><span class="bs-bullet"></span> Selected Tech Stack</h2>
+    </div>
+
+    <div class="bs-grid">
+
+        <div class="bs-card flipped" id="tech-1">
+            <div class="bs-card-inner">
+                <div class="bs-card-front">
+                    <button class="bs-toggle-btn" onclick="toggleTech('tech-1')">
+                        <i class="fa-solid fa-plus"></i>
+                    </button>
+                    <div class="bs-logo-wrapper">
+                        <i class="fa-brands fa-react bs-logo-icon"></i>
+                        <span>React</span>
+                    </div>
+                </div>
+                
+                <div class="bs-card-back">
+                    <button class="bs-toggle-btn" onclick="toggleTech('tech-1')">
+                        <i class="fa-solid fa-xmark"></i>
+                    </button>
+                    <p class="bs-review-text">
+                        I build **scalable, component-driven interfaces** using this as my core engineering foundation.
+                    </p>
+                    <div class="bs-author-info">
+                        <span class="bs-author-name">React.js</span>
+                        <span class="bs-author-role">Core Library</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="bs-card" id="tech-2">
+            <div class="bs-card-inner">
+                <div class="bs-card-front">
+                    <button class="bs-toggle-btn" onclick="toggleTech('tech-2')">
+                        <i class="fa-solid fa-plus"></i>
+                    </button>
+                    <div class="bs-logo-wrapper">
+                        <i class="fa-brands fa-js bs-logo-icon"></i>
+                        <span>Type</span>
+                    </div>
+                </div>
+                <div class="bs-card-back">
+                    <button class="bs-toggle-btn" onclick="toggleTech('tech-2')">
+                        <i class="fa-solid fa-xmark"></i>
+                    </button>
+                    <p class="bs-review-text">
+                        I enforce **strict typing** to guarantee my code is robust, maintainable, and bug-free.
+                    </p>
+                    <div class="bs-author-info">
+                        <span class="bs-author-name">TypeScript</span>
+                        <span class="bs-author-role">Language</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="bs-card" id="tech-3">
+            <div class="bs-card-inner">
+                <div class="bs-card-front">
+                    <button class="bs-toggle-btn" onclick="toggleTech('tech-3')">
+                        <i class="fa-solid fa-plus"></i>
+                    </button>
+                    <div class="bs-logo-wrapper">
+                        <i class="fa-solid fa-server bs-logo-icon"></i>
+                        <span>Next.js</span>
+                    </div>
+                </div>
+                <div class="bs-card-back">
+                    <button class="bs-toggle-btn" onclick="toggleTech('tech-3')">
+                        <i class="fa-solid fa-xmark"></i>
+                    </button>
+                    <p class="bs-review-text">
+                        I leverage **Server-Side Rendering (SSR)** and static generation for peak application performance and SEO benefits.
+                    </p>
+                    <div class="bs-author-info">
+                        <span class="bs-author-name">Next.js 14</span>
+                        <span class="bs-author-role">Framework</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="bs-card" id="tech-4">
+            <div class="bs-card-inner">
+                <div class="bs-card-front">
+                    <button class="bs-toggle-btn" onclick="toggleTech('tech-4')">
+                        <i class="fa-solid fa-plus"></i>
+                    </button>
+                    <div class="bs-logo-wrapper">
+                        <i class="fa-solid fa-wind bs-logo-icon"></i>
+                        <span>Tailwind</span>
+                    </div>
+                </div>
+                <div class="bs-card-back">
+                    <button class="bs-toggle-btn" onclick="toggleTech('tech-4')">
+                        <i class="fa-solid fa-xmark"></i>
+                    </button>
+                    <p class="bs-review-text">
+                        I use this **utility-first styling** approach to facilitate rapid development without sacrificing custom design precision.
+                    </p>
+                    <div class="bs-author-info">
+                        <span class="bs-author-name">Tailwind CSS</span>
+                        <span class="bs-author-role">Styling</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+         <div class="bs-card" id="tech-5">
+            <div class="bs-card-inner">
+                <div class="bs-card-front">
+                    <button class="bs-toggle-btn" onclick="toggleTech('tech-5')">
+                        <i class="fa-solid fa-plus"></i>
+                    </button>
+                    <div class="bs-logo-wrapper">
+                        <i class="fa-solid fa-cube bs-logo-icon"></i>
+                        <span>Three.js</span>
+                    </div>
+                </div>
+                <div class="bs-card-back">
+                    <button class="bs-toggle-btn" onclick="toggleTech('tech-5')">
+                        <i class="fa-solid fa-xmark"></i>
+                    </button>
+                    <p class="bs-review-text">
+                        I implement WebGL to create **immersive 3D graphics and complex spatial experiences** directly in the browser.
+                    </p>
+                    <div class="bs-author-info">
+                        <span class="bs-author-name">Three.js / R3F</span>
+                        <span class="bs-author-role">Creative</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="bs-card" id="tech-6">
+            <div class="bs-card-inner">
+                <div class="bs-card-front">
+                    <button class="bs-toggle-btn" onclick="toggleTech('tech-6')">
+                        <i class="fa-solid fa-plus"></i>
+                    </button>
+                    <div class="bs-logo-wrapper">
+                        <i class="fa-solid fa-play bs-logo-icon"></i>
+                        <span>GSAP</span>
+                    </div>
+                </div>
+                <div class="bs-card-back">
+                    <button class="bs-toggle-btn" onclick="toggleTech('tech-6')">
+                        <i class="fa-solid fa-xmark"></i>
+                    </button>
+                    <p class="bs-review-text">
+                        I engineer **professional-grade animations** for fluid, high-performance interactive motion.
+                    </p>
+                    <div class="bs-author-info">
+                        <span class="bs-author-name">GreenSock</span>
+                        <span class="bs-author-role">Animation</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+         <div class="bs-card" id="tech-7">
+            <div class="bs-card-inner">
+                <div class="bs-card-front">
+                    <button class="bs-toggle-btn" onclick="toggleTech('tech-7')">
+                        <i class="fa-solid fa-plus"></i>
+                    </button>
+                    <div class="bs-logo-wrapper">
+                        <i class="fa-brands fa-figma bs-logo-icon"></i>
+                        <span>Figma</span>
+                    </div>
+                </div>
+                <div class="bs-card-back">
+                    <button class="bs-toggle-btn" onclick="toggleTech('tech-7')">
+                        <i class="fa-solid fa-xmark"></i>
+                    </button>
+                    <p class="bs-review-text">
+                        I translate visual designs into **pixel-perfect, functional code**, effectively bridging the design-to-development gap.
+                    </p>
+                    <div class="bs-author-info">
+                        <span class="bs-author-name">Figma</span>
+                        <span class="bs-author-role">Design</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="bs-card" id="tech-8">
+            <div class="bs-card-inner">
+                <div class="bs-card-front">
+                    <button class="bs-toggle-btn" onclick="toggleTech('tech-8')">
+                        <i class="fa-solid fa-plus"></i>
+                    </button>
+                    <div class="bs-logo-wrapper">
+                        <i class="fa-brands fa-git-alt bs-logo-icon"></i>
+                        <span>Git</span>
+                    </div>
+                </div>
+                <div class="bs-card-back">
+                    <button class="bs-toggle-btn" onclick="toggleTech('tech-8')">
+                        <i class="fa-solid fa-xmark"></i>
+                    </button>
+                    <p class="bs-review-text">
+                        I manage and maintain **clean version history** for all projects using collaborative branch workflows.
+                    </p>
+                    <div class="bs-author-info">
+                        <span class="bs-author-name">Git / GitHub</span>
+                        <span class="bs-author-role">DevOps</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+</section>
+
+<script>
+    function toggleTech(cardId) {
+        const card = document.getElementById(cardId);
+        card.classList.toggle('flipped');
+    }
+</script>
+<style>
+    /* INCLUDED STYLES FROM style.css 
+       (Ensures perfect rendering even if external sheet is missing)
+    */
+    @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap');
+    @import url('https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css');
+
+    .bs-container {
+        max-width: 1200px;
+        margin: 0 auto;
+        font-family: 'Inter', sans-serif;
+        padding: 60px 20px;
+        box-sizing: border-box;
+    }
+
+    .bs-header {
+        margin-bottom: 30px;
+        padding-left: 4px;
+    }
+
+    .bs-title {
+        font-size: 14px;
+        font-weight: 600;
+        text-transform: uppercase;
+        letter-spacing: 0.05em;
+        color: #000000;
+        display: flex;
+        align-items: center;
+        gap: 10px;
+    }
+
+    .bs-bullet {
+        width: 6px;
+        height: 6px;
+        background-color: #000000;
+        border-radius: 50%;
+        display: inline-block;
+    }
+
+    .bs-grid {
+        display: grid;
+        grid-template-columns: repeat(4, 1fr);
+        gap: 20px;
+    }
+
+    .bs-card {
+        background-color: #FFFFFF;
+        aspect-ratio: 1 / 1;
+        position: relative;
+        perspective: 1000px;
+        cursor: default;
+    }
+
+    .bs-card-inner {
+        position: relative;
+        width: 100%;
+        height: 100%;
+        text-align: center;
+        transition: transform 0.6s cubic-bezier(0.4, 0.0, 0.2, 1);
+        transform-style: preserve-3d;
+    }
+
+    .bs-card.flipped .bs-card-inner {
+        transform: rotateY(180deg);
+    }
+
+    .bs-card-front, .bs-card-back {
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        backface-visibility: hidden;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        padding: 40px;
+        box-sizing: border-box;
+    }
+
+    .bs-card-front {
+        background-color: #FFFFFF;
+    }
+
+    .bs-card-back {
+        background-color: #FFFFFF;
+        transform: rotateY(180deg);
+        text-align: left;
+        align-items: flex-start;
+        justify-content: space-between;
+    }
+
+    .bs-toggle-btn {
+        position: absolute;
+        top: 24px;
+        right: 24px;
+        width: 32px;
+        height: 32px;
+        border: 1px solid #E5E7EB;
+        border-radius: 50%;
+        background: transparent;
+        cursor: pointer;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 14px;
+        color: #6B7280;
+        transition: all 0.2s ease;
+        z-index: 10;
+    }
+
+    .bs-toggle-btn:hover {
+        border-color: #000000;
+        color: #000000;
+        transform: scale(1.1);
+    }
+
+    .bs-logo-wrapper {
+        display: flex;
+        align-items: center;
+        gap: 10px;
+        font-size: 24px;
+        font-weight: 700;
+        color: #000000;
+    }
+
+    .bs-logo-icon {
+        font-size: 32px;
+    }
+
+    .bs-review-text {
+        font-size: 15px; /* Slightly adjusted for tech descriptions */
+        font-weight: 500;
+        line-height: 1.4;
+        color: #6B7280;
+        margin-top: 40px;
+    }
+
+    .bs-author-info {
+        margin-top: auto;
+    }
+
+    .bs-author-name {
+        display: block;
+        font-size: 16px;
+        font-weight: 800;
+        color: #000000;
+        margin-bottom: 4px;
+        text-transform: uppercase;
+    }
+
+    .bs-author-role {
+        display: block;
+        font-size: 14px;
+        font-weight: 500;
+        color: #6B7280;
+        text-transform: uppercase;
+    }
+
+    /* Responsive adjustments */
+    @media (max-width: 1200px) { .bs-grid { grid-template-columns: repeat(3, 1fr); } }
+    @media (max-width: 900px) { .bs-grid { grid-template-columns: repeat(2, 1fr); } }
+    @media (max-width: 600px) { 
+        .bs-grid { grid-template-columns: 1fr; }
+        .bs-card { aspect-ratio: auto; height: 300px; } 
+    }
+</style>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Digital Designer</title>
+    <link href="https://fonts.googleapis.com/css2?family=Creato+Display:wght@400;500;700&display=swap" rel="stylesheet">
+    <style>
+        /* Global Reset with unique prefix 'gs' (General Section) */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        .gs-body {
+            font-family: 'Creato Display', sans-serif;
+            background-color: #e8e8e8;
+            overflow-x: hidden;
+            min-height: 100vh;
+        }
+
+        /* --- Hero Section Styling (Highly Responsive) --- */
+
+        .gs-hero-section {
+            min-height: 90vh; /* Adjusted to allow space for content above/below */
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 40px 20px;
+        }
+
+        .gs-hero-container {
+            max-width: 1200px;
+            width: 100%;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 60px;
+            align-items: flex-start; /* Align content to the top */
+        }
+
+        .gs-hero-left {
+            display: flex;
+            flex-direction: column;
+            gap: 10px; /* Reduced gap between title and subtitle */
+        }
+
+        .gs-hero-title {
+            /* Title: Digital (Black, Bold) */
+            font-size: clamp(80px, 12vw, 150px);
+            font-weight: 500;
+            line-height: 0.9;
+            color: #000000;
+            letter-spacing: -0.02em;
+            display: block; /* Ensure it takes full width */
+        }
+
+        .gs-hero-subtitle {
+            /* Subtitle: Designer (Grey, Light) */
+            font-size: clamp(80px, 12vw, 150px);
+            font-weight: 500; /* Adjusted to 400 for a lighter look */
+            line-height: 0.9;
+            color: #8a8a8a;
+            letter-spacing: -0.02em;
+            position: relative;
+            display: block;
+        }
+
+        .gs-copyright-symbol {
+            /* Styled to match the image's small grey circle */
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 0.1em; /* Adjusted size */
+            height: 0.1em; /* Adjusted size */
+            padding: 0.3em;
+            border: 0.08em solid #8a8a8a;
+            border-radius: 50%;
+            font-size: 0.4em; /* Size of the 'c' inside */
+            margin-left: 0.1em;
+            vertical-align: middle;
+            position: relative;
+            top: -0.15em;
+        }
+
+        .gs-hero-right {
+            display: flex;
+            flex-direction: column;
+            gap: 40px;
+            padding-top: 20px; /* Aligns description/links with the top of the title */
+            align-items: flex-start;
+        }
+
+        .gs-hero-description {
+            font-size: clamp(18px, 1.5vw, 24px);
+            line-height: 1.5;
+            color: #000000;
+            font-weight: 400;
+            max-width: 350px;
+        }
+
+        .gs-social-links {
+            display: flex;
+            gap: 15px; /* Reduced gap slightly */
+        }
+
+        .gs-social-link {
+            width: 45px; /* Reduced size slightly */
+            height: 45px; /* Reduced size slightly */
+            background-color: #000000;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #ffffff;
+            text-decoration: none;
+            transition: all 0.3s ease;
+            font-size: 18px;
+        }
+
+        .gs-social-link:hover {
+            background-color: #333333;
+            transform: scale(1.05);
+        }
+
+        .gs-social-link svg {
+            width: 22px;
+            height: 22px;
+            fill: currentColor;
+        }
+
+        /* --- Footer Section Styling (New Layout) --- */
+
+        .gs-footer-section {
+            background-color: #e8e8e8;
+            padding: 40px 20px;
+        }
+
+        .gs-footer-container {
+            max-width: 1200px;
+            width: 100%;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between; /* Space out links and copyright */
+            align-items: center;
+            flex-wrap: wrap; /* Allow wrapping on small screens */
+            gap: 20px; /* Gap when wrapping */
+            padding-top: 1rem;
+        }
+
+        .gs-footer-links-nav {
+            display: flex;
+            gap: 40px; /* Adjusted link spacing */
+            flex-wrap: wrap;
+            order: 1; /* Links first */
+        }
+
+        .gs-footer-link {
+            color: #000000;
+            text-decoration: none;
+            font-size: 18px;
+            font-weight: 500;
+            transition: color 0.3s ease;
+            display: inline-block;
+        }
+
+        .gs-footer-link:hover {
+            color: #666666;
+        }
+
+        .gs-footer-copyright-text {
+            color: #8a8a8a;
+            font-size: 16px;
+            font-weight: 400;
+            order: 2; /* Copyright second */
+            margin-left: auto; /* Push to the right */
+        }
+
+        /* --- Media Queries for Perfect Responsiveness --- */
+
+        @media (max-width: 1200px) {
+            .gs-hero-container {
+                gap: 40px;
+            }
+        }
+
+        @media (max-width: 1024px) {
+            .gs-hero-section {
+                min-height: 80vh;
+            }
+
+            .gs-hero-container {
+                grid-template-columns: 1fr; /* Stack on mobile/tablet */
+                gap: 40px;
+            }
+
+            .gs-hero-left {
+                order: 2; /* Move title below description */
+                margin-top: 20px;
+            }
+
+            .gs-hero-right {
+                order: 1; /* Move description/links to the top */
+                padding-top: 0;
+            }
+
+            .gs-hero-title, .gs-hero-subtitle {
+                 font-size: clamp(60px, 15vw, 100px);
+            }
+        }
+
+        @media (max-width: 768px) {
+            .gs-hero-section {
+                padding: 20px;
+                min-height: 70vh;
+            }
+            
+            .gs-footer-container {
+                flex-direction: column;
+                align-items: flex-start; /* Align everything to the left */
+            }
+
+            .gs-footer-links-nav {
+                width: 100%;
+                gap: 20px;
+                margin-bottom: 15px;
+            }
+
+            .gs-footer-copyright-text {
+                margin-left: 0; /* Remove auto margin */
+                width: 100%;
+            }
+
+            .gs-hero-description {
+                max-width: 100%;
+            }
+
+            .gs-social-link {
+                width: 40px;
+                height: 40px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .gs-hero-section {
+                padding: 15px;
+            }
+
+            .gs-hero-title, .gs-hero-subtitle {
+                font-size: clamp(40px, 18vw, 70px);
+            }
+
+            .gs-social-links {
+                gap: 10px;
+            }
+
+            .gs-social-link {
+                width: 35px;
+                height: 35px;
+            }
+
+            .gs-footer-link {
+                font-size: 15px;
+            }
+        }
     </style>
+</head>
+<body class="gs-body">
+    <section class="gs-hero-section">
+        <div class="gs-hero-container">
+            <div class="gs-hero-right">
+                <p class="gs-hero-description">
+                    Designing thoughtful products and striking visuals that make digital unforgettable.
+                </p>
+                
+                <nav class="gs-social-links" aria-label="Social media links">
+                    <a href="https://x.com/thisislefa" class="gs-social-link" aria-label="X (Twitter)" target="_blank" rel="noopener">
+                        <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg>
+                    </a>
+                    <a href="https://thisislefa.webflow.io" class="gs-social-link" aria-label="Weblow" target="_blank" rel="noopener">
+                        <svg width="20" height="20" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 512"><path fill="#ffffff" d="M640 64L435.8 463.2H244l85.5-165.5h-3.8C255.1 389.3 149.9 449.5 0 463.2V300.1s95.9-5.7 152.3-64.9H0V64h171.1v140.8h3.8l70-140.8h129.4v139.9h3.8L450.7 64z"/></svg>
+                    </a>
+                    <a href="https://linkedin.com/in/mofokenglj" class="gs-social-link" aria-label="LinkedIn" target="_blank" rel="noopener">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 464 480"><path fill="#ffffff" d="M462 274v170h-98V285q0-67-50-67q-37 0-51 36q-3 7-3 24v166h-99q1-269 0-297h99v42l-1 1h1v-1q32-49 89-49q51 0 82 34t31 100zM58 4Q33 4 17.5 18.5T2 55t15 37t39 15h1q25 0 40.5-15T113 55q-1-22-16-36.5T58 4zM7 444h99V147H7v297z"/></svg>
+                    </a>
+                    <a href="https://github.com/thisislefa" class="gs-social-link" aria-label="Github" target="_blank" rel="noopener">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 432 416"><path fill="#ffffff" d="M213.5 0q88.5 0 151 62.5T427 213q0 70-41 125.5T281 416q-14 2-14-11v-58q0-27-15-40q44-5 70.5-27t26.5-77q0-34-22-58q11-26-2-57q-18-5-58 22q-26-7-54-7t-53 7q-18-12-32.5-17.5T107 88h-6q-12 31-2 57q-22 24-22 58q0 55 27 77t70 27q-11 10-13 29q-42 18-62-18q-12-20-33-22q-2 0-4.5.5t-5 3.5t8.5 9q14 7 23 31q1 2 2 4.5t6.5 9.5t13 10.5T130 371t30-2v36q0 13-14 11q-64-22-105-77.5T0 213q0-88 62.5-150.5T213.5 0z"/></svg>
+                    </a>
+                </nav>
+            </div>
+
+            <div class="gs-hero-left">
+                <h1 class="gs-hero-title">Lefa</h1>
+                <h2 class="gs-hero-subtitle">Mofokeng&#169;</h2>
+            </div>
+        </div>
+    </section>
+
+    <footer class="gs-footer-section">
+        <div class="gs-footer-container" style="border-top: 1px solid #c5c5c5;">
+            <nav class="gs-footer-links-nav" aria-label="Footer navigation">
+                <a href="projects.html" class="gs-footer-link">Projects</a>
+                <a href="pricing.html" class="gs-footer-link">Pricing</a>
+                <a href="blog.html" class="gs-footer-link"> Articles</a>
+                <a href="about.html" class="gs-footer-link">About</a>
+            </nav>
+            
+            <p class="gs-footer-copyright-text">
+                Copyright © Lefa Mofokeng 2025. All rights reserved.
+            </p>
+        </div>
+    </footer>
+</body>
+</html>
