@@ -826,7 +826,7 @@ ul {
                     <span class="st-ph-plus">+</span>
                 </li>
                 <li class="st-ph-nav-item">
-                    <a href="about.html" class="st-ph-nav-link">About</a>
+                    <a href="contact.html" class="st-ph-nav-link">Contact</a>
                     <span class="st-ph-plus">+</span>
                 </li>
             </ul>
@@ -840,7 +840,7 @@ ul {
                 </div>
 
                 <div class="st-ph-details">
-                    <a href="tel:8881234567" class="st-ph-phone">(078) 006 2713</a>
+                    <a href="tel:8881234567" class="st-ph-phone">+27 (078) 006 2713</a>
                     <p class="st-ph-address">
                         Phuthaditjhaba<br>
                         Free State, South Africa
@@ -944,269 +944,416 @@ ul {
 
 
 
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Services Section</title>
+    <link href="https://fonts.cdnfonts.com/css/creato-display" rel="stylesheet">
+    <style>
+        /* * COPY FROM HERE DOWN
+         * Paste this into your main CSS file or inside a <style> tag 
+         */
 
-
-
-<link href="https://fonts.googleapis.com/css2?family=Inter+Tight:ital,wght@0,300;0,400;0,500;0,600;0,700;1,400&display=swap" rel="stylesheet">
-
-<style>
-    /* --- Scoped Root Wrapper --- */
-    div-hero-root {
-        font-family: 'Inter Tight', sans-serif;
-        background-color: #f1f1f1; /* Matching reference bg */
-        color: #1a1a1a;
-        line-height: 1;
-        -webkit-font-smoothing: antialiased;
-        display: block;
-        width: 100%;
-        position: relative;
-    }
-
-    /* --- Shared Utilities --- */
-    .hero-container {
-        width: 100%;
-        max-width: 1200px; /* Matching reference width */
-        margin: 0 auto;
-        padding: 0 20px;
-    }
-
-    
-    /* =========================================
-       "WHAT I DO" SECTION
-       ========================================= */
-    .wid-section {
-        padding: 100px 0;
-        border-top: 1px solid #e5e5e5;
-    }
-
-    .wid-header {
-        margin-bottom: 60px;
-    }
-
-    .wid-title {
-        font-size: 48px;
-        font-weight: 500;
-        letter-spacing: -1.5px;
-        color: #000;
-        margin-bottom: 16px;
-    }
-
-    .wid-grid {
-        display: grid;
-        grid-template-columns: repeat(3, 1fr);
-        gap: 15px;
-    }
-
-    /* Service Card - Matches cs-profile-card style */
-    .wid-card {
-        background-color: #fff;
-        padding: 40px 32px;
-        display: flex;
-        flex-direction: column;
-        justify-content: flex-start;
-        transition: transform 0.3s ease;
-        border: 1px solid transparent;
-    }
-
-    .wid-card:hover {
-        transform: translateY(-5px);
-        /* Subtle shadow on hover */
-        box-shadow: 0 10px 30px rgba(0,0,0,0.05);
-    }
-
-    .wid-icon {
-        width: 48px;
-        height: 48px;
-        margin-bottom: 24px;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        background-color: #f1f1f1;
-        border-radius: 50%; /* Circle icon bg */
-        color: #000;
-    }
-
-    .wid-card-title {
-        font-size: 24px;
-        font-weight: 600;
-        color: #000;
-        margin-bottom: 12px;
-        letter-spacing: -0.5px;
-    }
-
-    .wid-card-desc {
-        font-size: 16px;
-        color: #666;
-        line-height: 1.6;
-    }
-
-    /* --- Responsive Styles --- */
-    @media (max-width: 900px) {
-        .hero-grid {
-            grid-template-columns: 1fr; /* Stack vertically */
-            gap: 40px;
+        :root {
+            --srv-bg: #e8e8e8;
+            --srv-text: #000000;
+            --srv-text-muted: #8a8a8a;
+            --srv-accent: #000000;
+            --srv-font: 'Creato Display', sans-serif;
         }
 
-        .hero-image-wrapper {
-            height: 500px; /* Shorter on tablet */
-            order: -1; /* Image on top */
+        /* Reset for the preview only - you can ignore this if you have a reset */
+        body { margin: 0; padding: 0; background-color: var(--srv-bg); font-family: var(--srv-font); }
+
+        /* --- SERVICES SECTION STYLES --- */
+
+        .srv-section-wrapper {
+            background-color: var(--srv-bg);
+            color: var(--srv-text);
+            font-family: var(--srv-font);
+            padding: 80px 20px;
+            width: 100%;
+            display: flex;
+            justify-content: center;
+            overflow: hidden; /* Prevents scrollbars from large text */
         }
 
-        .hero-title {
-            font-size: 48px;
+        .srv-master-grid {
+            max-width: 1200px;
+            width: 100%;
+            display: grid;
+            grid-template-columns: 0.8fr 1.2fr; /* Asymmetric split */
+            gap: 60px;
+            align-items: flex-start;
         }
 
-        .wid-grid {
-            grid-template-columns: 1fr; /* Stack cards */
-            gap: 24px;
+        /* -- LEFT COLUMN: TITLE -- */
+        .srv-header-block {
+            display: flex;
+            flex-direction: column;
+            position: sticky;
+            top: 40px; /* Sticks the title when scrolling */
         }
-        
-        .nav-links {
-            display: none; /* Simple hide for mobile, or use hamburger logic */
-        }
-    }
-</style>
 
-<div-hero-root>
-    <section class="wid-section">
-        <div class="hero-container">
+        .srv-headline-primary {
+            font-size: clamp(60px, 8vw, 80px);
+            font-weight: 500;
+            line-height: 0.85;
+            letter-spacing: -0.03em;
+            color: var(--srv-text);
+            margin-bottom: 0;
+        }
+
+        .srv-headline-secondary {
+            font-size: clamp(60px, 8vw, 80px);
+            font-weight: 500; /* Lighter weight for contrast */
+            line-height: 0.85;
+            letter-spacing: -0.03em;
+            color: var(--srv-text-muted);
+            position: relative;
+            display: inline-block;
+        }
+
+        .srv-copyright-badge {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 0.4em;
+            height: 0.4em;
+            border: 0.06em solid currentColor;
+            border-radius: 50%;
+            font-size: 0.4em;
+            vertical-align: top;
+            margin-left: 0.1em;
+            font-weight: 400;
+        }
+
+        .srv-intro-text {
+            margin-top: 40px;
+            font-size: clamp(16px, 1.2vw, 18px);
+            line-height: 1.6;
+            max-width: 300px;
+            color: var(--srv-text);
+        }
+
+        /* -- RIGHT COLUMN: SERVICE LIST -- */
+        .srv-list-container {
+            display: flex;
+            flex-direction: column;
+            border-top: 1px solid rgba(0,0,0,0.1);
+        }
+
+        .srv-item {
+            display: flex;
+            flex-direction: column;
+            border-bottom: 1px solid rgba(0,0,0,0.1);
+            padding: 40px 0;
+            cursor: pointer;
+            transition: padding 0.4s ease;
+            group: srv-item; /* container query preparation */
+        }
+
+        /* Hover State for the Item */
+        .srv-item:hover {
+            padding-bottom: 60px;
+        }
+
+        .srv-item-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: baseline;
+            width: 100%;
+        }
+
+        .srv-item-index {
+            font-family: 'Courier New', monospace; /* Monospaced contrast */
+            font-size: 14px;
+            color: var(--srv-text-muted);
+            margin-right: 20px;
+            transform: translateY(-50%);
+        }
+
+        .srv-item-title {
+            font-size: clamp(32px, 4vw, 46px);
+            font-weight: 600;
+            letter-spacing: -0.02em;
+            color: var(--srv-text);
+            flex-grow: 1;
+            transition: color 0.3s ease;
+        }
+
+        .srv-item:hover .srv-item-title {
+            color: var(--srv-text-muted); /* Title fades slightly on interaction */
+        }
+
+        .srv-item-icon {
+            font-size: 32px;
+            transform: rotate(-45deg);
+            transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+            opacity: 0;
+        }
+
+        .srv-item:hover .srv-item-icon {
+            opacity: 1;
+            transform: rotate(0deg); /* Arrow straightens out */
+        }
+
+        /* The hidden content that reveals on hover */
+        .srv-item-details {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.5s cubic-bezier(0.16, 1, 0.3, 1), opacity 0.5s ease;
+            opacity: 0;
+            padding-left: 35px; /* Offset to align with title */
+        }
+
+        .srv-item:hover .srv-item-details {
+            max-height: 200px; /* Adjust based on content */
+            opacity: 1;
+            margin-top: 20px;
+        }
+
+        .srv-detail-text {
+            font-size: 18px;
+            line-height: 1.5;
+            max-width: 90%;
+            color: #444;
+        }
+
+        .srv-tags {
+            display: flex;
+            gap: 10px;
+            margin-top: 15px;
+            flex-wrap: wrap;
+        }
+
+        .srv-tag {
+            font-size: 12px;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            padding: 6px 12px;
+            border: 1px solid #000;
+            border-radius: 50px;
+            background: transparent;
+            transition: background 0.3s, color 0.3s;
+        }
+
+        .srv-item:hover .srv-tag:hover {
+            background: #000;
+            color: #fff;
+        }
+
+        /* --- RESPONSIVE DESIGN --- */
+
+        @media (max-width: 1024px) {
+            .srv-master-grid {
+                grid-template-columns: 1fr; /* Stack vertically on tablet */
+                gap: 40px;
+            }
+
+            .srv-header-block {
+                position: relative; /* Remove sticky on mobile */
+                top: 0;
+                border-bottom: 1px solid rgba(0,0,0,0.1);
+                padding-bottom: 40px;
+            }
+
+            .srv-intro-text {
+                max-width: 100%;
+            }
             
-            <div class="wid-header">
-                <h2 class="wid-title">What I Do</h2>
-                <p class="hero-description" style="max-width: 600px; margin: 0;">
-                    I handle the entire development lifecycle, from technical strategy to deployment, ensuring pixel-perfect execution.
+            .srv-item-details {
+                padding-left: 0;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .srv-section-wrapper {
+                padding: 40px 20px;
+            }
+
+            .srv-item-title {
+                font-size: 28px;
+            }
+
+            .srv-headline-primary, 
+            .srv-headline-secondary {
+                font-size: 14vw; /* Massive text on mobile */
+            }
+
+            .srv-item-icon {
+                display: none; /* Hide arrow on small screens to save space */
+            }
+            
+            /* On mobile, maybe always show details or make it tap-friendly? 
+               Here we keep hover/tap behavior. */
+            .srv-item:hover .srv-item-details {
+                max-height: 300px;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- 
+      START COPYING HERE 
+      Select everything from <section> to </section>
+    -->
+    <section class="srv-section-wrapper" id="services">
+        <div class="srv-master-grid">
+            
+            <!-- Left Column: Title -->
+            <div class="srv-header-block">
+                <h2 class="srv-headline-primary">What </h2>
+                <h2 class="srv-headline-secondary">
+                    I Do
+                </h2>
+                <p class="srv-intro-text">
+                    I build accessible, pixel-perfect, and performant web experiences. 
+                    Specializing in the intersection of design and engineering.
                 </p>
             </div>
 
-            <div class="wid-grid">
+            <!-- Right Column: Services List -->
+            <div class="srv-list-container">
                 
-                <article class="wid-card">
-                    <div class="wid-icon">
-                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="#000000"><g fill="none" stroke="#000000" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5"><path d="M2.25 21.75a1.5 1.5 0 0 1-1.5-1.5V3.865A1.62 1.62 0 0 1 2.365 2.25h19.278a1.61 1.61 0 0 1 1.607 1.607v16.278a1.62 1.62 0 0 1-1.615 1.615zm21-15H.75m12 7.5h4.5"/><path d="m6.75 11.25l3 3l-3 3"/></g></svg>                    </div>
-                    <h3 class="wid-card-title">Frontend Development</h3>
-                    <p class="wid-card-desc">
-                    Building responsive, accessible, and performant user interfaces using modern technologies 
-                    like React, Vue.js, and TypeScript. Focus on creating seamless user experiences across all devices.
-                    </p>
-                    <div class="expertise-tech">
-                    <span class="tech-tag">React</span>
-                    <span class="tech-tag">Vue.js</span>
-                    <span class="tech-tag">TypeScript</span>
-                    <span class="tech-tag">HTML5/CSS3</span>
-                </div>
-                </article>
-
-                <article class="wid-card">
-                    <div class="wid-icon">
-                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 16 16"><path fill="#ffffff" fill-rule="evenodd" d="M1.5 2h13l.5.5V9h-1V6H2v7h7v1H1.5l-.5-.5v-11l.5-.5zM2 5h12V3H2v2zm5 7v-1.094a1.633 1.633 0 0 1-.469-.265l-.945.539l-.5-.86l.937-.547a1.57 1.57 0 0 1 0-.547l-.937-.546l.5-.86l.945.54c.151-.12.308-.209.469-.266V7h1v1.094a1.48 1.48 0 0 1 .469.265l.945-.539l.5.86l-.937.547a1.57 1.57 0 0 1 0 .546l.937.547l-.5.86l-.945-.54a1.807 1.807 0 0 1-.469.266V12H7zm-.25-2.5c0 .208.073.385.219.531a.723.723 0 0 0 .531.219a.723.723 0 0 0 .531-.219a.723.723 0 0 0 .219-.531a.723.723 0 0 0-.219-.531a.723.723 0 0 0-.531-.219a.723.723 0 0 0-.531.219a.723.723 0 0 0-.219.531zm5.334 5.5v-1.094a1.634 1.634 0 0 1-.469-.265l-.945.539l-.5-.86l.938-.547a1.572 1.572 0 0 1 0-.547l-.938-.546l.5-.86l.945.54c.151-.12.308-.209.47-.266V10h1v1.094a1.486 1.486 0 0 1 .468.265l.945-.539l.5.86l-.937.547a1.562 1.562 0 0 1 0 .546l.937.547l-.5.86l-.945-.54a1.806 1.806 0 0 1-.469.266V15h-1zm-.25-2.5c0 .208.073.385.219.531a.723.723 0 0 0 .531.219a.723.723 0 0 0 .531-.219a.723.723 0 0 0 .22-.531a.723.723 0 0 0-.22-.531a.723.723 0 0 0-.53-.219a.723.723 0 0 0-.532.219a.723.723 0 0 0-.219.531z" clip-rule="evenodd"/></svg> 
+                <!-- Service 01 -->
+                <article class="srv-item">
+                    <div class="srv-item-header">
+                        
+                        <h3 class="srv-item-title">01 &#8213; Creative Development</h3>
+                        <span class="srv-item-icon">→</span>
                     </div>
-                    <h3 class="wid-card-title">Backend Development</h3>
-                    <p class="wid-card-desc">
-                        Developing robust server-side applications, RESTful APIs, and database architectures. 
-                        Expertise in Node.js, Python, and cloud services for scalable and secure solutions.
-                    </p>
-                    <div class="expertise-tech">
-                    <span class="tech-tag">Node.js</span>
-                    <span class="tech-tag">Python</span>
-                    <span class="tech-tag">MongoDB</span>
-                    <span class="tech-tag">PostgreSQL</span>
-                </div>
-                </article>
-
-                <article class="wid-card">
-                    <div class="wid-icon">
-                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 48 48" fill="#fcfcfc"><g fill="none"><path d="M39 32H13L8 12h36l-5 20Z"/><path stroke="#fcfcfc" stroke-linecap="round" stroke-linejoin="round" stroke-width="3" d="M3 6h3.5L8 12m0 0l5 20h26l5-20H8Z"/><circle cx="13" cy="39" r="3" stroke="#fcfcfc" stroke-linecap="round" stroke-linejoin="round" stroke-width="3"/><circle cx="39" cy="39" r="3" stroke="#fcfcfc" stroke-linecap="round" stroke-linejoin="round" stroke-width="3"/></g></svg>
-                    </div>
-                    <h3 class="wid-card-title">E-commerce Solutions</h3>
-                    <p class="wid-card-desc">
-                        Creating comprehensive online shopping experiences with secure payment integrations, 
-                        inventory management, and optimized checkout processes that convert visitors into customers.
-                    </p>
-                    <div class="expertise-tech">
-                    <span class="tech-tag">Shopify</span>
-                    <span class="tech-tag">WooCommerce</span>
-                    <span class="tech-tag">Stripe</span>
-                    <span class="tech-tag">Payment APIs</span>
+                    <div class="srv-item-details">
+                        <p class="srv-detail-text">
+                            Transforming complex designs into fluid, interactive web applications. 
+                            I bridge the gap between Figma and the browser with precision.
+                        </p>
+                        <div class="srv-tags">
+                            <span class="srv-tag">React / Vue</span>
+                            <span class="srv-tag">Three.js</span>
+                            <span class="srv-tag">GSAP Animations</span>
+                        </div>
                     </div>
                 </article>
 
-                <article class="wid-card">
-                    <div class="wid-icon">
-                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 32 32"><path fill="#fcfcfc" d="M7.166 2.09a1 1 0 0 1 .585.887c.028 1.24.47 2.023.99 2.83l.144.22c.49.743 1.116 1.693 1.116 2.973a3.99 3.99 0 0 1-1.4 3.04c.355.367.615.797.805 1.239c.507 1.175.595 2.602.595 3.727c0 1.844-.288 4.908-.815 7.523c-.263 1.303-.595 2.55-1.006 3.494c-.203.468-.45.919-.76 1.269c-.304.344-.777.708-1.416.708c-.64 0-1.113-.364-1.417-.708c-.309-.35-.556-.8-.76-1.269c-.411-.943-.745-2.19-1.008-3.494c-.528-2.614-.818-5.679-.818-7.523c0-1.126.09-2.553.598-3.729c.19-.44.45-.869.805-1.235A4 4 0 0 1 2 9c0-.935.118-1.922.743-3.06c.605-1.103 1.65-2.283 3.368-3.71a1 1 0 0 1 1.054-.14M4.497 6.9c-.413.753-.496 1.377-.496 2.099a2 2 0 0 0 4 0c0-.658-.296-1.115-.842-1.958l-.097-.15c-.346-.534-.725-1.158-.986-1.948c-.799.782-1.282 1.417-1.579 1.957m-.062 7.17C4.099 14.849 4 15.925 4 17.007c0 1.7.274 4.631.778 7.128c.254 1.252.554 2.339.881 3.09c.128.293.245.501.344.64a3.6 3.6 0 0 0 .342-.64c.327-.75.627-1.837.88-3.09c.502-2.497.775-5.428.775-7.128c0-1.084-.097-2.16-.431-2.935c-.161-.373-.357-.63-.581-.794c-.214-.156-.516-.277-.985-.277s-.772.12-.987.278c-.224.165-.421.421-.582.794m6.55-7.39A7 7 0 0 1 20.929 12h-3.428a4.5 4.5 0 0 0-4.5 4.499v3.43a7 7 0 0 1-1.613-.434a49 49 0 0 1-.209 2.053a9 9 0 0 0 1.822.396V24.5a4.5 4.5 0 0 0 4.5 4.5h8a4.5 4.5 0 0 0 4.5-4.5v-8a4.5 4.5 0 0 0-4.5-4.5h-2.555A9 9 0 0 0 9.973 4.95l.027.042l.136.205c.236.353.57.855.85 1.483M25.5 14a2.5 2.5 0 0 1 2.5 2.5v8a2.5 2.5 0 0 1-2.5 2.5h-8a2.5 2.5 0 0 1-2.5-2.5v-2.555A9.004 9.004 0 0 0 22.945 14zM15 19.93V16.5a2.5 2.5 0 0 1 2.5-2.5h3.43A7 7 0 0 1 15 19.93"/></svg>
+                <!-- Service 02 -->
+                <article class="srv-item">
+                    <div class="srv-item-header">
+                    
+                        <h3 class="srv-item-title">02 &#8213; Interface Engineering</h3>
+                        <span class="srv-item-icon">→</span>
                     </div>
-                    <h3 class="wid-card-title">UI/UX Design</h3>
-                    <p class="wid-card-desc">
-                        Designing intuitive and beautiful interfaces that prioritize user needs. From wireframing 
-                        to prototyping, ensuring every interaction is meaningful and every visual element serves a purpose.
-                    </p>
-                    <div class="expertise-tech">
-                    <span class="tech-tag">Figma</span>
-                    <span class="tech-tag">Adobe XD</span>
-                    <span class="tech-tag">User Research</span>
-                    <span class="tech-tag">Prototyping</span>
-                </div>
+                    <div class="srv-item-details">
+                        <p class="srv-detail-text">
+                            Focusing on scalable component architectures and design systems 
+                            that ensure consistency across your entire digital product.
+                        </p>
+                        <div class="srv-tags">
+                            <span class="srv-tag">Design Systems</span>
+                            <span class="srv-tag">Storybook</span>
+                            <span class="srv-tag">Tailwind CSS</span>
+                        </div>
+                    </div>
                 </article>
 
-                 <article class="wid-card">
-                    <div class="wid-icon">
-                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M2 16.1A5 5 0 0 1 5.9 20M2 12.05A9 9 0 0 1 9.95 20M2 8V6a2 2 0 0 1 2-2h16a2 2 0 0 1 2 2v12a2 2 0 0 1-2 2h-6"></path><line x1="2" y1="20" x2="2.01" y2="20"></line></svg>
+                <!-- Service 03 -->
+                <article class="srv-item">
+                    <div class="srv-item-header">
+                        <h3 class="srv-item-title">03 &#8213; Performance & SEO</h3>
+                        <span class="srv-item-icon">→</span>
                     </div>
-                    <h3 class="wid-card-title">Mobile Development</h3>
-                    <p class="wid-card-desc">
-                        Building cross-platform mobile applications that deliver native-like performance. 
-                        Focus on responsive design, smooth animations, and optimal user experience on all screen sizes.
-                    </p>
-                    <div class="expertise-tech">
-                    <span class="tech-tag">React Native</span>
-                    <span class="tech-tag">Flutter</span>
-                    <span class="tech-tag">PWA</span>
-                    <span class="tech-tag">App Store</span>
-                </div>
-                </article>
-
-                <article class="wid-card">
-                    <div class="wid-icon">
-                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 16 16"><path fill="#fcfcfc" d="M5 6a3 3 0 0 1 5.832-.993a2 2 0 0 1 1.062.204l.031.016a4.001 4.001 0 0 0-7.895.28A3.25 3.25 0 0 0 4.25 12H6v-1H4.25a2.25 2.25 0 0 1 0-4.5h.25A.5.5 0 0 0 5 6m9.447 1.606l-3-1.5a1 1 0 0 0-.894 0l-3 1.5A1 1 0 0 0 7 8.5v4.004a1 1 0 0 0 .553.894l3 1.5a1 1 0 0 0 .894 0l3-1.5a1 1 0 0 0 .553-.894V8.5a1 1 0 0 0-.553-.894M8.04 8.732a.5.5 0 0 1 .657-.263L11 9.456l2.303-.987a.5.5 0 0 1 .394.92l-2.197.94V13a.5.5 0 1 1-1 0v-2.67l-2.197-.942a.5.5 0 0 1-.263-.656"/></svg>
+                    <div class="srv-item-details">
+                        <p class="srv-detail-text">
+                            Optimizing Core Web Vitals to ensure your site loads instantly 
+                            and ranks higher. Speed is a feature, not an afterthought.
+                        </p>
+                        <div class="srv-tags">
+                            <span class="srv-tag">Next.js</span>
+                            <span class="srv-tag">SSR / ISR</span>
+                            <span class="srv-tag">Accessibility (A11y)</span>
+                        </div>
                     </div>
-                    <h3 class="wid-card-title">DevOps & Cloud</h3>
-                    <p class="wid-card-desc">
-                        Implementing CI/CD pipelines, containerization, and cloud infrastructure for reliable 
-                        and scalable deployments. Ensuring high availability and performance across global markets.
-                    </p>
-                    <div class="expertise-tech">
-                    <span class="tech-tag">AWS</span>
-                    <span class="tech-tag">Docker</span>
-                    <span class="tech-tag">GitHub Actions</span>
-                    <span class="tech-tag">CI/CD</span>
-                </div>
                 </article>
 
             </div>
         </div>
     </section>
+    <!-- END COPYING HERE -->
 
-</div-hero-root>
-
-
-<style>
-    
-.expertise-tech {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 8px;
-    padding-top: 20px;
-}
+</body>
+</html>
 
 
-.tech-tag {
-    background: #f8f9fa;
-    color: #585858;
-    padding: 4px 12px;
-    border-radius: 20px;
-    font-size: 12px;
-    font-weight: 500;
-}
-</style>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
