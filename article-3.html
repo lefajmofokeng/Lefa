@@ -472,459 +472,236 @@
 
 
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 <style>
-    * {
-        font-family: 'Creato Display', sans-serif;
-    }
-</style>
+    /* BLOG-SPECIFIC STYLES (Adhering to Creato Display aesthetic) */
+    @import url('https://fonts.cdnfonts.com/css/creato-display');
 
-
-
-<link href="https://fonts.googleapis.com/css2?family=Inter+Tight:ital,wght@0,300;0,400;0,500;0,600;0,700;1,400&display=swap" rel="stylesheet">
-
-<style>
-    /* --- Scoped Root Wrapper --- */
-    div-all-articles-root {
-        font-family: 'Creato Display', sans-serif;
-        background-color: #f1f1f1; /* Matching reference bg */
-        color: #1a1a1a;
-        line-height: 1.5;
-        -webkit-font-smoothing: antialiased;
-        display: block;
-        width: 100%;
-        min-height: 100vh;
-    }
-
-    /* --- Shared Utilities --- */
-    .aa-wrapper {
-        width: 100%;
-        max-width: 1200px;
-        margin: 0 auto;
-        padding: 120px 20px 80px 20px;
-    }
-
-    /* --- Page Header & Filter --- */
-    .aa-header-group {
-        margin-bottom: 80px;
-        text-align: center;
-    }
-
-    .aa-page-title {
-        font-size: 72px;
-        font-weight: 600;
-        letter-spacing: -2px;
-        color: #000;
-        margin-bottom: 24px;
-        line-height: 1.05;
-    }
-
-    .aa-page-desc {
-        font-size: 18px;
-        color: #666;
-        max-width: 600px;
-        margin: 0 auto 48px auto;
-    }
-
-    .aa-filter-bar {
-        display: inline-flex;
-        background-color: #e5e5e5;
-        padding: 4px;
-        border-radius: 100px;
-        gap: 4px;
-    }
-
-    .aa-filter-btn {
-        border: none;
-        background: none;
-        padding: 10px 24px;
-        border-radius: 100px;
-        font-family: inherit;
-        font-size: 17px;
-        font-weight: 500;
-        color: #666;
-        cursor: pointer;
-        transition: all 0.2s ease;
-    }
-
-    .aa-filter-btn:hover {
-        color: #000;
-    }
-
-    /* Active state for filter button */
-    .aa-filter-btn.active {
-        background-color: #fff;
-        color: #000;
-        box-shadow: 0 2px 8px rgba(0,0,0,0.05);
-    }
-
-    /* --- Articles Grid --- */
-    .aa-grid {
-        display: grid;
-        grid-template-columns: repeat(3, 1fr);
-        gap: 40px;
-        margin-bottom: 80px;
-        /* Ensure the grid transitions smoothly if items are removed/added */
-        transition: all 0.3s ease;
-    }
-
-    /* --- Article Card --- */
-    .aa-card {
-        display: flex; /* Flex display is toggled by JS */
-        flex-direction: column;
-        text-decoration: none;
+    .blog-section-vitals {
         background-color: transparent;
-        /* Animation for filtering */
-        animation: fadeIn 0.5s ease forwards;
-    }
-
-    /* Keyframes for smooth appearance */
-    @keyframes fadeIn {
-        from { opacity: 0; transform: translateY(10px); }
-        to { opacity: 1; transform: translateY(0); }
-    }
-
-    .aa-card-image-wrap {
-        width: 100%;
-        aspect-ratio: 4/3;
-        overflow: hidden;
-        margin-bottom: 24px;
-        background-color: #ddd;
-        border-radius: 0;
-        position: relative;
-    }
-
-    .aa-card-img {
-        width: 100%;
-        height: 100%;
-        object-fit: cover;
-        transition: transform 0.6s cubic-bezier(0.22, 1, 0.36, 1);
-    }
-
-    .aa-card:hover .aa-card-img {
-        transform: scale(1.08);
-    }
-
-    .aa-card-meta {
-        font-size: 12px;
-        font-weight: 500;
-        text-transform: uppercase;
-        letter-spacing: 1px;
-        color: #555;
-        margin-bottom: 12px;
-        display: flex;
-        align-items: center;
-        gap: 8px;
-    }
-
-    .aa-card-title {
-        font-size: 26px;
-        font-weight: 500;
-        color: #000;
-        margin-bottom: 12px;
-        letter-spacing: -1px;
-        line-height: 1.2;
-        transition: color 0.2s ease;
-    }
-
-    .aa-card:hover .aa-card-title {
-        text-decoration: underline;
-        text-decoration-thickness: 1px;
-        text-underline-offset: 4px;
-    }
-
-    .aa-card-excerpt {
-        font-size: 16px;
-        color: #555;
-        line-height: 1.6;
-        display: -webkit-box;
-        -webkit-line-clamp: 3;
-        -webkit-box-orient: vertical;
-        overflow: hidden;
-    }
-
-    /* --- Newsletter Section --- */
-    .aa-newsletter-section {
-        background-color: #fff;
-        padding: 100px 20px;
-        border-top: 1px solid #e5e5e5;
-        border-bottom: 1px solid #e5e5e5;
-    }
-
-    .aa-nl-container {
-        max-width: 600px;
+        font-family: 'Creato Display', sans-serif;
+        color: #000000;
+        padding: 120px 20px;
+        /* Enforcing the 1200px width request */
+        max-width: 1200px; 
         margin: 0 auto;
-        text-align: center;
+        overflow: hidden;
     }
 
-    .aa-nl-title {
-        font-size: 32px;
-        font-weight: 500;
-        color: #000;
-        margin-bottom: 16px;
-        letter-spacing: -1px;
+    .blog-header-vitals {
+        margin-bottom: 80px;
     }
 
-    .aa-nl-desc {
-        font-size: 16px;
-        color: #666;
-        margin-bottom: 32px;
+    .blog-pretitle-vitals {
+        font-size: 14px;
+        text-transform: uppercase;
+        letter-spacing: 0.05em;
+        font-weight: 700;
+        color: #8a8a8a;
+        margin-bottom: 10px;
+        display: block;
+    }
+
+    .blog-title-vitals {
+        font-size: clamp(60px, 8vw, 80px);
+        font-weight: 700;
+        line-height: 0.85;
+        letter-spacing: -0.03em;
+        text-transform: uppercase;
+        margin-left: -0.05em; 
+    }
+
+    .blog-subtitle-vitals {
+        font-size: clamp(24px, 3vw, 40px);
+        line-height: 1.3;
+        font-weight: 400;
+        letter-spacing: -0.01em;
+        max-width: 900px;
+        margin-top: 30px;
+        color: #555555;
+    }
+
+    .blog-content-vitals {
+        display: grid;
+        grid-template-columns: 1fr 2fr;
+        gap: 80px;
+        font-size: clamp(18px, 1.5vw, 22px);
         line-height: 1.6;
     }
 
-    .aa-nl-form {
+    .blog-sidebar-vitals {
+        position: sticky;
+        top: 40px;
+        height: min-content;
         display: flex;
-        gap: 12px;
+        flex-direction: column;
+        gap: 20px;
+        border-left: 2px solid #000000;
+        padding-left: 20px;
+    }
+    
+    .blog-meta-item-vitals {
+        font-size: 14px;
+        text-transform: uppercase;
+        color: #8a8a8a;
+        font-weight: 700;
     }
 
-    .aa-nl-input {
-        flex: 1;
-        padding: 16px;
-        background-color: #f9f9f9;
-        border: 1px solid #e5e5e5;
-        font-family: inherit;
+    .blog-meta-item-vitals strong {
+        color: #000000;
+        font-weight: 700;
+        display: block;
         font-size: 16px;
-        outline: none;
-        transition: border-color 0.2s ease;
+        margin-top: 4px;
     }
 
-    .aa-nl-input:focus {
-        border-color: #000;
+    .blog-main-vitals p {
+        margin-bottom: 30px;
+        font-weight: 400;
     }
 
-    .aa-nl-btn {
-        padding: 16px 32px;
-        background-color: #000;
-        color: #fff;
-        border: none;
-        font-family: inherit;
-        font-weight: 600;
-        cursor: pointer;
-        transition: background-color 0.2s ease;
+    .blog-main-vitals h3 {
+        font-size: clamp(28px, 3vw, 48px);
+        font-weight: 700;
+        line-height: 1.1;
+        letter-spacing: -0.02em;
+        margin: 60px 0 25px 0;
+        color: #000000;
     }
 
-    .aa-nl-btn:hover {
-        background-color: #333;
+    .blog-main-vitals strong {
+        font-weight: 700;
+        color: #000000;
     }
 
-    /* --- Responsive Styles --- */
-    @media (max-width: 900px) {
-        .aa-grid {
-            grid-template-columns: repeat(2, 1fr);
-            gap: 32px;
+    .blog-highlight-vitals {
+        color: #8a8a8a;
+    }
+
+    /* Responsive adjustments for the fixed 1200px width */
+    @media (max-width: 1200px) {
+        .blog-section-vitals {
+            max-width: 100%;
+            padding: 120px 40px;
         }
-        .aa-page-title {
-            font-size: 56px;
-        }
     }
-
-    @media (max-width: 600px) {
-        .aa-grid {
+    
+    @media (max-width: 1024px) {
+        .blog-content-vitals {
             grid-template-columns: 1fr;
-            gap: 48px;
+            gap: 40px;
         }
-        .aa-page-title {
-            font-size: 42px;
+
+        .blog-sidebar-vitals {
+            position: relative;
+            top: 0;
+            padding-left: 0;
+            border-left: none;
+            border-bottom: 1px solid #000000;
+            padding-bottom: 20px;
+            flex-direction: row;
+            flex-wrap: wrap;
         }
-        .aa-filter-bar {
-            width: 100%;
-            overflow-x: auto;
-            white-space: nowrap;
-            justify-content: flex-start;
-            padding: 8px; /* Added slight padding for scroll feel */
-        }
-        .aa-nl-form {
-            flex-direction: column;
-        }
-        .aa-nl-btn {
-            width: 100%;
+        
+        .blog-meta-item-vitals {
+            min-width: 40%;
         }
     }
 </style>
 
-<div-all-articles-root>
-    
-    <section class="aa-wrapper">
-        
-        <header class="aa-header-group">
-            <h1 class="aa-page-title">The Journal</h1>
-            <p class="aa-page-desc">
-                Thoughts on design systems, frontend architecture, and the occasional rant about CSS specificity.
+<article class="blog-section-vitals">
+    <header class="blog-header-vitals">
+        <span class="blog-pretitle-vitals">Performance Engineering</span>
+        <h1 class="blog-title-vitals">Optimizing Core</h1>
+        <h1 class="blog-title-vitals blog-highlight-vitals">Web Vitals</h1>
+        <p class="blog-subtitle-vitals">
+            A deep dive into reducing Cumulative Layout Shift (CLS) and improving First Contentful Paint (FCP) for heavy sites.
+        </p>
+    </header>
+
+    <div class="blog-content-vitals">
+        <aside class="blog-sidebar-vitals">
+            <div class="blog-meta-item-vitals">
+                Author
+                <strong>Lefa Mofokeng</strong>
+            </div>
+            <div class="blog-meta-item-vitals">
+                Date
+                <strong>Nov 21, 2025</strong>
+            </div>
+            <div class="blog-meta-item-vitals">
+                Category
+                <strong>Web Performance</strong>
+            </div>
+        </aside>
+
+        <div class="blog-main-vitals">
+            <p>
+                The pursuit of speed is no longer just a courtesy to the user; it is a fundamental requirement of modern web development, backed by Google's Core Web Vitals (CWV). For sites heavy with assets, scripts, and third-party content, hitting those "Good" thresholds can be challenging. As a frontend developer, I focus on two specific metrics that define the user's initial perception: First Contentful Paint (FCP) and Cumulative Layout Shift (CLS).
+            </p>
+
+            <p>
+                By tackling the technical debt that hinders these two vitals, we can transform a sluggish experience into one that feels instant and stable.
+            </p>
+
+            <h3>Mastering First Contentful Paint (FCP)</h3>
+            <p>
+                FCP measures the time from when the page starts loading to when any part of the page's content is rendered on the screen. For heavy sites, the browser often wastes time downloading large CSS and JavaScript bundles before it can even paint the visible content. The strategy is simple: de-prioritize the non-critical.
+            </p>
+
+            <h4>1. Critical CSS Inlining</h4>
+            <p>
+                I identify the minimum CSS required to render the content visible above the fold (the "critical path") and inline it directly into the `<head>` of the HTML. This ensures the browser can paint the content immediately, without waiting for the external stylesheet to download. The remaining, non-critical CSS is then loaded asynchronously. This is the single most effective way to improve FCP.
+            </p>
+
+            <h4>2. Resource Prioritization</h4>
+            <p>
+                Heavy sites have many requests. I use native browser hints to prioritize. `<link rel="preload">` should be used for critical fonts, images, or hero scripts necessary for the immediate view. Conversely, I use `defer` and `async` attributes on non-essential JavaScript to ensure these large files don't block the initial rendering pipeline.
+            </p>
+
+            <h3>Eliminating Cumulative Layout Shift (CLS)</h3>
+            <p>
+                CLS measures the unexpected shifting of page content as it loads. This metric is a pure measure of frustration—elements suddenly jumping around can lead to misclicks, lost focus, and immediate abandonment. The cause is almost always content loading without its dimensions being known beforehand.
+            </p>
+
+            <h4>1. Explicit Image and Video Dimensions</h4>
+            <p>
+                Every single image and video element must have explicit `width` and `height` attributes or be reserved space using the CSS `aspect-ratio` property. This tells the browser exactly how much space to reserve for the asset, eliminating the jump when the asset finally loads. This applies even to responsive images.
             </p>
             
-            <nav class="aa-filter-bar">
-                <button class="aa-filter-btn active" data-filter="all">All</button>
-                <button class="aa-filter-btn" data-filter="engineering">Engineering</button>
-                <button class="aa-filter-btn" data-filter="design">Design</button>
-                <button class="aa-filter-btn" data-filter="tutorials">Tutorials</button>
-                <button class="aa-filter-btn" data-filter="career">Career</button>
-            </nav>
-        </header>
-
-        <div class="aa-grid" id="articles-grid">
-
-            <a href="article-4.html" class="aa-card" data-category="engineering">
-                <div class="aa-card-image-wrap">
-                    <img src="https://images.unsplash.com/photo-1550751827-4bd374c3f58b?q=80&w=1470&auto=format&fit=crop" alt="Cybersecurity lock" class="aa-card-img">
-                </div>
-                <div class="aa-card-meta">
-                    <span>Engineering</span>
-                    <span>&bull;</span>
-                    <span>Nov 25</span>
-                </div>
-                <h3 class="aa-card-title">Zero Trust Architecture for Frontend</h3>
-                <p class="aa-card-excerpt">
-                    Moving beyond basic authentication. How to secure your client-side applications in an era of sophisticated attacks.
-                </p>
-            </a>
-
-            <a href="#" class="aa-card" data-category="design">
-                <div class="aa-card-image-wrap">
-                    <img src="https://images.unsplash.com/photo-1614850523459-c2f4c699c52e?q=80&w=1470&auto=format&fit=crop" alt="Fluid gradient" class="aa-card-img">
-                </div>
-                <div class="aa-card-meta">
-                    <span>Design</span>
-                    <span>&bull;</span>
-                    <span>Oct 24</span>
-                </div>
-                <h3 class="aa-card-title">Fluid Typography with CSS Clamp</h3>
-                <p class="aa-card-excerpt">
-                    Stop writing media queries for every 100px. Use modern CSS math functions to create typography that scales seamlessly.
-                </p>
-            </a>
-
-            <a href="#" class="aa-card" data-category="career">
-                <div class="aa-card-image-wrap">
-                    <img src="https://images.unsplash.com/photo-1526374965328-7f61d4dc18c5?q=80&w=1470&auto=format&fit=crop" alt="Matrix code" class="aa-card-img">
-                </div>
-                <div class="aa-card-meta">
-                    <span>Career</span>
-                    <span>&bull;</span>
-                    <span>Oct 10</span>
-                </div>
-                <h3 class="aa-card-title">From Junior to Senior: The Gap</h3>
-                <p class="aa-card-excerpt">
-                    It's not just about writing code faster. It's about solving the right problems. A reflection on my 5 years in tech.
-                </p>
-            </a>
-
-            <a href="#" class="aa-card" data-category="tutorials">
-                <div class="aa-card-image-wrap">
-                    <img src="https://images.unsplash.com/photo-1558655146-d09347e92766?q=80&w=1470&auto=format&fit=crop" alt="Minimalist desk" class="aa-card-img">
-                </div>
-                <div class="aa-card-meta">
-                    <span>Tutorials</span>
-                    <span>&bull;</span>
-                    <span>Sep 15</span>
-                </div>
-                <h3 class="aa-card-title">Building a Custom Router in Vanilla JS</h3>
-                <p class="aa-card-excerpt">
-                    Understanding how SPAs work under the hood by building a lightweight routing system from scratch.
-                </p>
-            </a>
-
-            <a href="#" class="aa-card" data-category="design">
-                <div class="aa-card-image-wrap">
-                    <img src="https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?q=80&w=1364&auto=format&fit=crop" alt="Abstract shapes" class="aa-card-img">
-                </div>
-                <div class="aa-card-meta">
-                    <span>Design</span>
-                    <span>&bull;</span>
-                    <span>Aug 30</span>
-                </div>
-                <h3 class="aa-card-title">The Psychology of Dark Mode</h3>
-                <p class="aa-card-excerpt">
-                    Why dark mode isn't just a color palette swap. Considerations for contrast, accessibility, and user environment.
-                </p>
-            </a>
-
-            <a href="#" class="aa-card" data-category="engineering">
-                <div class="aa-card-image-wrap">
-                    <img src="https://images.unsplash.com/photo-1550439062-609e1531270e?q=80&w=1470&auto=format&fit=crop" alt="Team meeting" class="aa-card-img">
-                </div>
-                <div class="aa-card-meta">
-                    <span>Engineering</span>
-                    <span>&bull;</span>
-                    <span>Aug 12</span>
-                </div>
-                <h3 class="aa-card-title">Managing State in 2024</h3>
-                <p class="aa-card-excerpt">
-                    Zustand, Recoil, Redux Toolkit, or Context? Breaking down the best tools for the job based on app complexity.
-                </p>
-            </a>
-            
-            <a href="#" class="aa-card" data-category="tutorials">
-                <div class="aa-card-image-wrap">
-                    <img src="https://images.unsplash.com/photo-1515879218367-8466d910aaa4?q=80&w=1469&auto=format&fit=crop" alt="Code laptop" class="aa-card-img">
-                </div>
-                <div class="aa-card-meta">
-                    <span>Tutorials</span>
-                    <span>&bull;</span>
-                    <span>July 20</span>
-                </div>
-                <h3 class="aa-card-title">Mastering CSS Grid</h3>
-                <p class="aa-card-excerpt">
-                    A comprehensive guide to building complex layouts with few lines of code.
-                </p>
-            </a>
-
-        </div>
-
-    </section>
-
-    <section class="aa-newsletter-section">
-        <div class="aa-nl-container">
-            <h2 class="aa-nl-title">Stay in the loop</h2>
-            <p class="aa-nl-desc">
-                Join 5,000+ developers receiving monthly insights on frontend trends, clean code, and design patterns. No spam, ever.
+            <h4>2. Font Loading Optimization</h4>
+            <p>
+                Layout shifts often occur when a fallback font is initially displayed, then suddenly replaced by a custom web font once it downloads (Flash of Unstyled Text, or FOUT). I mitigate this using the `font-display: optional` or `font-display: swap` descriptor combined with the CSS `@font-face` rule. This either waits for a brief period before displaying the fallback, or ensures the layout shift is contained early in the load process.
             </p>
-            <form class="aa-nl-form" onsubmit="event.preventDefault();">
-                <input type="email" placeholder="Enter your email" class="aa-nl-input" required>
-                <button type="submit" class="aa-nl-btn">Subscribe</button>
-            </form>
+
+            <h4>3. Reserving Space for Dynamic Content (Ads/Iframes)</h4>
+            <p>
+                Third-party embeds, like ads or social media widgets, are notorious for causing CLS because their size is unpredictable. The solution is to statically reserve a fixed space for them using CSS. If the ad is variable size, I reserve the space for the largest possible ad or use a dedicated placeholder element that maintains the area's dimensions until the content fully renders.
+            </p>
+            
+            <h3>The Path Forward</h3>
+            <p>
+                Optimizing Core Web Vitals is an ongoing process, not a one-time fix. By prioritizing the user experience and tackling FCP through critical resource delivery and CLS through layout stability, we ensure that even the heaviest of sites feel fast, reliable, and expertly engineered.
+            </p>
         </div>
-    </section>
-
-    <script>
-        document.addEventListener('DOMContentLoaded', () => {
-            const filterBtns = document.querySelectorAll('.aa-filter-btn');
-            const cards = document.querySelectorAll('.aa-card');
-
-            filterBtns.forEach(btn => {
-                btn.addEventListener('click', () => {
-                    // 1. Remove active class from all buttons
-                    filterBtns.forEach(b => b.classList.remove('active'));
-                    
-                    // 2. Add active class to clicked button
-                    btn.classList.add('active');
-
-                    // 3. Get the filter value
-                    const filterValue = btn.getAttribute('data-filter');
-
-                    // 4. Loop through cards and show/hide based on category
-                    cards.forEach(card => {
-                        const cardCategory = card.getAttribute('data-category');
-
-                        if (filterValue === 'all' || filterValue === cardCategory) {
-                            card.style.display = 'flex'; // Restore display
-                            // Optional: Reset animation
-                            card.style.animation = 'none';
-                            card.offsetHeight; /* trigger reflow */
-                            card.style.animation = 'fadeIn 0.5s ease forwards';
-                        } else {
-                            card.style.display = 'none'; // Hide
-                        }
-                    });
-                });
-            });
-        });
-    </script>
-
-</div-all-articles-root>
-
-
-
-
-
+    </div>
+</article>
 
 
 

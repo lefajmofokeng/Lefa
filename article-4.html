@@ -472,460 +472,241 @@
 
 
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 <style>
-    * {
-        font-family: 'Creato Display', sans-serif;
-    }
-</style>
+    /* BLOG-SPECIFIC STYLES (Adhering to Creato Display aesthetic) */
+    @import url('https://fonts.cdnfonts.com/css/creato-display');
 
-
-
-<link href="https://fonts.googleapis.com/css2?family=Inter+Tight:ital,wght@0,300;0,400;0,500;0,600;0,700;1,400&display=swap" rel="stylesheet">
-
-<style>
-    /* --- Scoped Root Wrapper --- */
-    div-all-articles-root {
-        font-family: 'Creato Display', sans-serif;
-        background-color: #f1f1f1; /* Matching reference bg */
-        color: #1a1a1a;
-        line-height: 1.5;
-        -webkit-font-smoothing: antialiased;
-        display: block;
-        width: 100%;
-        min-height: 100vh;
-    }
-
-    /* --- Shared Utilities --- */
-    .aa-wrapper {
-        width: 100%;
-        max-width: 1200px;
-        margin: 0 auto;
-        padding: 120px 20px 80px 20px;
-    }
-
-    /* --- Page Header & Filter --- */
-    .aa-header-group {
-        margin-bottom: 80px;
-        text-align: center;
-    }
-
-    .aa-page-title {
-        font-size: 72px;
-        font-weight: 600;
-        letter-spacing: -2px;
-        color: #000;
-        margin-bottom: 24px;
-        line-height: 1.05;
-    }
-
-    .aa-page-desc {
-        font-size: 18px;
-        color: #666;
-        max-width: 600px;
-        margin: 0 auto 48px auto;
-    }
-
-    .aa-filter-bar {
-        display: inline-flex;
-        background-color: #e5e5e5;
-        padding: 4px;
-        border-radius: 100px;
-        gap: 4px;
-    }
-
-    .aa-filter-btn {
-        border: none;
-        background: none;
-        padding: 10px 24px;
-        border-radius: 100px;
-        font-family: inherit;
-        font-size: 17px;
-        font-weight: 500;
-        color: #666;
-        cursor: pointer;
-        transition: all 0.2s ease;
-    }
-
-    .aa-filter-btn:hover {
-        color: #000;
-    }
-
-    /* Active state for filter button */
-    .aa-filter-btn.active {
-        background-color: #fff;
-        color: #000;
-        box-shadow: 0 2px 8px rgba(0,0,0,0.05);
-    }
-
-    /* --- Articles Grid --- */
-    .aa-grid {
-        display: grid;
-        grid-template-columns: repeat(3, 1fr);
-        gap: 40px;
-        margin-bottom: 80px;
-        /* Ensure the grid transitions smoothly if items are removed/added */
-        transition: all 0.3s ease;
-    }
-
-    /* --- Article Card --- */
-    .aa-card {
-        display: flex; /* Flex display is toggled by JS */
-        flex-direction: column;
-        text-decoration: none;
+    .blog-section-zt {
         background-color: transparent;
-        /* Animation for filtering */
-        animation: fadeIn 0.5s ease forwards;
-    }
-
-    /* Keyframes for smooth appearance */
-    @keyframes fadeIn {
-        from { opacity: 0; transform: translateY(10px); }
-        to { opacity: 1; transform: translateY(0); }
-    }
-
-    .aa-card-image-wrap {
-        width: 100%;
-        aspect-ratio: 4/3;
-        overflow: hidden;
-        margin-bottom: 24px;
-        background-color: #ddd;
-        border-radius: 0;
-        position: relative;
-    }
-
-    .aa-card-img {
-        width: 100%;
-        height: 100%;
-        object-fit: cover;
-        transition: transform 0.6s cubic-bezier(0.22, 1, 0.36, 1);
-    }
-
-    .aa-card:hover .aa-card-img {
-        transform: scale(1.08);
-    }
-
-    .aa-card-meta {
-        font-size: 12px;
-        font-weight: 500;
-        text-transform: uppercase;
-        letter-spacing: 1px;
-        color: #555;
-        margin-bottom: 12px;
-        display: flex;
-        align-items: center;
-        gap: 8px;
-    }
-
-    .aa-card-title {
-        font-size: 26px;
-        font-weight: 500;
-        color: #000;
-        margin-bottom: 12px;
-        letter-spacing: -1px;
-        line-height: 1.2;
-        transition: color 0.2s ease;
-    }
-
-    .aa-card:hover .aa-card-title {
-        text-decoration: underline;
-        text-decoration-thickness: 1px;
-        text-underline-offset: 4px;
-    }
-
-    .aa-card-excerpt {
-        font-size: 16px;
-        color: #555;
-        line-height: 1.6;
-        display: -webkit-box;
-        -webkit-line-clamp: 3;
-        -webkit-box-orient: vertical;
-        overflow: hidden;
-    }
-
-    /* --- Newsletter Section --- */
-    .aa-newsletter-section {
-        background-color: #fff;
-        padding: 100px 20px;
-        border-top: 1px solid #e5e5e5;
-        border-bottom: 1px solid #e5e5e5;
-    }
-
-    .aa-nl-container {
-        max-width: 600px;
+        font-family: 'Creato Display', sans-serif;
+        color: #000000;
+        padding: 120px 20px;
+        /* Enforcing the 1200px width request */
+        max-width: 1200px; 
         margin: 0 auto;
-        text-align: center;
+        overflow: hidden;
     }
 
-    .aa-nl-title {
-        font-size: 32px;
-        font-weight: 500;
-        color: #000;
-        margin-bottom: 16px;
-        letter-spacing: -1px;
+    .blog-header-zt {
+        margin-bottom: 80px;
     }
 
-    .aa-nl-desc {
-        font-size: 16px;
-        color: #666;
-        margin-bottom: 32px;
+    .blog-pretitle-zt {
+        font-size: 14px;
+        text-transform: uppercase;
+        letter-spacing: 0.05em;
+        font-weight: 700;
+        color: #8a8a8a;
+        margin-bottom: 10px;
+        display: block;
+    }
+
+    .blog-title-zt {
+        font-size: clamp(60px, 8vw, 80px);
+        font-weight: 700;
+        line-height: 0.85;
+        letter-spacing: -0.03em;
+        text-transform: uppercase;
+        margin-left: -0.05em; 
+    }
+
+    .blog-subtitle-zt {
+        font-size: clamp(24px, 3vw, 40px);
+        line-height: 1.3;
+        font-weight: 400;
+        letter-spacing: -0.01em;
+        max-width: 900px;
+        margin-top: 30px;
+        color: #555555;
+    }
+
+    .blog-content-zt {
+        display: grid;
+        grid-template-columns: 1fr 2fr;
+        gap: 80px;
+        font-size: clamp(18px, 1.5vw, 22px);
         line-height: 1.6;
     }
 
-    .aa-nl-form {
+    .blog-sidebar-zt {
+        position: sticky;
+        top: 40px;
+        height: min-content;
         display: flex;
-        gap: 12px;
+        flex-direction: column;
+        gap: 20px;
+        border-left: 2px solid #000000;
+        padding-left: 20px;
+    }
+    
+    .blog-meta-item-zt {
+        font-size: 14px;
+        text-transform: uppercase;
+        color: #8a8a8a;
+        font-weight: 700;
     }
 
-    .aa-nl-input {
-        flex: 1;
-        padding: 16px;
-        background-color: #f9f9f9;
-        border: 1px solid #e5e5e5;
-        font-family: inherit;
+    .blog-meta-item-zt strong {
+        color: #000000;
+        font-weight: 700;
+        display: block;
         font-size: 16px;
-        outline: none;
-        transition: border-color 0.2s ease;
+        margin-top: 4px;
     }
 
-    .aa-nl-input:focus {
-        border-color: #000;
+    .blog-main-zt p {
+        margin-bottom: 30px;
+        font-weight: 400;
     }
 
-    .aa-nl-btn {
-        padding: 16px 32px;
-        background-color: #000;
-        color: #fff;
-        border: none;
-        font-family: inherit;
-        font-weight: 600;
-        cursor: pointer;
-        transition: background-color 0.2s ease;
+    .blog-main-zt h3 {
+        font-size: clamp(28px, 3vw, 48px);
+        font-weight: 700;
+        line-height: 1.1;
+        letter-spacing: -0.02em;
+        margin: 60px 0 25px 0;
+        color: #000000;
     }
 
-    .aa-nl-btn:hover {
-        background-color: #333;
+    .blog-main-zt strong {
+        font-weight: 700;
+        color: #000000;
     }
 
-    /* --- Responsive Styles --- */
-    @media (max-width: 900px) {
-        .aa-grid {
-            grid-template-columns: repeat(2, 1fr);
-            gap: 32px;
+    .blog-highlight-zt {
+        color: #8a8a8a;
+    }
+
+    /* Responsive adjustments for the fixed 1200px width */
+    @media (max-width: 1200px) {
+        .blog-section-zt {
+            max-width: 100%;
+            padding: 120px 40px;
         }
-        .aa-page-title {
-            font-size: 56px;
-        }
     }
-
-    @media (max-width: 600px) {
-        .aa-grid {
+    
+    @media (max-width: 1024px) {
+        .blog-content-zt {
             grid-template-columns: 1fr;
-            gap: 48px;
+            gap: 40px;
         }
-        .aa-page-title {
-            font-size: 42px;
+
+        .blog-sidebar-zt {
+            position: relative;
+            top: 0;
+            padding-left: 0;
+            border-left: none;
+            border-bottom: 1px solid #000000;
+            padding-bottom: 20px;
+            flex-direction: row;
+            flex-wrap: wrap;
         }
-        .aa-filter-bar {
-            width: 100%;
-            overflow-x: auto;
-            white-space: nowrap;
-            justify-content: flex-start;
-            padding: 8px; /* Added slight padding for scroll feel */
-        }
-        .aa-nl-form {
-            flex-direction: column;
-        }
-        .aa-nl-btn {
-            width: 100%;
+        
+        .blog-meta-item-zt {
+            min-width: 40%;
         }
     }
 </style>
 
-<div-all-articles-root>
-    
-    <section class="aa-wrapper">
-        
-        <header class="aa-header-group">
-            <h1 class="aa-page-title">The Journal</h1>
-            <p class="aa-page-desc">
-                Thoughts on design systems, frontend architecture, and the occasional rant about CSS specificity.
+<article class="blog-section-zt">
+    <header class="blog-header-zt">
+        <span class="blog-pretitle-zt">Security Architecture</span>
+        <h1 class="blog-title-zt">Zero Trust</h1>
+        <h1 class="blog-title-zt blog-highlight-zt">for Frontend</h1>
+        <p class="blog-subtitle-zt">
+            Moving beyond perimeter defense: How we apply the 'Never Trust, Always Verify' principle to client-side code, third-party scripts, and the browser itself.
+        </p>
+    </header>
+
+    <div class="blog-content-zt">
+        <aside class="blog-sidebar-zt">
+            <div class="blog-meta-item-zt">
+                Author
+                <strong>Lefa Mofokeng</strong>
+            </div>
+            <div class="blog-meta-item-zt">
+                Date
+                <strong>Nov 25, 2025</strong>
+            </div>
+            <div class="blog-meta-item-zt">
+                Category
+                <strong>Security</strong>
+            </div>
+        </aside>
+
+        <div class="blog-main-zt">
+            <p>
+                The security industry has long operated under the model of a walled garden: anything inside the network perimeter is trusted, anything outside is not. Zero Trust Architecture (ZTA) shattered this idea, asserting that security boundaries should be dynamic and trust should never be implicit. While ZTA is usually discussed in the context of network infrastructure and identity management, applying its principles to the frontend is becoming essential, especially for heavy, complex applications that rely on client-side code and external services.
+            </p>
+
+            <p>
+                The principle remains the same: Never trust the user, the device, or the code running in the browser.
+            </p>
+
+            <h3>1. Identity and Access Management (IAM)</h3>
+            <p>
+                In a ZTA frontend, authorization isn't a one-time gate; it's a persistent check. The client-side application must assume that any token or cookie could be compromised.
+            </p>
+            <ul>
+                <li style="margin-left: 20px; margin-bottom: 10px;">
+                    Short-Lived Tokens: Access tokens used by the frontend to communicate with APIs must have a very short lifespan. This minimizes the damage if a token is intercepted.
+                </li>
+                <li style="margin-left: 20px; margin-bottom: 10px;">
+                    Per-Action Authorization: Authorization checks must happen on every single API call (on the backend), and the frontend should be structured to only display elements and options that the user is currently authorized to access.
+                </li>
+            </ul>
+
+            <h3>2. Securing the Client-Side Code</h3>
+            <p>
+                The browser is hostile territory. Our own JavaScript is the primary execution vehicle for modern attacks like Cross-Site Scripting (XSS).
             </p>
             
-            <nav class="aa-filter-bar">
-                <button class="aa-filter-btn active" data-filter="all">All</button>
-                <button class="aa-filter-btn" data-filter="engineering">Engineering</button>
-                <button class="aa-filter-btn" data-filter="design">Design</button>
-                <button class="aa-filter-btn" data-filter="tutorials">Tutorials</button>
-                <button class="aa-filter-btn" data-filter="career">Career</button>
-            </nav>
-        </header>
-
-        <div class="aa-grid" id="articles-grid">
-
-            <a href="article-4.html" class="aa-card" data-category="engineering">
-                <div class="aa-card-image-wrap">
-                    <img src="https://images.unsplash.com/photo-1550751827-4bd374c3f58b?q=80&w=1470&auto=format&fit=crop" alt="Cybersecurity lock" class="aa-card-img">
-                </div>
-                <div class="aa-card-meta">
-                    <span>Engineering</span>
-                    <span>&bull;</span>
-                    <span>Nov 25</span>
-                </div>
-                <h3 class="aa-card-title">Zero Trust Architecture for Frontend</h3>
-                <p class="aa-card-excerpt">
-                    Moving beyond basic authentication. How to secure your client-side applications in an era of sophisticated attacks.
-                </p>
-            </a>
-
-            <a href="#" class="aa-card" data-category="design">
-                <div class="aa-card-image-wrap">
-                    <img src="https://images.unsplash.com/photo-1614850523459-c2f4c699c52e?q=80&w=1470&auto=format&fit=crop" alt="Fluid gradient" class="aa-card-img">
-                </div>
-                <div class="aa-card-meta">
-                    <span>Design</span>
-                    <span>&bull;</span>
-                    <span>Oct 24</span>
-                </div>
-                <h3 class="aa-card-title">Fluid Typography with CSS Clamp</h3>
-                <p class="aa-card-excerpt">
-                    Stop writing media queries for every 100px. Use modern CSS math functions to create typography that scales seamlessly.
-                </p>
-            </a>
-
-            <a href="#" class="aa-card" data-category="career">
-                <div class="aa-card-image-wrap">
-                    <img src="https://images.unsplash.com/photo-1526374965328-7f61d4dc18c5?q=80&w=1470&auto=format&fit=crop" alt="Matrix code" class="aa-card-img">
-                </div>
-                <div class="aa-card-meta">
-                    <span>Career</span>
-                    <span>&bull;</span>
-                    <span>Oct 10</span>
-                </div>
-                <h3 class="aa-card-title">From Junior to Senior: The Gap</h3>
-                <p class="aa-card-excerpt">
-                    It's not just about writing code faster. It's about solving the right problems. A reflection on my 5 years in tech.
-                </p>
-            </a>
-
-            <a href="#" class="aa-card" data-category="tutorials">
-                <div class="aa-card-image-wrap">
-                    <img src="https://images.unsplash.com/photo-1558655146-d09347e92766?q=80&w=1470&auto=format&fit=crop" alt="Minimalist desk" class="aa-card-img">
-                </div>
-                <div class="aa-card-meta">
-                    <span>Tutorials</span>
-                    <span>&bull;</span>
-                    <span>Sep 15</span>
-                </div>
-                <h3 class="aa-card-title">Building a Custom Router in Vanilla JS</h3>
-                <p class="aa-card-excerpt">
-                    Understanding how SPAs work under the hood by building a lightweight routing system from scratch.
-                </p>
-            </a>
-
-            <a href="#" class="aa-card" data-category="design">
-                <div class="aa-card-image-wrap">
-                    <img src="https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?q=80&w=1364&auto=format&fit=crop" alt="Abstract shapes" class="aa-card-img">
-                </div>
-                <div class="aa-card-meta">
-                    <span>Design</span>
-                    <span>&bull;</span>
-                    <span>Aug 30</span>
-                </div>
-                <h3 class="aa-card-title">The Psychology of Dark Mode</h3>
-                <p class="aa-card-excerpt">
-                    Why dark mode isn't just a color palette swap. Considerations for contrast, accessibility, and user environment.
-                </p>
-            </a>
-
-            <a href="#" class="aa-card" data-category="engineering">
-                <div class="aa-card-image-wrap">
-                    <img src="https://images.unsplash.com/photo-1550439062-609e1531270e?q=80&w=1470&auto=format&fit=crop" alt="Team meeting" class="aa-card-img">
-                </div>
-                <div class="aa-card-meta">
-                    <span>Engineering</span>
-                    <span>&bull;</span>
-                    <span>Aug 12</span>
-                </div>
-                <h3 class="aa-card-title">Managing State in 2024</h3>
-                <p class="aa-card-excerpt">
-                    Zustand, Recoil, Redux Toolkit, or Context? Breaking down the best tools for the job based on app complexity.
-                </p>
-            </a>
-            
-            <a href="#" class="aa-card" data-category="tutorials">
-                <div class="aa-card-image-wrap">
-                    <img src="https://images.unsplash.com/photo-1515879218367-8466d910aaa4?q=80&w=1469&auto=format&fit=crop" alt="Code laptop" class="aa-card-img">
-                </div>
-                <div class="aa-card-meta">
-                    <span>Tutorials</span>
-                    <span>&bull;</span>
-                    <span>July 20</span>
-                </div>
-                <h3 class="aa-card-title">Mastering CSS Grid</h3>
-                <p class="aa-card-excerpt">
-                    A comprehensive guide to building complex layouts with few lines of code.
-                </p>
-            </a>
-
-        </div>
-
-    </section>
-
-    <section class="aa-newsletter-section">
-        <div class="aa-nl-container">
-            <h2 class="aa-nl-title">Stay in the loop</h2>
-            <p class="aa-nl-desc">
-                Join 5,000+ developers receiving monthly insights on frontend trends, clean code, and design patterns. No spam, ever.
+            <h4>Content Security Policy (CSP)</h4>
+            <p>
+                A well-configured Content Security Policy is the cornerstone of ZTA for the frontend. I deploy a strict CSP to explicitly whitelist approved sources for scripts, styles, and other assets. This effectively creates an airlock around the application, making it exceptionally difficult for an attacker to inject and execute malicious code from an unexpected domain. CSP should be treated as a live, evolving defense mechanism.
             </p>
-            <form class="aa-nl-form" onsubmit="event.preventDefault();">
-                <input type="email" placeholder="Enter your email" class="aa-nl-input" required>
-                <button type="submit" class="aa-nl-btn">Subscribe</button>
-            </form>
+
+            <h4>Input Validation and Sanitization</h4>
+            <p>
+                Although the backend must always validate and sanitize all data, the frontend acts as the first line of defense. I implement robust client-side validation, ensuring data meets basic structural requirements before hitting the server. More critically, any user-supplied content that is displayed (e.g., comments, profiles) is passed through a trusted sanitization library to strip out any potentially harmful HTML or script tags.
+            </p>
+            
+            <h3>3. Managing Third-Party Dependencies</h3>
+            <p>
+                The majority of frontend attacks today originate not from proprietary code, but from compromised third-party dependencies (npm packages, analytics scripts, ad networks).
+            </p>
+            <ul>
+                <li style="margin-left: 20px; margin-bottom: 10px;">
+                    Subresource Integrity (SRI): For all third-party scripts loaded from a CDN, I use Subresource Integrity. This cryptographic hash ensures that if a third-party script is maliciously altered, the browser will refuse to load it.
+                </li>
+                <li style="margin-left: 20px; margin-bottom: 10px;">
+                    Isolation and Sandboxing: I limit the permissions of embedded third-party widgets using the `iframe sandbox` attribute, restricting what they can access or execute within the main page context.
+                </li>
+            </ul>
+            
+            <h3>The ZTA Mindset</h3>
+            <p>
+                Zero Trust for the frontend is less about a product and more about a mindset. It means building the application with the constant assumption that the client environment is compromised and the user is untrusted. By designing defensive layers that focus on validation, least privilege access, and strict resource control, we ensure that a failure in one layer doesn't cascade into a full-scale security breach. This proactive approach is the only way to safeguard complex, modern web applications.
+            </p>
         </div>
-    </section>
-
-    <script>
-        document.addEventListener('DOMContentLoaded', () => {
-            const filterBtns = document.querySelectorAll('.aa-filter-btn');
-            const cards = document.querySelectorAll('.aa-card');
-
-            filterBtns.forEach(btn => {
-                btn.addEventListener('click', () => {
-                    // 1. Remove active class from all buttons
-                    filterBtns.forEach(b => b.classList.remove('active'));
-                    
-                    // 2. Add active class to clicked button
-                    btn.classList.add('active');
-
-                    // 3. Get the filter value
-                    const filterValue = btn.getAttribute('data-filter');
-
-                    // 4. Loop through cards and show/hide based on category
-                    cards.forEach(card => {
-                        const cardCategory = card.getAttribute('data-category');
-
-                        if (filterValue === 'all' || filterValue === cardCategory) {
-                            card.style.display = 'flex'; // Restore display
-                            // Optional: Reset animation
-                            card.style.animation = 'none';
-                            card.offsetHeight; /* trigger reflow */
-                            card.style.animation = 'fadeIn 0.5s ease forwards';
-                        } else {
-                            card.style.display = 'none'; // Hide
-                        }
-                    });
-                });
-            });
-        });
-    </script>
-
-</div-all-articles-root>
-
-
-
-
-
-
+    </div>
+</article>
 
 
 
