@@ -519,11 +519,10 @@
 
     .abt-title {
         font-size: clamp(80px, 11vw, 180px);
-        font-weight: 700;
+        font-weight: 600;
         line-height: 0.85;
         color: #000000;
         letter-spacing: -0.03em;
-        text-transform: uppercase;
     }
 
     .abt-subtitle {
@@ -532,7 +531,6 @@
         line-height: 0.85;
         color: #8a8a8a;
         letter-spacing: -0.03em;
-        text-transform: uppercase;
         position: relative;
     }
 
@@ -569,7 +567,6 @@
 
     .abt-highlight {
         color: #8a8a8a;
-        border-bottom: 2px solid #000000;
         display: inline-block;
         line-height: 1;
     }
@@ -743,7 +740,7 @@
             
             <div class="abt-right">
                 <p class="abt-description">
-                    — I am a creative frontend developer obsessed with the space where <span class="abt-highlight">logic meets aesthetics</span>. 
+                    I am a creative frontend developer obsessed with the space where <span class="abt-highlight">logic meets aesthetics</span>. 
                     <br><br>
                     I don't just build websites; I engineer fluid, responsive, and performant digital experiences. My code is clean, my motion is smooth, and my focus is always on the user.
                 </p>
@@ -850,6 +847,399 @@
 
 
 
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Services Section</title>
+    <link href="https://fonts.cdnfonts.com/css/creato-display" rel="stylesheet">
+    <style>
+        /* * COPY FROM HERE DOWN
+         * Paste this into your main CSS file or inside a <style> tag 
+         */
+
+        :root {
+            --srv-bg: #e8e8e8;
+            --srv-text: #000000;
+            --srv-text-muted: #8a8a8a;
+            --srv-accent: #000000;
+            --srv-font: 'Creato Display', sans-serif;
+        }
+
+        /* Reset for the preview only - you can ignore this if you have a reset */
+        body { margin: 0; padding: 0; background-color: var(--srv-bg); font-family: var(--srv-font); }
+
+        /* --- SERVICES SECTION STYLES --- */
+
+        .srv-section-wrapper {
+            background-color: var(--srv-bg);
+            color: var(--srv-text);
+            font-family: var(--srv-font);
+            padding: 80px 20px;
+            width: 100%;
+            display: flex;
+            justify-content: center;
+            overflow: hidden; /* Prevents scrollbars from large text */
+        }
+
+        .srv-master-grid {
+            max-width: 1200px;
+            width: 100%;
+            display: grid;
+            grid-template-columns: 0.8fr 1.2fr; /* Asymmetric split */
+            gap: 10px;
+            align-items: flex-start;
+        }
+
+        /* -- LEFT COLUMN: TITLE -- */
+        .srv-header-block {
+            display: flex;
+            flex-direction: column;
+            position: sticky;
+            top: 40px; /* Sticks the title when scrolling */
+            width: fit-content;
+        }
+
+        .srv-headline-primary {
+            font-size: clamp(60px, 8vw, 80px);
+            font-weight: 500;
+            line-height: 0.85;
+            letter-spacing: -0.03em;
+            color: var(--srv-text);
+            margin-bottom: 0;
+        }
+
+        .srv-headline-secondary {
+            font-size: clamp(60px, 8vw, 80px);
+            font-weight: 500; /* Lighter weight for contrast */
+            line-height: 0.85;
+            letter-spacing: -0.03em;
+            color: var(--srv-text-muted);
+            position: relative;
+            display: inline-block;
+        }
+
+        .srv-copyright-badge {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 0.4em;
+            height: 0.4em;
+            border: 0.06em solid currentColor;
+            border-radius: 50%;
+            font-size: 0.4em;
+            vertical-align: top;
+            margin-left: 0.1em;
+            font-weight: 400;
+        }
+
+        .srv-intro-text {
+            margin-top: 40px;
+            font-size: clamp(16px, 1.2vw, 18px);
+            line-height: 1.6;
+            max-width: 400px;
+            color: var(--srv-text);
+        }
+
+        /* -- RIGHT COLUMN: SERVICE LIST -- */
+        .srv-list-container {
+            display: flex;
+            flex-direction: column;
+            
+        }
+
+        .srv-item {
+            display: flex;
+            flex-direction: column;
+            border-bottom: 2px solid rgba(0, 0, 0, 0.386);
+            padding: 40px 0;
+            cursor: pointer;
+            transition: padding 0.4s ease;
+            group: srv-item; /* container query preparation */
+        }
+
+        /* Hover State for the Item */
+        .srv-item:hover {
+            padding-bottom: 60px;
+        }
+
+        .srv-item-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: baseline;
+            width: 100%;
+        }
+
+        .srv-item-index {
+            font-family: 'Courier New', monospace; /* Monospaced contrast */
+            font-size: 14px;
+            color: var(--srv-text-muted);
+            margin-right: 20px;
+            transform: translateY(-50%);
+        }
+
+        .srv-item-title {
+            font-size: clamp(32px, 4vw, 46px);
+            font-weight: 500;
+            letter-spacing: -0.02em;
+            color: var(--srv-text);
+            flex-grow: 1;
+            transition: color 0.3s ease;
+        }
+
+        .srv-item:hover .srv-item-title {
+            color: var(--srv-text-muted); /* Title fades slightly on interaction */
+        }
+
+        .srv-item-icon {
+            font-size: 32px;
+            transform: rotate(45deg);
+            transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+            opacity: 0;
+        }
+
+        .srv-item:hover .srv-item-icon {
+            opacity: 1;
+            transform: rotate(0deg); /* Arrow straightens out */
+        }
+
+        /* The hidden content that reveals on hover */
+        .srv-item-details {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.5s cubic-bezier(0.16, 1, 0.3, 1), opacity 0.5s ease;
+            opacity: 0;
+        }
+
+        .srv-item:hover .srv-item-details {
+            max-height: 200px; /* Adjust based on content */
+            opacity: 1;
+            margin-top: 20px;
+        }
+
+        .srv-detail-text {
+            font-size: 18px;
+            line-height: 1.5;
+            max-width: 90%;
+            color: #444;
+        }
+
+        .srv-tags {
+            display: flex;
+            gap: 10px;
+            margin-top: 15px;
+            flex-wrap: wrap;
+        }
+
+        .srv-tag {
+            font-size: 12px;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            padding: 6px 12px;
+            border: 1px solid #000;
+            border-radius: 50px;
+            background: transparent;
+            transition: background 0.3s, color 0.3s;
+        }
+
+        .srv-item:hover .srv-tag:hover {
+            background: #000;
+            color: #fff;
+        }
+
+        /* --- RESPONSIVE DESIGN --- */
+
+        @media (max-width: 1024px) {
+            .srv-master-grid {
+                grid-template-columns: 1fr; /* Stack vertically on tablet */
+                gap: 40px;
+            }
+
+            .srv-header-block {
+                position: relative; /* Remove sticky on mobile */
+                top: 0;
+                border-bottom: 1px solid rgba(0,0,0,0.1);
+                padding-bottom: 40px;
+            }
+
+            .srv-intro-text {
+                max-width: 100%;
+            }
+            
+            .srv-item-details {
+                padding-left: 0;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .srv-section-wrapper {
+                padding: 40px 20px;
+            }
+
+            .srv-item-title {
+                font-size: 28px;
+            }
+
+            .srv-headline-primary, 
+            .srv-headline-secondary {
+                font-size: 14vw; /* Massive text on mobile */
+            }
+
+            .srv-item-icon {
+                display: none; /* Hide arrow on small screens to save space */
+            }
+            
+            /* On mobile, maybe always show details or make it tap-friendly? 
+               Here we keep hover/tap behavior. */
+            .srv-item:hover .srv-item-details {
+                max-height: 300px;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- 
+      START COPYING HERE 
+      Select everything from <section> to </section>
+    -->
+    <section class="srv-section-wrapper" id="services">
+        <div class="srv-master-grid">
+            
+            <!-- Left Column: Title -->
+            <div class="srv-header-block">
+                <h2 class="srv-headline-primary">What </h2>
+                <h2 class="srv-headline-secondary">
+                    I Do
+                </h2>
+                <p class="srv-intro-text">
+                    I build accessible, pixel-perfect, and performant web experiences. 
+                    Specializing in the intersection of design and engineering.
+                </p>
+            </div>
+
+            <!-- Right Column: Services List -->
+            <div class="srv-list-container">
+                
+                <!-- Service 01 -->
+                <article class="srv-item">
+                    <div class="srv-item-header">
+                        
+                        <h3 class="srv-item-title">Frontend Development</h3>
+                        <span class="srv-item-icon">+</span>
+                    </div>
+                    <div class="srv-item-details">
+                        <p class="srv-detail-text">
+                            Building responsive, accessible, and performant user interfaces using modern technologies 
+                            like React, Vue.js, and TypeScript. Focus on creating seamless user experiences across all devices.
+                        </p>
+                        <div class="srv-tags">
+                            <span class="srv-tag">React / Vue</span>
+                            <span class="srv-tag">Three.js</span>
+                            <span class="srv-tag">GSAP Animations</span>
+                        </div>
+                    </div>
+                </article>
+
+                <!-- Service 02 -->
+                <article class="srv-item">
+                    <div class="srv-item-header">
+                    
+                        <h3 class="srv-item-title">Backend Development</h3>
+                        <span class="srv-item-icon">+</span>
+                    </div>
+                    <div class="srv-item-details">
+                        <p class="srv-detail-text">
+                            Developing robust server-side applications, RESTful APIs, and database architectures. 
+                            Expertise in Node.js, Python, and cloud services for scalable and secure solutions.
+                        </p>
+                        <div class="srv-tags">
+                            <span class="srv-tag">Node.js</span>
+                            <span class="srv-tag">Python</span>
+                            <span class="srv-tag">MongoDB</span>
+                            <span class="srv-tag">PostgreSQL</span>
+                        </div>
+                    </div>
+                </article>
+
+                <!-- Service 03 -->
+                <article class="srv-item">
+                    <div class="srv-item-header">
+                        <h3 class="srv-item-title">E-commerce Solutions</h3>
+                        <span class="srv-item-icon">+</span>
+                    </div>
+                    <div class="srv-item-details">
+                        <p class="srv-detail-text">
+                            Creating comprehensive online shopping experiences with secure payment integrations, 
+                            inventory management, and optimized checkout processes that convert visitors into customers.
+                        </p>
+                        <div class="srv-tags">
+                            <span class="srv-tag">Shopify</span>
+                            <span class="srv-tag">WooCommerce</span>
+                            <span class="srv-tag">Stripe</span>
+                            <span class="srv-tag">Payment API</span>
+                        </div>
+                    </div>
+                </article>
+
+                <!-- Service 04 -->
+                <article class="srv-item">
+                    <div class="srv-item-header">
+                        <h3 class="srv-item-title">UI/UX Design</h3>
+                        <span class="srv-item-icon">+</span>
+                    </div>
+                    <div class="srv-item-details">
+                        <p class="srv-detail-text">
+                            Designing intuitive and beautiful interfaces that prioritize user needs. From wireframing 
+                            to prototyping, ensuring every interaction is meaningful and every visual element serves a purpose.
+                        </p>
+                        <div class="srv-tags">
+                            <span class="srv-tag">Figma</span>
+                            <span class="srv-tag">Adobe XD</span>
+                            <span class="srv-tag">User Research</span>
+                            <span class="srv-tag">Prototyping</span>
+                        </div>
+                    </div>
+                </article>
+
+                <!-- Service 05 -->
+                <article class="srv-item">
+                    <div class="srv-item-header">
+                        <h3 class="srv-item-title">Mobile Development</h3>
+                        <span class="srv-item-icon">+</span>
+                    </div>
+                    <div class="srv-item-details">
+                        <p class="srv-detail-text">
+                            Building cross-platform mobile applications that deliver native-like performance. 
+                            Focus on responsive design, smooth animations, and optimal user experience on all screen sizes.
+                        </p>
+                        <div class="srv-tags">
+                            <span class="srv-tag">React Native</span>
+                            <span class="srv-tag">Flutter</span>
+                            <span class="srv-tag">PWA</span>
+                            <span class="srv-tag">App Store</span>
+                        </div>
+                    </div>
+                </article>
+
+            </div>
+        </div>
+    </section>
+    <!-- END COPYING HERE -->
+
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+
 
 
 
@@ -890,7 +1280,7 @@
                         <i class="fa-solid fa-xmark"></i>
                     </button>
                     <p class="bs-review-text">
-                        I build **scalable, component-driven interfaces** using this as my core engineering foundation.
+                        I build scalable, component-driven interfaces using this as my core engineering foundation.
                     </p>
                     <div class="bs-author-info">
                         <span class="bs-author-name">React.js</span>
@@ -916,7 +1306,7 @@
                         <i class="fa-solid fa-xmark"></i>
                     </button>
                     <p class="bs-review-text">
-                        I enforce **strict typing** to guarantee my code is robust, maintainable, and bug-free.
+                        I enforce strict typing to guarantee my code is robust, maintainable, and bug-free.
                     </p>
                     <div class="bs-author-info">
                         <span class="bs-author-name">TypeScript</span>
@@ -942,7 +1332,7 @@
                         <i class="fa-solid fa-xmark"></i>
                     </button>
                     <p class="bs-review-text">
-                        I leverage **Server-Side Rendering (SSR)** and static generation for peak application performance and SEO benefits.
+                        I leverage Server-Side Rendering (SSR) and static generation for peak application performance and SEO benefits.
                     </p>
                     <div class="bs-author-info">
                         <span class="bs-author-name">Next.js 14</span>
@@ -968,7 +1358,7 @@
                         <i class="fa-solid fa-xmark"></i>
                     </button>
                     <p class="bs-review-text">
-                        I use this **utility-first styling** approach to facilitate rapid development without sacrificing custom design precision.
+                        I use this utility-first styling approach to facilitate rapid development without sacrificing custom design precision.
                     </p>
                     <div class="bs-author-info">
                         <span class="bs-author-name">Tailwind CSS</span>
@@ -994,7 +1384,7 @@
                         <i class="fa-solid fa-xmark"></i>
                     </button>
                     <p class="bs-review-text">
-                        I implement WebGL to create **immersive 3D graphics and complex spatial experiences** directly in the browser.
+                        I implement WebGL to create immersive 3D graphics and complex spatial experiences directly in the browser.
                     </p>
                     <div class="bs-author-info">
                         <span class="bs-author-name">Three.js / R3F</span>
@@ -1020,7 +1410,7 @@
                         <i class="fa-solid fa-xmark"></i>
                     </button>
                     <p class="bs-review-text">
-                        I engineer **professional-grade animations** for fluid, high-performance interactive motion.
+                        I engineer professional-grade animations for fluid, high-performance interactive motion.
                     </p>
                     <div class="bs-author-info">
                         <span class="bs-author-name">GreenSock</span>
@@ -1046,7 +1436,7 @@
                         <i class="fa-solid fa-xmark"></i>
                     </button>
                     <p class="bs-review-text">
-                        I translate visual designs into **pixel-perfect, functional code**, effectively bridging the design-to-development gap.
+                        I translate visual designs into pixel-perfect, functional code, effectively bridging the design-to-development gap.
                     </p>
                     <div class="bs-author-info">
                         <span class="bs-author-name">Figma</span>
@@ -1072,7 +1462,7 @@
                         <i class="fa-solid fa-xmark"></i>
                     </button>
                     <p class="bs-review-text">
-                        I manage and maintain **clean version history** for all projects using collaborative branch workflows.
+                        I manage and maintain clean version history for all projects using collaborative branch workflows.
                     </p>
                     <div class="bs-author-info">
                         <span class="bs-author-name">Git / GitHub</span>

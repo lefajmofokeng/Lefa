@@ -17,7 +17,7 @@
          */
 
         :root {
-            --st-ph-font: 'Creato Display', sans-serif;
+            --st-ph-font: 'Bricolage Grotesque', sans-serif;
             --st-ph-bg-color: #ffffff;
             --st-ph-text-primary: #1a1a1a;
             --st-ph-text-secondary: #555555;
@@ -30,7 +30,7 @@
             box-sizing: border-box;
             margin: 0;
             padding: 0;
-            font-family: var(--st-ph-font);
+            font-family: 'Bricolage Grotesque', sans-serif;
         }
 
         /* --- Trigger Button (Hamburger) --- */
@@ -497,7 +497,8 @@
     <!-- Import Inter Tight Font -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.cdnfonts.com/css/creato-display" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,200..800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
     
     <style>
         /* --- Reset & Base Styles --- */
@@ -505,12 +506,13 @@
             box-sizing: border-box;
             margin: 0;
             padding: 0;
+            font-family: 'Bricolage Grotesque', sans-serif;
         }
 
         /* Custom Tag Wrapper matches div-sv style */
         div-pr {
             font-family: 'Creato Display', sans-serif;
-            background-color: #f1f1f1; 
+            background-color: #ffffff; 
             color: #1a1a1a;
             line-height: 1.5;
             -webkit-font-smoothing: antialiased;
@@ -534,7 +536,7 @@
         }
 
         .pr-title {
-            font-size: 56px;
+            font-size: 66px;
             font-weight: 500;
             letter-spacing: -1.5px;
             margin-bottom: 12px;
@@ -578,15 +580,14 @@
 
         .pr-filter-btn {
             background: transparent;
-            border: 1px solid #ddd;
+            border: 2px solid #ddd;
             padding: 8px 16px;
             border-radius: 100px;
-            font-family: 'Inter Tight', sans-serif;
             font-size: 15px;
             color: #666;
             cursor: pointer;
             transition: all 0.2s ease;
-            font-family: 'Creato Display', sans-serif;
+            font-family: 'Bricolage Grotesque', sans-serif;
         }
 
         .pr-filter-btn:hover {
@@ -610,18 +611,12 @@
 
         /* --- Project Card --- */
         .pr-card {
-            background-color: #fff;
-            padding: 12px;
+            padding: 12px 0;
             transition: transform 0.3s ease, box-shadow 0.3s ease;
             height: 100%;
             display: flex;
             flex-direction: column;
             border-radius: 4px;
-        }
-
-        .pr-card:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 8px 20px rgba(0,0,0,0.08);
         }
 
         .pr-image-container {
@@ -717,7 +712,6 @@
             align-items: center;
             margin-top: auto;
             padding-top: 12px;
-            border-top: 1px solid #f5f5f5;
         }
 
         .pr-tags {
@@ -748,9 +742,8 @@
             display: flex;
             align-items: center;
             justify-content: center;
-            border: 1px solid #ddd;
+            border: 2px solid #ddd;
             background: transparent;
-            font-family: 'Inter Tight', sans-serif;
             font-size: 17px;
             color: #666;
             font-weight: 600;
@@ -924,7 +917,7 @@
     ];
 
     // --- Logic ---
-    const ITEMS_PER_PAGE = 8;
+    const ITEMS_PER_PAGE = 9;
     
     class ProjectSection {
         constructor(sectionId, data) {
@@ -982,13 +975,8 @@
                             <img src="${item.image}" alt="${item.title}" class="pr-image">
                             <!-- Overlay with Button -->
                             <div class="pr-image-overlay">
-                                <a href="#" class="pr-demo-btn" onclick="alert('Live Demo Preview: ${item.title}'); return false;">
+                                <a href="#" class="pr-demo-btn">
                                     Live Demo
-                                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="width:28px;height:28px;">
-                                        <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path>
-                                        <polyline points="15 3 21 3 21 9"></polyline>
-                                        <line x1="10" y1="14" x2="21" y2="3"></line>
-                                    </svg>
                                 </a>
                             </div>
                         </div>

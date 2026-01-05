@@ -17,6 +17,12 @@
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons+Outlined" rel="stylesheet">
     <link href="https://fonts.cdnfonts.com/css/creato-display" rel="stylesheet">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,200..800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
@@ -119,19 +125,20 @@
     box-sizing: border-box;
     margin: 0;
     padding: 0;
+    font-family: 'Bricolage Grotesque', sans-serif;
 }
 
 :root {
-    --font-family-base: 'Creato Display', sans-serif;
+    --font-family-base: 'Bricolage Grotesque', sans-serif;
     --color-text-primary: #111111;
     --color-text-secondary: #666666;
-    --color-bg-main: #f1f1f1;
+    --color-bg-main: #ffffff;
     --color-bg-card: #ffffff;
-    --color-accent-green: #aeea6b;
+    --color-accent-green: #000000;
     --color-icon-bg: rgba(40, 40, 40, 0.5);
     --color-icon-fg: #ffffff;
     
-    --section-padding: 80px;
+    --section-padding: 40px;
     --container-width: 1250px;
 }
 
@@ -162,9 +169,9 @@ ul {
     display: flex;
     justify-content: center;
     align-items: center;
-    min-height: 100vh;
-    padding: 40px 20px;
-    margin-top: 2.5rem;
+    min-height: 80vh;
+    padding: 45px 20px;
+    background-color: #fff;
 }
 
 .hero-section {
@@ -206,8 +213,8 @@ ul {
 }
 
 .hero-intro__heading {
-    font-size: 4.5rem; /* Approx 72px */
-    font-weight: 500;
+    font-size: 5rem; /* Approx 72px */
+    font-weight: 600;
     line-height: 1;
     letter-spacing: -1.5px;
     color: var(--color-text-primary);
@@ -229,8 +236,9 @@ ul {
     background-color: var(--color-accent-green);
     padding: 5px 5px 5px 24px;
     font-weight: 600;
-    color: var(--color-text-primary);
+    color: var(--color-bg-white);
     transition: transform 0.2s ease;
+    border-radius: 60px;
 }
 
 .cta-button:hover {
@@ -239,6 +247,7 @@ ul {
 
 .cta-button__text {
     margin-right: 12px;
+    color: #fff;
 }
 
 .cta-button__icon-wrapper {
@@ -247,13 +256,14 @@ ul {
     justify-content: center;
     width: 38px;
     height: 38px;
-    background-color: #111; /* Dark circle for arrow */
-    color: var(--color-accent-green);
+    background-color: #ffffff; /* Dark circle for arrow */
+    border-radius: 60px;
+    color: #000000;
 }
 
 .cta-button__icon-wrapper svg {
-    width: 18px;
-    height: 18px;
+    width: 22px;
+    height: 22px;
 }
 
 
@@ -261,12 +271,13 @@ ul {
 .profile-card {
     background-color: var(--color-bg-card);
     padding: 20px;
-    border-radius: 1px;
+    border-radius: 4px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.156);
 }
 
 .profile-card__image-wrapper {
     position: relative;
-    border-radius: 1px;
+    border-radius: 4px;
     overflow: hidden;
     /* Use a gray background incase image loads slowly to match design */
     background-color: #d9dbe0; 
@@ -353,8 +364,8 @@ ul {
 }
 
 .hero-details__role h2 {
-    font-size: 3.5rem; /* approx 56px */
-    font-weight: 500;
+    font-size: 4rem; /* approx 56px */
+    font-weight: 600;
     line-height: 1;
     letter-spacing: -1.5px;
     color: var(--color-text-primary);
@@ -378,7 +389,7 @@ ul {
     width: 40px;
     height: 40px;
     border-radius: 50%;
-    border: 3px solid var(--color-bg-main);
+    border: 1px solid var(--color-bg-main);
     object-fit: cover;
     /* Negative margin creates the overlap stack effect */
     margin-left: -12px;
@@ -431,7 +442,7 @@ ul {
 @media (max-width: 768px) {
    .hero-intro__heading { font-size: 3rem; }
    .hero-details__role h2 { font-size: 2.5rem; margin-top: 20px;}
-   .hero-section { padding: 20px; }
+   .hero-section { padding: 20px 0; }
    .profile-card { max-width: 450px; margin: 0 auto;}
 }
 </style>
@@ -470,8 +481,8 @@ ul {
     <!-- Importing a font similar to Creato Display (Outfit is a great geometric sans-serif match) -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600&display=swap" rel="stylesheet">
-    <link href="https://fonts.cdnfonts.com/css/creato-display" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,200..800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
     
     <style>
         /* * NAMESPACE PROTECTION
@@ -480,7 +491,7 @@ ul {
          */
 
         :root {
-            --st-ph-font: 'Creato Display', sans-serif;
+            --st-ph-font: 'Bricolage Grotesque', sans-serif;
             --st-ph-bg-color: #ffffff;
             --st-ph-text-primary: #1a1a1a;
             --st-ph-text-secondary: #555555;
@@ -493,7 +504,8 @@ ul {
             box-sizing: border-box;
             margin: 0;
             padding: 0;
-            font-family: var(--st-ph-font);
+            font-family: 'Bricolage Grotesque', sans-serif;
+            line-height: normal;
         }
 
         /* --- Trigger Button (Hamburger) --- */
@@ -842,8 +854,11 @@ ul {
                 </div>
 
                 <div class="st-ph-details">
-                    <a href="tel:8881234567" class="st-ph-phone">+27 (078) 006 2713</a>
+                    <a href="tel:0780062713" class="st-ph-phone">
+                        <i class="fab fa-js"></i>
+                        +27 (078) 006 2713</a>
                     <p class="st-ph-address">
+                        <i class="fab fa-address"></i>
                         Phuthaditjhaba<br>
                         Free State, South Africa
                     </p>
@@ -853,6 +868,8 @@ ul {
             <!-- Social Footer -->
             <div class="st-ph-social">
                 <a href="https://x.com/thisislefa" class="st-ph-social-link">X</a>
+                <span class="st-ph-separator">|</span>
+                <a href="https://instagram.com/thisislefa" class="st-ph-social-link">Instagram</a>
                 <span class="st-ph-separator">|</span>
                 <a href="https://thisislefa.weblow.io" class="st-ph-social-link">Webflow</a>
                 <span class="st-ph-separator">|</span>
@@ -938,6 +955,382 @@ ul {
 
 
 
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kenzo Studio - About Us</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,200..800&display=swap" rel="stylesheet">
+    <style>
+        /* RESET & BASE */
+        * { box-sizing: border-box; }
+        body { margin: 0; }
+
+        /* CONTAINER */
+        .custom-about-us-container {
+            background-color: #ffffff; /* Very light grey/white */
+            font-family: 'Bricolage Grotesque', sans-serif;
+            padding: 150px 10.6%;
+            color: #1a1a1a;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+        }
+
+        /* HEADER SECTION */
+        .custom-header-row {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            margin-bottom: 80px;
+        }
+
+        .custom-about-label {
+            font-size: 16px;
+            font-weight: 500;
+            display: flex;
+            align-items: center;
+            color: #1a1a1a;
+        }
+
+        .custom-about-label::before {
+            content: '↗'; /* Arrow icon */
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin-right: 8px;
+            background: #1a1a1a;
+            color: #fff;
+            width: 20px;
+            height: 20px;
+            border-radius: 50%;
+            font-size: 12px;
+            transform: rotate(45deg);
+        }
+
+        .custom-main-title {
+            font-size: 52px;
+            font-weight: 600; /* Slightly lighter than bold for clean look */
+            line-height: 1.1;
+            letter-spacing: -1.5px;
+            max-width: 650px;
+            color: #6d6d6d; /* Grey title */
+            margin: 0;
+        }
+        
+        .custom-main-title span {
+            color: #6d6d6d;
+        }
+
+        /* MAIN CONTENT ROW (Split Layout) */
+        .custom-content-row {
+            display: flex;
+            gap: 18px;
+            /* CRITICAL: Stretch ensures both columns are equal height */
+            align-items: stretch; 
+        }
+
+        /* LEFT COLUMN (Image) */
+        .custom-image-column {
+            flex: 0 0 38%; /* Fixed width roughly 40% */
+            position: relative;
+            display: flex; /* Ensures img fills the div */
+        }
+
+        .custom-portrait-image {
+            width: 100%;
+            height: auto;
+            max-height: 500px; /* Forces the vertical height */
+            border-radius: 4px;
+            object-fit: cover;
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.08);
+        }
+
+        /* RIGHT COLUMN (Text + Stats) */
+        .custom-text-column {
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between; /* Pushes Text Top, Stats Bottom */
+        }
+
+        /* Description Text */
+        .custom-description-wrapper {
+            max-width: 520px;
+            margin-left: auto; /* Aligns text slightly right if needed, or remove for left align */
+            margin-bottom: 40px; /* Buffer */
+        }
+
+        .custom-description-text {
+            font-size: 18px;
+            line-height: 1.5;
+            color: #666;
+            margin: 0;
+        }
+
+        .custom-description-text strong {
+            font-weight: 600;
+            color: #1a1a1a;
+        }
+
+        /* STATS CONTAINER */
+        .custom-stats-container {
+            display: flex;
+            gap: 15px;
+            height: 50%; /* Occupies bottom half of the column */
+            min-height: 300px; /* Ensure cards have volume */
+        }
+
+        /* INDIVIDUAL STAT CARDS */
+        .custom-stat-card {
+            background-color: #f3f3f3;
+            border-radius: 4px;
+            padding: 35px;
+            flex: 1; /* Both cards take equal width */
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between; /* Distributes content inside card */
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.02); /* Very subtle shadow */
+            
+        }
+
+        /* Stat Header (Number + Index) */
+        .custom-stat-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+        }
+
+        .custom-stat-number {
+            font-size: 64px;
+            font-weight: 600;
+            color: #1a1a1a;
+            line-height: 1;
+            letter-spacing: -2px;
+        }
+
+        .custom-stat-index {
+            font-size: 14px;
+            color: #a0a0a0;
+            font-weight: 500;
+            margin-top: 10px;
+        }
+
+        /* Stat Body (Label + Desc/Logos) */
+        .custom-stat-body {
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+        }
+
+        .custom-stat-label {
+            font-size: 20px;
+            font-weight: 600;
+            color: #1a1a1a;
+            line-height: 1.2;
+        }
+
+        .custom-stat-desc {
+            font-size: 14px;
+            line-height: 1.5;
+            color: #888;
+        }
+
+        /* Logos */
+        .custom-partners-row {
+            display: flex;
+            gap: 15px;
+            align-items: center;
+            margin-top: 5px;
+        }
+
+        .custom-partner-logo {
+            height: 18px;
+            width: auto;
+            opacity: 0.4;
+            filter: grayscale(100%);
+            transition: all 0.3s ease;
+        }
+
+        .custom-partner-logo:hover {
+            opacity: 1;
+            filter: grayscale(0%);
+        }
+
+        /* RESPONSIVE */
+        @media (max-width: 1024px) {
+            .custom-content-row {
+                flex-direction: column;
+            }
+
+            .custom-about-us-container {
+                padding: 150px 20px;
+            }
+
+            .custom-image-column {
+                height: 500px; /* Fixed height for tablet/mobile */
+                width: 100%;
+            }
+            .custom-stats-container {
+                height: auto;
+                flex-direction: column;
+            }
+            .custom-header-row {
+                flex-direction: column;
+                gap: 20px;
+            }
+            .custom-description-wrapper {
+                margin-left: 0;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="custom-about-us-container">
+        <div class="custom-header-row">
+            <div class="custom-about-label">About Me</div>
+            <h1 class="custom-main-title">Results for every project,<br>with a focus on design and functionality</h1>
+        </div>
+
+        <div class="custom-content-row">
+            
+            <div class="custom-image-column">
+                <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?q=80&w=1000&auto=format&fit=crop" alt="Portrait" class="custom-portrait-image">
+            </div>
+
+            <div class="custom-text-column">
+                
+                <div class="custom-description-wrapper">
+                    <p class="custom-description-text">
+                        <strong>No fluff, just results.</strong> Thoughtful design and tools that make your work easier. We focus on smart design and useful features, project after project.
+                    </p>
+                </div>
+
+                <div class="custom-stats-container">
+                    
+                    <div class="custom-stat-card">
+                        <div class="custom-stat-header">
+                            <div class="custom-stat-number" data-target="50" data-suffix="+">0</div>
+                            <span class="custom-stat-index">[01]</span>
+                        </div>
+                        <div class="custom-stat-body">
+                            <div class="custom-stat-label">Success project<br>completed</div>
+                            <p class="custom-stat-desc">We've delivered 50+ projects that help companies generate real results.</p>
+                        </div>
+                    </div>
+
+                    <div class="custom-stat-card">
+                        <div class="custom-stat-header">
+                            <div class="custom-stat-number" data-target="95" data-suffix="%">0</div>
+                            <span class="custom-stat-index">[02]</span>
+                        </div>
+                        <div class="custom-stat-body">
+                            <div class="custom-stat-label">Customer<br>satisfaction rate</div>
+                            <div class="custom-partners-row">
+                                <img src="https://upload.wikimedia.org/wikipedia/commons/9/96/Swift_logo.svg" alt="logo1" class="custom-partner-logo">
+                                <img src="https://cdn.worldvectorlogo.com/logos/intercom-1.svg" alt="logo2" class="custom-partner-logo">
+                                <img src="https://cdn.worldvectorlogo.com/logos/notion-2.svg" alt="logo3" class="custom-partner-logo">
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+    <script>
+        // Animation Logic
+        function animateStats() {
+            const stats = document.querySelectorAll('.custom-stat-number');
+            
+            stats.forEach(stat => {
+                const target = +stat.getAttribute('data-target');
+                const suffix = stat.getAttribute('data-suffix');
+                const duration = 2000; 
+                const start = performance.now();
+
+                function update(currentTime) {
+                    const elapsed = currentTime - start;
+                    const progress = Math.min(elapsed / duration, 1);
+                    
+                    // Easing function for smooth effect
+                    const ease = 1 - Math.pow(1 - progress, 3); 
+                    
+                    const value = Math.floor(ease * target);
+                    stat.textContent = value + suffix;
+
+                    if (progress < 1) {
+                        requestAnimationFrame(update);
+                    }
+                }
+                requestAnimationFrame(update);
+            });
+        }
+
+        // Observer to trigger animation on scroll
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    animateStats();
+                    observer.disconnect();
+                }
+            });
+        }, { threshold: 0.2 });
+
+        observer.observe(document.querySelector('.custom-stats-container'));
+    </script>
+
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
@@ -952,18 +1345,21 @@ ul {
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Services Section</title>
-    <link href="https://fonts.cdnfonts.com/css/creato-display" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,200..800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
     <style>
         /* * COPY FROM HERE DOWN
          * Paste this into your main CSS file or inside a <style> tag 
          */
 
         :root {
-            --srv-bg: #e8e8e8;
+            --srv-bg: #ffffff;
             --srv-text: #000000;
             --srv-text-muted: #8a8a8a;
             --srv-accent: #000000;
-            --srv-font: 'Creato Display', sans-serif;
+            --srv-font: 'Bricolage Grotesque', sans-serif;
         }
 
         /* Reset for the preview only - you can ignore this if you have a reset */
@@ -1133,10 +1529,11 @@ ul {
 
         .srv-tag {
             font-size: 12px;
+            font-weight: 600;
             text-transform: uppercase;
             letter-spacing: 0.05em;
             padding: 6px 12px;
-            border: 1px solid #000;
+            border: 2px solid #000;
             border-radius: 50px;
             background: transparent;
             transition: background 0.3s, color 0.3s;
@@ -1302,26 +1699,6 @@ ul {
                     </div>
                 </article>
 
-                <!-- Service 05 -->
-                <article class="srv-item">
-                    <div class="srv-item-header">
-                        <h3 class="srv-item-title">05 &#8213; Mobile Development</h3>
-                        <span class="srv-item-icon">+</span>
-                    </div>
-                    <div class="srv-item-details">
-                        <p class="srv-detail-text">
-                            Building cross-platform mobile applications that deliver native-like performance. 
-                            Focus on responsive design, smooth animations, and optimal user experience on all screen sizes.
-                        </p>
-                        <div class="srv-tags">
-                            <span class="srv-tag">React Native</span>
-                            <span class="srv-tag">Flutter</span>
-                            <span class="srv-tag">PWA</span>
-                            <span class="srv-tag">App Store</span>
-                        </div>
-                    </div>
-                </article>
-
             </div>
         </div>
     </section>
@@ -1426,8 +1803,8 @@ ul {
     <!-- Import Inter Tight Font -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter+Tight:ital,wght@0,300;0,400;0,500;0,600;0,700;1,400&display=swap" rel="stylesheet">
-    
+    <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,200..800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
     <style>
         /* --- Reset & Base Styles --- */
         * {
@@ -1438,8 +1815,8 @@ ul {
 
         /* Custom Tag Wrapper matches div-sv style */
         div-pr {
-            font-family: 'Inter Tight', sans-serif;
-            background-color: #f1f1f1; 
+            font-family: 'Bricolage Grotesque', sans-serif;
+            background-color: #ffffff; 
             color: #1a1a1a;
             line-height: 1.5;
             -webkit-font-smoothing: antialiased;
@@ -1489,7 +1866,7 @@ ul {
             align-items: flex-end;
             margin-bottom: 32px;
             padding-bottom: 16px;
-            border-bottom: 1px solid rgba(0,0,0,0.05);
+            border-bottom: 2px solid #f1f1f1;
         }
 
         .pr-section-title {
@@ -1516,18 +1893,14 @@ ul {
 
         /* --- Project Card --- */
         .pr-card {
-            background-color: #fff;
-            padding: 16px;
+            background-color: transparent;
             transition: transform 0.3s ease, box-shadow 0.3s ease;
             cursor: pointer;
-            height: 100%;
+            height: auto;
+            margin-bottom: 1.2rem;
             display: flex;
             flex-direction: column;
-        }
-
-        .pr-card:hover {
-            transform: translateY(-4px);
-            box-shadow: 0 12px 24px rgba(0,0,0,0.06);
+            border-radius: 20px;
         }
 
         .pr-image-container {
@@ -1537,6 +1910,8 @@ ul {
             background-color: #eee;
             margin-bottom: 16px;
             position: relative;
+            border-radius: 4px;
+            border: 2px solid #f1f1f1;
         }
 
         .pr-image {
@@ -1581,6 +1956,7 @@ ul {
 
         .pr-tag {
             font-size: 12px;
+            font-weight: 600;
             background-color: #f5f5f5;
             color: #555;
             padding: 4px 10px;
@@ -1601,11 +1977,12 @@ ul {
             padding: 16px 32px;
             background-color: #1a1a1a;
             color: #fff;
-            font-family: 'Inter Tight', sans-serif;
+            font-family: 'Bricolage Grotesque', sans-serif;
             font-size: 16px;
             font-weight: 500;
             border: none;
             cursor: pointer;
+            border-radius: 50px;
             transition: all 0.2s ease;
         }
 
@@ -1716,7 +2093,7 @@ ul {
                  <!-- Feature 4 -->
                  <article class="pr-card">
                     <div class="pr-image-container">
-                        <img src="https://images.unsplash.com/photo-1558655146-d09347e92766?auto=format&fit=crop&q=80&w=800" alt="Parallax Scroll" class="pr-image">
+                        <img src="images/Screenshot 2025-12-02 111821.png" alt="Parallax Scroll" class="pr-image">
                     </div>
                     <div class="pr-card-info">
                         <h3 class="pr-card-title">Parallax Scroller</h3>
@@ -1731,7 +2108,7 @@ ul {
                 <!-- Feature 5 -->
                 <article class="pr-card">
                     <div class="pr-image-container">
-                        <img src="https://images.unsplash.com/photo-1516321318423-f06f85e504b3?auto=format&fit=crop&q=80&w=800" alt="Smart Search" class="pr-image">
+                        <img src="images/Screenshot 2025-11-26 133154.png" alt="Smart Search" class="pr-image">
                     </div>
                     <div class="pr-card-info">
                         <h3 class="pr-card-title">Algolia Search UI</h3>
@@ -1917,8 +2294,8 @@ ul {
     <!-- Import Inter Tight Font -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter+Tight:ital,wght@0,300;0,400;0,500;0,600;0,700;1,400&display=swap" rel="stylesheet">
-    
+    <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,200..800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
     <style>
         /* --- Reset & Base Styles --- */
         * {
@@ -1928,8 +2305,8 @@ ul {
         }
 
         div-sv {
-            font-family: 'Inter Tight', sans-serif;
-            background-color: #f1f1f1; /* Very light background to match image */
+            font-family: 'Bricolage Grotesque', sans-serif;
+            background-color: #ffffff; /* Very light background to match image */
             color: #1a1a1a;
             line-height: 1.5;
             -webkit-font-smoothing: antialiased;
@@ -1944,7 +2321,7 @@ ul {
             width: 100%;
             max-width: 1200px;
             margin: 0 auto;
-            padding: 60px 20px;
+            padding: 100px 20px;
         }
 
         /* --- Header Section --- */
@@ -1979,10 +2356,11 @@ ul {
 
         /* --- Left Side: Profile Card --- */
         .cs-profile-card {
-            background-color: #fff;
+            background-color: #f4f4f4;
             padding: 24px 24px 32px 24px;
             /* Subtle box shadow to match the clean aesthetic, barely visible in reference but likely there */
             /* box-shadow: 0 4px 20px rgba(0,0,0,0.03); */ 
+            border-radius: 4px;
         }
 
         .cs-profile-image-container {
@@ -1991,6 +2369,7 @@ ul {
             overflow: hidden;
             margin-bottom: 24px;
             background-color: #eee;
+            border-radius: 4px;
         }
 
         .cs-profile-image {
@@ -2069,20 +2448,22 @@ ul {
         }
 
         .cs-nav-btn {
-            width: 48px;
-            height: 48px;
+            width: 50px;
+            height: 50px;
             border: none;
-            background-color: #d6d6d6;
+            border-radius: 1px;
+            background-color: transparent;
             color: #888;
             cursor: pointer;
             display: flex;
             align-items: center;
             justify-content: center;
             transition: all 0.2s ease;
+            border: 2px solid #e0e0e0;
         }
 
         .cs-nav-btn:hover {
-            background-color: #e0e0e0;
+            background-color: #f4f4f4;
             color: #000;
         }
 
@@ -2159,7 +2540,7 @@ ul {
 
                     <!-- Quote -->
                     <h2 id="cs-quote" class="cs-quote-text">
-                        “Working with Lefa felt like having an in-house team. The results spoke for themselves.”
+                        “Working with Lefa felt like having an in-house teammate. The results spoke for themselves.”
                     </h2>
 
                     <!-- Description -->
@@ -2197,7 +2578,7 @@ ul {
                 name: "Siyabonga Mdluli",
                 role: "Software Engineer, Autodesk",
                 image: "https://images.pexels.com/photos/2080383/pexels-photo-2080383.jpeg",
-                quote: "“Working with Lefa felt like having an in-house team. The results spoke for themselves.”",
+                quote: "“Working with Lefa felt like having an in-house teammate. The results spoke for themselves.”",
                 description: "Siyabonga partnered with me for growth marketing and content consulting, focusing on scaling his business through targeted campaigns and refined messaging.",
                 logoHTML: `
                     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" class="cs-logo-svg"><path fill="#000000" fill-rule="evenodd" d="M5 1a4 4 0 0 0-4 4v14a4 4 0 0 0 4 4h14a4 4 0 0 0 4-4V5a4 4 0 0 0-4-4zm3.206 3.72l2.179 5.3l-2.158 4.556h-4.22q.03-.131.085-.256zm7.53 14.965l-4.101-9.911l-2.27-5.52h4.056l6.559 15.43zm-8.101-3.86H4.25l2.187 3.554a.77.77 0 0 0 1.095.232l6.231-3.784H7.634l.001-.001Z" clip-rule="evenodd"/></svg>
@@ -2298,13 +2679,16 @@ ul {
 
 
 
-<link href="https://fonts.googleapis.com/css2?family=Inter+Tight:ital,wght@0,300;0,400;0,500;0,600;0,700;1,400&display=swap" rel="stylesheet">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,200..800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
 
 <style>
     /* --- Scoped Root Wrapper --- */
     div-blog-root {
-        font-family: 'Inter Tight', sans-serif;
-        background-color: #f1f1f1; /* Matching reference bg */
+        font-family: 'Bricolage Grotesque', sans-serif;
+        background-color: #ffffff; /* Matching reference bg */
         color: #1a1a1a;
         line-height: 1.5;
         -webkit-font-smoothing: antialiased;
@@ -2387,6 +2771,7 @@ ul {
         margin-bottom: 24px;
         background-color: #e0e0e0;
         position: relative;
+        border-radius: 4px;
     }
 
     .blog-image {
@@ -2553,14 +2938,16 @@ ul {
 
 
 
-
-<link href="https://fonts.googleapis.com/css2?family=Inter+Tight:ital,wght@0,300;0,400;0,500;0,600;0,700;1,400&display=swap" rel="stylesheet">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,200..800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
 
 <style>
     /* --- Scoped Root Wrapper --- */
     div-port-ext {
-        font-family: 'Inter Tight', sans-serif;
-        background-color: #f1f1f1; /* Matching reference bg */
+        font-family: 'Bricolage Grotesque', sans-serif;
+        background-color: #ffffff; /* Matching reference bg */
         color: #1a1a1a;
         line-height: 1.5;
         -webkit-font-smoothing: antialiased;
@@ -2606,10 +2993,11 @@ ul {
     }
 
     .faq-item {
-        background-color: #fff;
+        background-color: #f4f4f4;
         margin-bottom: 16px;
         border: 1px solid transparent;
         transition: all 0.3s ease;
+        border-radius: 4px;
     }
 
     .faq-item:hover {
@@ -2829,7 +3217,10 @@ ul {
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Digital Designer</title>
-    <link href="https://fonts.googleapis.com/css2?family=Creato+Display:wght@400;500;700&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,200..800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
     <style>
         /* Global Reset with unique prefix 'gs' (General Section) */
         * {
@@ -2839,7 +3230,7 @@ ul {
         }
 
         .gs-body {
-            font-family: 'Creato Display', sans-serif;
+            font-family: 'Bricolage Grotesque', sans-serif;
             background-color: #e8e8e8;
             overflow-x: hidden;
             min-height: 100vh;
@@ -3129,7 +3520,7 @@ ul {
                 <a href="projects.html" class="gs-footer-link">Projects</a>
                 <a href="pricing.html" class="gs-footer-link">Pricing</a>
                 <a href="blog.html" class="gs-footer-link"> Articles</a>
-                <a href="about.html" class="gs-footer-link">About</a>
+                <a href="contact.html" class="gs-footer-link">Contact</a>
             </nav>
             
             <p class="gs-footer-copyright-text">

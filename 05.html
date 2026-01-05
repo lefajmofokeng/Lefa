@@ -1,0 +1,223 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Unusually Design</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,200..800&display=swap" rel="stylesheet">
+<style>
+  /* Unique class names to prevent conflicts */
+  .unusually-design-container {
+    width: 1200px;
+    margin: 40px auto;
+    background-color: #f6f5f3; /* Light grey background */
+    padding: 60px;
+    font-family: 'Bricolage Grotesque', sans-serif;
+    box-sizing: border-box;
+    color: #1a1a1a;
+  }
+
+  .unusually-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    margin-bottom: 60px;
+  }
+
+  .unusually-title {
+    font-size: 130px;
+    font-weight: 800;
+    line-height: 0.9;
+    text-transform: uppercase;
+    color: #6d6d6d; /* Dark grey for title */
+    letter-spacing: -2px;
+  }
+
+  .unusually-btn {
+    display: inline-flex;
+    align-items: center;
+    padding: 16px 28px;
+    background-color: #111111; /* Black button */
+    color: #ffffff;
+    text-decoration: none;
+    border-radius: 40px;
+    font-weight: 600;
+    font-size: 14px;
+    letter-spacing: 0.5px;
+  }
+
+  .unusually-btn-icon {
+    margin-left: 10px;
+    font-size: 18px;
+  }
+
+  .unusually-content {
+    display: flex;
+    gap: 40px;
+  }
+
+  .unusually-left-col {
+    flex: 1.1;
+    position: relative;
+    border-radius: 24px;
+    overflow: hidden;
+    background-color: #0a0a0a; /* Dark background for image placeholder */
+    min-height: 700px; /* Ensure height matches the design */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  
+  .unusually-image-placeholder {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    opacity: 0.8;
+  }
+
+  .unusually-brand-text {
+    position: absolute;
+    top: 30px;
+    left: 50%;
+    transform: translateX(-50%);
+    color: #ffffff;
+    font-weight: 700;
+    letter-spacing: 1px;
+    font-size: 18px;
+    z-index: 10;
+  }
+
+  .unusually-copyright-text {
+    position: absolute;
+    bottom: 30px;
+    left: 50%;
+    transform: translateX(-50%);
+    color: #ffffff;
+    font-size: 14px;
+    opacity: 0.7;
+    z-index: 10;
+  }
+
+  .unusually-right-col {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+  }
+
+  .unusually-stat-block {
+    background-color: #ffffff;
+    padding: 50px;
+    border-radius: 24px;
+    border: 1px solid #e6e6e6;
+    position: relative;
+  }
+
+  .unusually-stat-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    margin-bottom: 30px;
+  }
+
+  .unusually-stat-number {
+    font-size: 120px;
+    font-weight: 800;
+    line-height: 1;
+    color: #1a1a1a;
+    letter-spacing: -3px;
+  }
+  
+  .unusually-stat-number span {
+    color: #888; /* Lighter color for the '+' */
+    font-weight: 600;
+  }
+
+  .unusually-stat-label {
+    text-align: right;
+    font-size: 24px;
+    font-weight: 500;
+    line-height: 1.3;
+    color: #1a1a1a;
+  }
+
+  .unusually-divider {
+    height: 1px;
+    background-color: #e6e6e6;
+    margin-bottom: 30px;
+    border: none;
+  }
+
+  .unusually-stat-description {
+    font-size: 16px;
+    line-height: 1.6;
+    color: #666666;
+    max-width: 90%;
+  }
+
+  .unusually-stat-icon {
+    position: absolute;
+    bottom: 40px;
+    right: 40px;
+    color: #999999;
+    font-size: 20px;
+  }
+
+</style>
+</head>
+<body>
+
+<div class="unusually-design-container">
+  <header class="unusually-header">
+    <div class="unusually-title">
+      CHOOSE<br>EXCELLENCE
+    </div>
+    <a href="#" class="unusually-btn">
+      GET IN TOUCH
+      <span class="unusually-btn-icon">+</span>
+    </a>
+  </header>
+
+  <div class="unusually-content">
+    <div class="unusually-left-col">
+      <div class="unusually-brand-text">UNUSUALLY®</div>
+      <img src="https://cdn.dribbble.com/userupload/12796843/file/original-373344244233223433234323323223.png?resize=1024x768" alt="Futuristic Cube Design" class="unusually-image-placeholder">
+      <div class="unusually-copyright-text">(2010-25©)</div>
+    </div>
+
+    <div class="unusually-right-col">
+      <div class="unusually-stat-block">
+        <div class="unusually-stat-header">
+          <div class="unusually-stat-number"><span>+</span>15</div>
+          <div class="unusually-stat-label">
+            Successful Projects<br>Completed
+          </div>
+        </div>
+        <hr class="unusually-divider">
+        <p class="unusually-stat-description">
+          For over a decade, we’ve been shaping digital experiences and building strong brands. Our years of knowledge ensure every project is backed by skill, strategy, and creativity.
+        </p>
+        <div class="unusually-stat-icon">✱</div>
+      </div>
+
+      <div class="unusually-stat-block">
+        <div class="unusually-stat-header">
+          <div class="unusually-stat-number">99%</div>
+          <div class="unusually-stat-label">
+            Customer<br>Satisfaction Rate
+          </div>
+        </div>
+        <hr class="unusually-divider">
+        <p class="unusually-stat-description">
+          We measure success by the impact we create. With a near-perfect satisfaction rate, our clients trust us to deliver solutions that exceed expectations every time.
+        </p>
+        <div class="unusually-stat-icon">✱</div>
+      </div>
+    </div>
+  </div>
+</div>
+
+</body>
+</html>
