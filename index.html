@@ -34,7 +34,7 @@
                 <div class="hero-intro">
                     <span class="hero-intro__greeting">Hey there. I’m</span>
                     <h1 class="hero-intro__heading">
-                        Lefa<br><span style="color: #666666;">Mofokeng</span>
+                        Lefa<br><span style="color: #888888;">Mofokeng</span>
                     </h1>
                     <p class="hero-intro__description">
                         I build fast, beautiful websites that convert. 
@@ -93,7 +93,7 @@
                     </div>
                     
                     <div class="hero-details__role">
-                        <h2>Web<br><span style="color: #666666;">Developer</span></h2>
+                        <h2>Web<br><span style="color: #888888;">Developer</span></h2>
                     </div>
 
                     <div class="social-proof">
@@ -131,7 +131,7 @@
 :root {
     --font-family-base: 'Bricolage Grotesque', sans-serif;
     --color-text-primary: #111111;
-    --color-text-secondary: #666666;
+    --color-text-secondary: #6e6e6e;
     --color-bg-main: #ffffff;
     --color-bg-card: #ffffff;
     --color-accent-green: #000000;
@@ -434,12 +434,14 @@ ul {
 
 /* --- Responsive Adjustments for smaller desktops/tablets --- */
 @media (max-width: 1200px) and (min-width: 1024px) {
+    .site-wrapper {padding-top: 7rem;}
     .hero-intro__heading { font-size: 3.5rem; }
     .hero-details__role h2 { font-size: 2.8rem; }
     .hero-section__grid-container { gap: 40px; }
 }
 
 @media (max-width: 768px) {
+    .site-wrapper {padding-top: 5rem;}
    .hero-intro__heading { font-size: 3rem; }
    .hero-details__role h2 { font-size: 2.5rem; margin-top: 20px;}
    .hero-section { padding: 20px 0; }
@@ -467,39 +469,27 @@ ul {
 
 
 
-
-
-
-
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Portfolio Header</title>
-    <!-- Importing a font similar to Creato Display (Outfit is a great geometric sans-serif match) -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,200..800&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
     
     <style>
-        /* * NAMESPACE PROTECTION
-         * All classes use the 'st-ph-' prefix (Standalone Portfolio Header)
-         * to prevent conflicts with your existing codebase.
-         */
-
         :root {
             --st-ph-font: 'Bricolage Grotesque', sans-serif;
             --st-ph-bg-color: #ffffff;
             --st-ph-text-primary: #1a1a1a;
             --st-ph-text-secondary: #555555;
             --st-ph-accent: #e0e0e0;
-            --st-ph-transition: 0.6s cubic-bezier(0.19, 1, 0.22, 1); /* Expo easing for smooth slide */
+            --st-ph-transition: 0.6s cubic-bezier(0.19, 1, 0.22, 1);
         }
 
-        /* Reset for the header component only */
         .st-ph-reset, .st-ph-reset * {
             box-sizing: border-box;
             margin: 0;
@@ -513,7 +503,7 @@ ul {
             position: fixed;
             top: 30px;
             left: 30px;
-            z-index: 9998; /* High z-index but below the modal */
+            z-index: 9998;
             background: #000;
             color: #fff;
             border: none;
@@ -541,6 +531,86 @@ ul {
             transition: 0.3s;
         }
 
+        /* --- NEW: Social Header Badge (Right Side) --- */
+        .st-ph-header-badge {
+            position: fixed;
+            top: 30px;
+            right: 30px;
+            z-index: 9998; /* Same level as hamburger */
+            background: #000;
+            color: #fff;
+            height: 50px;
+            border-radius: 50px; /* Pill shape */
+            display: flex;
+            align-items: center;
+            padding: 0 25px;
+            gap: 20px;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+            transition: transform 0.3s ease;
+        }
+
+        .st-ph-header-badge:hover {
+            transform: translateY(2px);
+        }
+
+        .st-ph-badge-text {
+            font-size: 0.95rem;
+            font-weight: 500;
+            white-space: nowrap;
+            padding-right: 15px;
+            border-right: 1px solid rgba(255,255,255,0.3);
+            letter-spacing: 0.02em;
+        }
+
+        .st-ph-badge-icons {
+            display: flex;
+            gap: 15px;
+            align-items: center;
+        }
+
+        .st-ph-badge-link {
+            color: #fff;
+            text-decoration: none;
+            font-size: 1.1rem;
+            transition: color 0.3s ease, transform 0.3s ease;
+        }
+
+        .st-ph-badge-link:hover {
+            color: #ccc;
+            transform: scale(1.1);
+        }
+
+        /* Responsive logic for the badge */
+        @media (max-width: 768px) {
+            /* On tablets/mobile, hide the text to save space, keep icons */
+            .st-ph-badge-text {
+                display: none;
+            }
+            .st-ph-header-badge {
+                padding: 0 20px; /* Reduce padding since text is gone */
+            }
+        }
+        
+        /* On very small screens, adjust size slightly */
+        @media (max-width: 400px) {
+             .st-ph-trigger {
+                top: 20px;
+                left: 20px;
+             }
+             .st-ph-header-badge {
+                top: 20px;
+                right: 20px;
+                gap: 10px;
+             }
+             .st-ph-badge-icons {
+                gap: 12px;
+             }
+             .st-ph-badge-link {
+                font-size: 1rem;
+             }
+        }
+
+
         /* --- Overlay (The Dark Background) --- */
         .st-ph-overlay {
             position: fixed;
@@ -561,46 +631,36 @@ ul {
             visibility: visible;
         }
 
-        /* --- The Main Menu Card (Drawer Style) --- */
+        /* --- The Main Menu Card --- */
         .st-ph-modal {
             position: absolute;
             top: 0;
             left: 0;
             bottom: 0;
             height: 100vh;
-            /* Mobile Default: Full height, partial width slide-in */
             width: 85%; 
             max-width: 400px;
             background-color: var(--st-ph-bg-color);
-            /* Rounded corners only on the right side for drawer look */
             border-radius: 0 16px 16px 0; 
             padding: 2rem 2rem;
             display: flex;
             flex-direction: column;
-            
-            /* Animation Setup: Start off-screen left */
             transform: translateX(-100%);
             opacity: 0; 
             transition: var(--st-ph-transition);
             box-shadow: 10px 0 30px rgba(0,0,0,0.15);
-            
             overflow-y: auto;
-            /* Hide scrollbar */
             scrollbar-width: none; 
             -ms-overflow-style: none;
         }
 
-        .st-ph-modal::-webkit-scrollbar { 
-            display: none; 
-        }
+        .st-ph-modal::-webkit-scrollbar { display: none; }
 
-        /* Animation State: Slide In */
         .st-ph-overlay.st-ph-active .st-ph-modal {
             transform: translateX(0);
             opacity: 1;
         }
 
-        /* Desktop Override: Wider drawer */
         @media (min-width: 768px) {
             .st-ph-modal {
                 width: 500px; 
@@ -664,11 +724,10 @@ ul {
             padding: 0.8rem 0;
             cursor: pointer;
             transition: color 0.3s ease;
-            group: hover;
         }
 
         .st-ph-nav-link {
-            font-size: 2.2rem; /* Large text like image */
+            font-size: 2.2rem;
             font-weight: 500;
             color: var(--st-ph-text-secondary);
             text-decoration: none;
@@ -686,9 +745,9 @@ ul {
             font-weight: 300;
         }
 
-        /* --- Info Section (Bottom) --- */
+        /* --- Info Section --- */
         .st-ph-info-grid {
-            margin-top: auto; /* Push to bottom */
+            margin-top: auto;
             padding-top: 3rem;
             display: grid;
             grid-template-columns: 80px 1fr;
@@ -699,13 +758,7 @@ ul {
             margin-bottom: 2rem;
         }
 
-        /* The Big Arrow */
-        .st-ph-big-arrow {
-            width: 90px;
-            height: 90px;
-        }
-        
-        /* SVG Arrow styling */
+        .st-ph-big-arrow { width: 90px; height: 90px; }
         .st-ph-arrow-svg {
             width: 100%;
             height: 100%;
@@ -741,7 +794,7 @@ ul {
             gap: 1rem;
             align-items: center;
             justify-content: flex-start;
-            flex-wrap: wrap; /* Allow wrapping on very small screens */
+            flex-wrap: wrap;
         }
 
         .st-ph-social-link {
@@ -752,13 +805,8 @@ ul {
             position: relative;
         }
 
-        /* The separators | */
-        .st-ph-separator {
-            color: #ccc;
-            font-weight: 300;
-        }
+        .st-ph-separator { color: #ccc; font-weight: 300; }
 
-        /* Hover effect for social */
         .st-ph-social-link::after {
             content: '';
             position: absolute;
@@ -770,32 +818,16 @@ ul {
             transition: width 0.3s ease;
         }
 
-        .st-ph-social-link:hover::after {
-            width: 100%;
-        }
+        .st-ph-social-link:hover::after { width: 100%; }
 
-        /* Specific Mobile Adjustments */
         @media (max-width: 480px) {
-            .st-ph-nav-link {
-                font-size: 1.8rem; /* Slightly smaller text for mobile */
-            }
-            .st-ph-modal {
-                width: 85%; /* Comfortable width */
-                padding: 2rem 1.5rem; /* Less padding */
-            }
-            .st-ph-info-grid {
-                grid-template-columns: 50px 1fr; /* Smaller arrow column */
-                gap: 1rem;
-            }
-            .st-ph-big-arrow {
-                width: 40px;
-                height: 40px;
-            }
+            .st-ph-nav-link { font-size: 1.8rem; }
+            .st-ph-modal { width: 85%; padding: 2rem 1.5rem; }
+            .st-ph-info-grid { grid-template-columns: 50px 1fr; gap: 1rem; }
+            .st-ph-big-arrow { width: 40px; height: 40px; }
         }
         
-        /* Demo Background Image for Context */
         body {
-            
             background-color: #f1f1f1;
             margin: 0;
             min-height: 100vh;
@@ -804,24 +836,29 @@ ul {
 </head>
 <body>
 
-    <!-- 1. The Trigger Button -->
     <button class="st-ph-reset st-ph-trigger" id="stHeaderToggle" aria-label="Open Menu">
         <span class="st-ph-line"></span>
         <span class="st-ph-line"></span>
     </button>
 
-    <!-- 2. The Overlay & Modal Container -->
+    <div class="st-ph-reset st-ph-header-badge">
+        <span class="st-ph-badge-text">Available for Projects</span>
+        <div class="st-ph-badge-icons">
+            <a href="https://x.com/lefajmofokeng" class="st-ph-badge-link"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24"><path fill="#ffffff" d="M18.205 2.25h3.308l-7.227 8.26l8.502 11.24H16.13l-5.214-6.817L4.95 21.75H1.64l7.73-8.835L1.215 2.25H8.04l4.713 6.231l5.45-6.231Zm-1.161 17.52h1.833L7.045 4.126H5.078L17.044 19.77Z"/></svg></a>
+            <a href="https://instagram.com/lefajmofokeng" class="st-ph-badge-link"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 1536 1536"><path fill="#ffffff" d="M1024 768q0-106-75-181t-181-75t-181 75t-75 181t75 181t181 75t181-75t75-181zm138 0q0 164-115 279t-279 115t-279-115t-115-279t115-279t279-115t279 115t115 279zm108-410q0 38-27 65t-65 27t-65-27t-27-65t27-65t65-27t65 27t27 65zM768 138q-7 0-76.5-.5t-105.5 0t-96.5 3t-103 10T315 169q-50 20-88 58t-58 88q-11 29-18.5 71.5t-10 103t-3 96.5t0 105.5t.5 76.5t-.5 76.5t0 105.5t3 96.5t10 103T169 1221q20 50 58 88t88 58q29 11 71.5 18.5t103 10t96.5 3t105.5 0t76.5-.5t76.5.5t105.5 0t96.5-3t103-10t71.5-18.5q50-20 88-58t58-88q11-29 18.5-71.5t10-103t3-96.5t0-105.5t-.5-76.5t.5-76.5t0-105.5t-3-96.5t-10-103T1367 315q-20-50-58-88t-88-58q-29-11-71.5-18.5t-103-10t-96.5-3t-105.5 0t-76.5.5zm768 630q0 229-5 317q-10 208-124 322t-322 124q-88 5-317 5t-317-5q-208-10-322-124T5 1085q-5-88-5-317t5-317q10-208 124-322T451 5q88-5 317-5t317 5q208 10 322 124t124 322q5 88 5 317z"/></svg></a>
+            <a href="https://linkedin.com/in/lefajmofokeng" class="st-ph-badge-link"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 1536 1504"><path fill="#ffffff" d="M349 497v991H19V497h330zm21-306q1 73-50.5 122T184 362h-2q-82 0-132-49T0 191q0-74 51.5-122.5T186 20t133 48.5T370 191zm1166 729v568h-329V958q0-105-40.5-164.5T1040 734q-63 0-105.5 34.5T871 854q-11 30-11 81v553H531q2-399 2-647t-1-296l-1-48h329v144h-2q20-32 41-56t56.5-52t87-43.5T1157 474q171 0 275 113.5T1536 920z"/></svg></i></a>
+            <a href="https://github.com/lefajmofokeng" class="st-ph-badge-link"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 1536 1504"><path fill="#ffffff" d="M768 0q209 0 385.5 103T1433 382.5T1536 768q0 251-146.5 451.5T1011 1497q-27 5-40-7t-13-30q0-3 .5-76.5t.5-134.5q0-97-52-142q57-6 102.5-18t94-39t81-66.5t53-105T1258 728q0-119-79-206q37-91-8-204q-28-9-81 11t-92 44l-38 24q-93-26-192-26t-192 26q-16-11-42.5-27T450 331.5T365 318q-45 113-8 204q-79 87-79 206q0 85 20.5 150T351 983t80.5 67t94 39t102.5 18q-39 36-49 103q-21 10-45 15t-57 5t-65.5-21.5T356 1146q-19-32-48.5-52t-49.5-24l-20-3q-21 0-29 4.5t-5 11.5t9 14t13 12l7 5q22 10 43.5 38t31.5 51l10 23q13 38 44 61.5t67 30t69.5 7t55.5-3.5l23-4q0 38 .5 88.5t.5 54.5q0 18-13 30t-40 7q-232-77-378.5-277.5T0 768q0-209 103-385.5T382.5 103T768 0zM291 1103q3-7-7-12q-10-3-13 2q-3 7 7 12q9 6 13-2zm31 34q7-5-2-16q-10-9-16-3q-7 5 2 16q10 10 16 3zm30 45q9-7 0-19q-8-13-17-6q-9 5 0 18t17 7zm42 42q8-8-4-19q-12-12-20-3q-9 8 4 19q12 12 20 3zm57 25q3-11-13-16q-15-4-19 7t13 15q15 6 19-6zm63 5q0-13-17-11q-16 0-16 11q0 13 17 11q16 0 16-11zm58-10q-2-11-18-9q-16 3-14 15t18 8t14-14z"/></svg></i></a>
+        </div>
+    </div>
+
     <div class="st-ph-reset st-ph-overlay" id="stHeaderOverlay">
         
-        <!-- The Menu Card -->
         <div class="st-ph-modal">
             
-            <!-- Close Icon -->
             <button class="st-ph-close-btn" id="stHeaderClose" aria-label="Close Menu">
                 <div class="st-ph-close-icon"></div>
             </button>
 
-            <!-- Navigation Links -->
             <ul class="st-ph-nav">
                 <li class="st-ph-nav-item">
                     <a href="index.html" class="st-ph-nav-link">Home</a>
@@ -845,27 +882,21 @@ ul {
                 </li>
             </ul>
 
-            <!-- Info Section (Arrow + Address) -->
             <div class="st-ph-info-grid">
-                <!-- Large Arrow Graphic (SVG) -->
                 <div class="st-ph-big-arrow">
                     <svg class="st-ph-arrow-svg" xmlns="http://www.w3.org/2000/svg" width="200" height="200" viewBox="0 0 24 24"><path fill="none" stroke="#9e9e9e" stroke-linecap="round" stroke-linejoin="round" stroke-width="1" d="M17 7v10m0 0H7m10 0L7 7"/></svg>
-                    
                 </div>
 
                 <div class="st-ph-details">
                     <a href="tel:0780062713" class="st-ph-phone">
-                        <i class="fab fa-js"></i>
                         +27 (078) 006 2713</a>
                     <p class="st-ph-address">
-                        <i class="fab fa-address"></i>
                         Phuthaditjhaba<br>
                         Free State, South Africa
                     </p>
                 </div>
             </div>
 
-            <!-- Social Footer -->
             <div class="st-ph-social">
                 <a href="https://x.com/thisislefa" class="st-ph-social-link">X</a>
                 <span class="st-ph-separator">|</span>
@@ -881,7 +912,6 @@ ul {
         </div>
     </div>
 
-    <!-- 3. Scripts -->
     <script>
         document.addEventListener('DOMContentLoaded', () => {
             const toggleBtn = document.getElementById('stHeaderToggle');
@@ -890,28 +920,23 @@ ul {
 
             function openMenu() {
                 overlay.classList.add('st-ph-active');
-                // Prevent background scrolling
                 document.body.style.overflow = 'hidden';
             }
 
             function closeMenu() {
                 overlay.classList.remove('st-ph-active');
-                // Restore background scrolling
                 document.body.style.overflow = '';
             }
 
-            // Event Listeners
             toggleBtn.addEventListener('click', openMenu);
             closeBtn.addEventListener('click', closeMenu);
 
-            // Close when clicking outside the modal (on the dark overlay)
             overlay.addEventListener('click', (e) => {
                 if (e.target === overlay) {
                     closeMenu();
                 }
             });
 
-            // Close on Escape key
             document.addEventListener('keydown', (e) => {
                 if (e.key === 'Escape' && overlay.classList.contains('st-ph-active')) {
                     closeMenu();
@@ -921,6 +946,8 @@ ul {
     </script>
 </body>
 </html>
+
+
 
 
 
@@ -997,20 +1024,7 @@ ul {
             color: #1a1a1a;
         }
 
-        .custom-about-label::before {
-            content: '↗'; /* Arrow icon */
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            margin-right: 8px;
-            background: #1a1a1a;
-            color: #fff;
-            width: 20px;
-            height: 20px;
-            border-radius: 50%;
-            font-size: 12px;
-            transform: rotate(45deg);
-        }
+        
 
         .custom-main-title {
             font-size: 52px;
@@ -1018,7 +1032,7 @@ ul {
             line-height: 1.1;
             letter-spacing: -1.5px;
             max-width: 650px;
-            color: #6d6d6d; /* Grey title */
+            color: #888; /* Grey title */
             margin: 0;
         }
         
@@ -1193,8 +1207,11 @@ ul {
 
     <div class="custom-about-us-container">
         <div class="custom-header-row">
-            <div class="custom-about-label">About Me</div>
-            <h1 class="custom-main-title">Results for every project,<br>with a focus on design and functionality</h1>
+            <div class="custom-about-label">
+                <span style="background-color: #000; border-radius: 50px; margin-right: 5px; padding: 3px;"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24"><path fill="#fff" d="M16.175 13H5q-.425 0-.713-.288T4 12q0-.425.288-.713T5 11h11.175l-4.9-4.9q-.3-.3-.288-.7t.313-.7q.3-.275.7-.288t.7.288l6.6 6.6q.15.15.213.325t.062.375q0 .2-.063.375t-.212.325l-6.6 6.6q-.275.275-.687.275T11.3 19.3q-.3-.3-.3-.713t.3-.712L16.175 13Z"/></svg>
+                </span>
+                    About Me</div>
+            <h1 class="custom-main-title"><span style="color: #111;">Results for every project,</span><br>with a focus on design and functionality</h1>
         </div>
 
         <div class="custom-content-row">
@@ -1605,10 +1622,7 @@ ul {
             
             <!-- Left Column: Title -->
             <div class="srv-header-block">
-                <h2 class="srv-headline-primary">What </h2>
-                <h2 class="srv-headline-secondary">
-                    I Do
-                </h2>
+                <h2 class="srv-headline-primary">What <span style="color: #888888;">I Do</span></h2>
                 <p class="srv-intro-text">
                     I build accessible, pixel-perfect, and performant web experiences. 
                     Specializing in the intersection of design and engineering.
@@ -1974,8 +1988,8 @@ ul {
             display: inline-flex;
             align-items: center;
             gap: 12px;
-            padding: 16px 32px;
-            background-color: #1a1a1a;
+            padding: 5px 5px 5px 25px;
+            background-color: #000000;
             color: #fff;
             font-family: 'Bricolage Grotesque', sans-serif;
             font-size: 16px;
@@ -1992,8 +2006,11 @@ ul {
         }
 
         .pr-archive-btn svg {
-            width: 20px;
-            height: 20px;
+            width: 38px;
+            height: 38px;
+            background-color: #fff;
+            padding: 7px;
+            border-radius: 50%;
         }
 
         /* --- Responsive Styles --- */
@@ -2042,7 +2059,7 @@ ul {
         <section class="pr-section">
             <div class="pr-section-header">
                 <h2 class="pr-section-title">Web Features</h2>
-                <span class="pr-section-count">06 Selected</span>
+                <span class="pr-section-count">[06 Selected]</span>
             </div>
 
             <div class="pr-grid">
@@ -2141,7 +2158,7 @@ ul {
         <section class="pr-section">
             <div class="pr-section-header">
                 <h2 class="pr-section-title">Web Applications</h2>
-                <span class="pr-section-count">06 Selected</span>
+                <span class="pr-section-count">[06 Selected]</span>
             </div>
 
             <div class="pr-grid">
@@ -2241,7 +2258,7 @@ ul {
         <div class="pr-footer">
             <a href="projects.html" class="pr-archive-btn">
                 Show All Archive
-                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <svg viewBox="0 0 24 24" fill="none" stroke="#000" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
                     <line x1="5" y1="12" x2="19" y2="12"></line>
                     <polyline points="12 5 19 12 12 19"></polyline>
                 </svg>
@@ -2710,8 +2727,6 @@ ul {
         justify-content: space-between;
         align-items: flex-end;
         margin-bottom: 60px;
-        border-bottom: 1px solid #e0e0e0;
-        padding-bottom: 32px;
     }
 
     .blog-title-group {
@@ -2805,6 +2820,12 @@ ul {
         border-radius: 50%;
     }
 
+    .blog-meta-tag {
+        padding: 3px 12px;
+        border: 2px solid #ccc;
+        border-radius: 50px;
+    }
+
     .blog-card-title {
         font-size: 24px;
         font-weight: 500;
@@ -2878,7 +2899,7 @@ ul {
                 </div>
                 <div class="blog-content">
                     <div class="blog-meta">
-                        <span>Development</span>
+                        <span class="blog-meta-tag">Development</span>
                         <span class="blog-meta-dot"></span>
                         <span>Nov 20, 2025</span>
                     </div>
@@ -2895,7 +2916,7 @@ ul {
                 </div>
                 <div class="blog-content">
                     <div class="blog-meta">
-                        <span>Design</span>
+                        <span class="blog-meta-tag">Design</span>
                         <span class="blog-meta-dot"></span>
                         <span>Nov 22, 2025</span>
                     </div>
@@ -2912,7 +2933,7 @@ ul {
                 </div>
                 <div class="blog-content">
                     <div class="blog-meta">
-                        <span>Engineering</span>
+                        <span class="blog-meta-tag">Engineering</span>
                         <span class="blog-meta-dot"></span>
                         <span>Nov 21, 2025</span>
                     </div>
